@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barakah Apps - Islamic Android Applications</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-link.active {
+            color: #10B981; /* Emerald 500 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <i class="fa-solid fa-mosque text-emerald-600 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">Barakah Apps</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="navigateTo('home')" class="nav-link text-gray-600 hover:text-emerald-600 transition">Home</button>
+                    <button onclick="navigateTo('home', 'apps-section')" class="nav-link text-gray-600 hover:text-emerald-600 transition">Our Apps</button>
+                    <button onclick="navigateTo('custom-dev')" class="nav-link text-gray-600 hover:text-emerald-600 transition">Custom Dev</button>
+                    <button onclick="navigateTo('privacy')" class="nav-link text-gray-600 hover:text-emerald-600 transition">Privacy Policy</button>
+                    <button onclick="navigateTo('contact')" class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition shadow-sm">Contact Us</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Home</button>
+                <button onclick="navigateTo('home', 'apps-section'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Our Apps</button>
+                <button onclick="navigateTo('custom-dev'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Custom Dev</button>
+                <button onclick="navigateTo('privacy'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Privacy Policy</button>
+                <button onclick="navigateTo('cookie'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Cookie Policy</button>
+                <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50">Contact Us</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-grow">
+        <!-- Content will be injected here by JavaScript -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <i class="fa-solid fa-mosque text-emerald-500 text-xl mr-2"></i>
+                        <span class="font-bold text-lg">Barakah Apps</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Creating beneficial digital experiences for the Ummah. Quality Android applications focusing on productivity and spirituality.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Links</h3>
+                    <ul class="space-y-2">
+                        <li><button onclick="navigateTo('home')" class="text-gray-400 hover:text-white text-sm">Home</button></li>
+                        <li><button onclick="navigateTo('custom-dev')" class="text-gray-400 hover:text-white text-sm">Services</button></li>
+                        <li><button onclick="navigateTo('contact')" class="text-gray-400 hover:text-white text-sm">Contact</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><button onclick="navigateTo('privacy')" class="text-gray-400 hover:text-white text-sm">Privacy Policy</button></li>
+                        <li><button onclick="navigateTo('cookie')" class="text-gray-400 hover:text-white text-sm">Cookie Policy</button></li>
+                        <li><button onclick="navigateTo('terms')" class="text-gray-400 hover:text-white text-sm">Terms of Use</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-google-play text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                &copy; <span id="year"></span> Barakah Apps. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Content Data
+        const pages = {
+            home: `
+                <!-- Hero Section -->
+                <section class="bg-emerald-900 text-white relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')]"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+                        <div class="text-center max-w-3xl mx-auto">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Digital Solutions for the Modern Muslim</h1>
+                            <p class="text-xl text-emerald-100 mb-8">We build beautiful, privacy-focused Android applications that add barakah to your daily digital life.</p>
+                            <div class="flex justify-center gap-4">
+                                <button onclick="navigateTo('home', 'apps-section')" class="bg-white text-emerald-900 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition">View Apps</button>
+                                <button onclick="navigateTo('contact')" class="border border-emerald-300 text-emerald-100 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition">Contact Us</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Apps Showcase -->
+                <section id="apps-section" class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Applications</h2>
+                            <p class="text-gray-600 max-w-2xl mx-auto">Discover our suite of apps designed to help you maintain your spiritual habits effortlessly.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <!-- App Card 1 -->
+                            <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col">
+                                <div class="h-16 w-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
+                                    <i class="fa-solid fa-kaaba text-3xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Barakah Journey</h3>
+                                <p class="text-gray-600 mb-6 flex-grow">A comprehensive daily tracker for prayers, adhkar, and fasting habits with beautiful insights.</p>
+                                <div class="mt-auto">
+                                    <a href="#" class="flex items-center justify-center w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                                        <i class="fab fa-google-play mr-2"></i> Get on Play Store
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- App Card 2 -->
+                            <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col">
+                                <div class="h-16 w-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
+                                    <i class="fa-solid fa-book-quran text-3xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Easy Quran Reader</h3>
+                                <p class="text-gray-600 mb-6 flex-grow">Distraction-free Quran reading experience with large fonts and simple translations.</p>
+                                <div class="mt-auto">
+                                    <a href="#" class="flex items-center justify-center w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                                        <i class="fab fa-google-play mr-2"></i> Get on Play Store
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- App Card 3 -->
+                            <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition duration-300 border border-gray-100 flex flex-col">
+                                <div class="h-16 w-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
+                                    <i class="fa-solid fa-hands-holding-circle text-3xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Smart Zakat</h3>
+                                <p class="text-gray-600 mb-6 flex-grow">Calculate your Zakat easily with current gold/silver rates and asset management.</p>
+                                <div class="mt-auto">
+                                    <a href="#" class="flex items-center justify-center w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                                        <i class="fab fa-google-play mr-2"></i> Get on Play Store
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Why Choose Us -->
+                <section class="py-20 bg-gray-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h2 class="text-3xl font-bold text-gray-900 mb-6">Privacy & Purity First</h2>
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <i class="fa-solid fa-shield-halved text-emerald-600 text-xl mt-1"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-semibold text-gray-900">No Data Mining</h4>
+                                            <p class="text-gray-600">We respect your privacy. We don't sell user data to third parties.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <i class="fa-solid fa-ban text-emerald-600 text-xl mt-1"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-semibold text-gray-900">Ad-Free Options</h4>
+                                            <p class="text-gray-600">Clean interfaces focused on the purpose of the app, not distraction.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                                <div class="text-center">
+                                    <i class="fa-brands fa-android text-6xl text-emerald-500 mb-4"></i>
+                                    <h3 class="text-2xl font-bold text-gray-900">Android Specialists</h3>
+                                    <p class="text-gray-600 mt-2">Native development ensuring high performance and battery efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'custom-dev': `
+                <section class="bg-emerald-900 text-white py-20">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        <h1 class="text-4xl font-bold mb-4">Custom App Development</h1>
+                        <p class="text-xl text-emerald-100">Turn your idea into a reality with our expert team.</p>
+                    </div>
+                </section>
+                
+                <section class="py-20 bg-white fade-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid md:grid-cols-2 gap-16">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Why Work With Us?</h3>
+                                <div class="space-y-8">
+                                    <div>
+                                        <div class="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 text-emerald-600">
+                                            <i class="fa-solid fa-code text-xl"></i>
+                                        </div>
+                                        <h4 class="text-xl font-semibold mb-2">Clean Code Architecture</h4>
+                                        <p class="text-gray-600">Scalable, maintainable code that grows with your user base.</p>
+                                    </div>
+                                    <div>
+                                        <div class="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 text-emerald-600">
+                                            <i class="fa-solid fa-paint-roller text-xl"></i>
+                                        </div>
+                                        <h4 class="text-xl font-semibold mb-2">Modern UI/UX</h4>
+                                        <p class="text-gray-600">Interfaces that users love to interact with, following Material Design 3 guidelines.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Start a Project</h3>
+                                <p class="text-gray-600 mb-8">Interested in building a custom app for your mosque, organization, or startup?</p>
+                                <button onclick="navigateTo('contact')" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Request Consultation</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            privacy: `
+                <section class="py-20 bg-white fade-in">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
+                        <p class="text-gray-500 mb-8">Last updated: <span id="date-display"></span></p>
+                        
+                        <div class="prose prose-emerald max-w-none text-gray-600">
+                            <p class="mb-4">At <strong>Barakah Apps</strong>, we maintain a strict policy to ensure the privacy and security of your personal information. This Privacy Policy outlines the types of information we may collect and how it is used.</p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">1. Information Collection</h3>
+                            <p class="mb-4">We do not collect any personally identifiable information (PII) unless explicitly provided by you (e.g., through email support). Our apps may require permissions such as Location (for prayer times) or Storage (for downloading content), but this data remains on your device.</p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">2. Location Data</h3>
+                            <p class="mb-4">For applications requiring prayer times or Qibla direction, we access your precise location. This location data is processed locally on your device and is not transmitted to our servers.</p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">3. Third-Party Services</h3>
+                            <p class="mb-4">We may use third-party services like Google AdMob (for ads) or Firebase Analytics (for crash reporting). These services may collect anonymous identifiers to improve user experience.</p>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">4. Contact Us</h3>
+                            <p class="mb-4">If you have any questions about this Privacy Policy, please contact us at support@barakahapps.com.</p>
+                        </div>
+                    </div>
+                </section>
+            `,
+            cookie: `
+                <section class="py-20 bg-white fade-in">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-8">Cookie Policy</h1>
+                        <div class="prose prose-emerald max-w-none text-gray-600">
+                            <p class="mb-4">This Cookie Policy explains how Barakah Apps uses cookies and similar technologies.</p>
+                            <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">What are cookies?</h3>
+                            <p class="mb-4">Cookies are small text files that are stored on your device when you visit a website. They help the website function properly and improve your user experience.</p>
+                            <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">How we use cookies</h3>
+                            <ul class="list-disc pl-5 space-y-2 mb-4">
+                                <li><strong>Essential Cookies:</strong> Necessary for the website to function.</li>
+                                <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our website (e.g., Google Analytics).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            `,
+            terms: `
+                <section class="py-20 bg-white fade-in">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-8">Terms of Use</h1>
+                        <div class="prose prose-emerald max-w-none text-gray-600">
+                            <p>By downloading or using our apps, these terms will automatically apply to you. You should make sure therefore that you read them carefully before using our apps.</p>
+                            <p class="mt-4">You are not allowed to copy, or modify the app, any part of the app, or our trademarks in any way. The app itself, and all the trade marks, copyright, database rights and other intellectual property rights related to it, still belong to Barakah Apps.</p>
+                        </div>
+                    </div>
+                </section>
+            `,
+            contact: `
+                <section class="py-20 bg-gray-50 fade-in">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="bg-white rounded-2xl shadow-sm p-8 md:p-12">
+                            <div class="text-center mb-10">
+                                <h1 class="text-3xl font-bold text-gray-900 mb-4">Contact Us</h1>
+                                <p class="text-gray-600">Have a question about our apps or need support? Fill out the form below.</p>
+                            </div>
+                            
+                            <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                        <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                        <input type="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                    <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                                        <option>General Inquiry</option>
+                                        <option>App Support</option>
+                                        <option>Custom Development</option>
+                                        <option>Privacy Concern</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                    <textarea rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-emerald-600 text-white font-bold py-4 rounded-lg hover:bg-emerald-700 transition transform active:scale-95">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="mt-12 grid md:grid-cols-3 gap-6 text-center">
+                            <div>
+                                <i class="fas fa-envelope text-emerald-600 text-2xl mb-2"></i>
+                                <p class="text-gray-600">support@barakahapps.com</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-map-marker-alt text-emerald-600 text-2xl mb-2"></i>
+                                <p class="text-gray-600">Global (Remote)</p>
+                            </div>
+                            <div>
+                                <i class="fas fa-clock text-emerald-600 text-2xl mb-2"></i>
+                                <p class="text-gray-600">Mon-Fri, 9am - 5pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load Home by default
+            navigateTo('home');
+            
+            // Set Year
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Set Date for Privacy Policy dynamically when loaded
+            const dateElement = document.getElementById('date-display');
+            if(dateElement) dateElement.textContent = new Date().toLocaleDateString();
+        });
+
+        // Navigation Logic
+        function navigateTo(pageId, anchorId = null) {
+            const mainContent = document.getElementById('main-content');
+            
+            if (pages[pageId]) {
+                mainContent.innerHTML = pages[pageId];
+                window.scrollTo(0, 0);
+                
+                // Update Date if Privacy Page
+                if(pageId === 'privacy') {
+                    const dateElement = document.getElementById('date-display');
+                    if(dateElement) dateElement.textContent = new Date().toLocaleDateString();
+                }
+
+                // Handle Anchor
+                if (anchorId) {
+                    setTimeout(() => {
+                        const element = document.getElementById(anchorId);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form Handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'Message Sent!';
+            btn.classList.add('bg-green-700');
+            
+            // Reset form visual feedback after 3 seconds
+            setTimeout(() => {
+                event.target.reset();
+                btn.innerText = originalText;
+                btn.classList.remove('bg-green-700');
+            }, 3000);
+            
+            alert("Thank you for contacting Barakah Apps. We have received your message.");
+        }
+    </script>
+</body>
+</html>
