@@ -943,21 +943,27 @@
         </div>
     </section>
 
+
+  <!-- UPDATE THE CONTACT FORM SECTION -->
     <section id="contact" class="section-padding contact-section">
         <div class="contact-bg"></div>
         <div class="container contact-wrapper">
             <div class="contact-image-col">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="12 testers for 14 days support team" class="contact-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80 " alt="12 testers for 14 days support team" class="contact-img" loading="lazy">
             </div>
+
             <div class="contact-form-col">
                 <h2 style="margin-bottom: 20px;">Start Your 14-Day Testing</h2>
                 <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">Fill the form and we'll provide 12 testers within 24 hours</p>
                 
-                <form action="https://formsubmit.co/ssbsasemaker@gmail.com" method="POST">
+                <!-- IMPORTANT: Remove action and method from form tag -->
+                <form id="contactForm">
+                    <!-- Hidden fields remain the same -->
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
-                    <input type="hidden" name="_next" value="https://betatesterpro.com/thank-you.html">
+                    <input type="hidden" name="_replyto" value="email"> <!-- Add this for reply functionality -->
+                    <input type="hidden" name="_next" value="https://betatesterpro.com/thank-you.html ">
 
                     <div class="form-group">
                         <label class="form-label">Selected Plan</label>
@@ -997,15 +1003,18 @@
                         <i class="fa-solid fa-paper-plane"></i> Send Request
                     </button>
                 </form>
+
                 <div style="text-align: center; margin-top: 25px;">
                     <p style="color: rgba(255,255,255,0.7); font-size: 1rem;">Prefer instant chat?</p>
-                    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp: +92 300 0000000
+                    <a href="https://wa.me/+923472061598 " style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp: +92 347 2061598
                     </a>
                 </div>
             </div>
         </div>
     </section>
+
+    
 
     <footer>
         <div class="container">
@@ -1131,3 +1140,4 @@
     </script>
 </body>
 </html>
+
