@@ -39,6 +39,8 @@
         /* Hide video element used for processing */
         #input-video { display: none; }
     </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -46,12 +48,12 @@
 
     <div id="canvas-container"></div>
 
-    <video id="input-video"></video>
+    <video id="input-video" playsinline></video>
 
     <div id="ui-layer">
         <div>
             <h1 class="hud-text">COSMIC HANDS</h1>
-            <div id="status" class="hud-text">Waiting for hand...</div>
+            <div id="status" class="hud-text">Initializing...</div>
         </div>
 
         <div class="instructions hud-text">
@@ -70,17 +72,13 @@
     <script type="importmap">
         {
             "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
-                "@mediapipe/hands": "https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js",
-                "@mediapipe/drawing_utils": "https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
             }
         }
     </script>
 
     <script type="module">
         import * as THREE from 'three';
-        import { Hands } from '@mediapipe/hands';
         
         // --- Configuration ---
         const BLOCK_COUNT = 12;
@@ -90,7 +88,7 @@
         const state = {
             handDetected: false,
             gesture: 'None',
-            cursor: new THREE.Vector2(), // Screen coordinates (-1 to 1)
+            cursor: new THREE.Vector2(), 
             handDepth: 0,
             pinchedObject: null,
             hoveredObject: null,
@@ -120,7 +118,6 @@
         pointLight.position.set(0, 5, 5);
         scene.add(pointLight);
         
-        // Add subtle colored lights for atmosphere
         const p1 = new THREE.PointLight(0xff00ff, 1, 20); p1.position.set(-10, 5, 0); scene.add(p1);
         const p2 = new THREE.PointLight(0x00ffff, 1, 20); p2.position.set(10, -5, 0); scene.add(p2);
 
@@ -137,7 +134,6 @@
         // --- Objects: Blocks ---
         const blocks = [];
         const geometry = new THREE.BoxGeometry(1, 1, 1);
-        // Iridescent Glass Material
         const baseMaterial = new THREE.MeshPhysicalMaterial({
             transmission: 0.6,
             thickness: 1.5,
@@ -162,10 +158,8 @@
                 (Math.random() - 0.5) * 4
             ));
             
-            // Random initial rotation
             mesh.rotation.set(Math.random(), Math.random(), Math.random());
             
-            // Custom physics data
             mesh.userData = {
                 velocity: new THREE.Vector3(),
                 rotationSpeed: new THREE.Vector3((Math.random()-0.5)*0.01, (Math.random()-0.5)*0.01, 0),
@@ -186,14 +180,13 @@
         const cursor3D = new THREE.Mesh(cursorGeo, cursorMat);
         scene.add(cursor3D);
 
-        // --- Particles (Explosion) ---
+        // --- Particles ---
         const particles = [];
         function explodeBlock(block) {
             scene.remove(block);
             const index = blocks.indexOf(block);
             if (index > -1) blocks.splice(index, 1);
             
-            // Create shards
             const shardGeo = new THREE.TetrahedronGeometry(0.2, 0);
             for(let i=0; i<15; i++) {
                 const shard = new THREE.Mesh(shardGeo, block.material.clone());
@@ -208,13 +201,14 @@
             }
         }
 
-        // --- MediaPipe Setup ---
+        // --- MediaPipe Setup (Global Scope) ---
         const videoElement = document.getElementById('input-video');
         const previewCanvas = document.getElementById('webcam-preview');
         const previewCtx = previewCanvas.getContext('2d');
         const statusElement = document.getElementById('status');
         const loadingElement = document.getElementById('loading');
 
+        // Access the global Hands class loaded via script tag
         const hands = new Hands({locateFile: (file) => {
             return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
         }});
@@ -231,29 +225,37 @@
         // --- Webcam Init ---
         async function startCamera() {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 } });
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: 320, 
+                        height: 240,
+                        facingMode: "user" 
+                    } 
+                });
                 videoElement.srcObject = stream;
                 videoElement.play();
                 
-                // Initialize MediaPipe processing loop
                 const cameraLoop = async () => {
                     await hands.send({image: videoElement});
                     requestAnimationFrame(cameraLoop);
                 };
+                
                 videoElement.onloadeddata = () => {
                     loadingElement.style.display = 'none';
+                    statusElement.innerText = "Camera Active. Show Hand.";
                     cameraLoop();
                 };
             } catch (err) {
-                loadingElement.innerHTML = "Camera access denied.<br>Please enable camera to play.";
-                console.error(err);
+                loadingElement.innerHTML = "Camera access denied.<br>Please check browser permissions.";
+                console.error("Camera Error:", err);
             }
         }
+        
+        // Start immediately
         startCamera();
 
-        // --- Gesture Recognition Logic ---
+        // --- Gesture Logic ---
         function onResults(results) {
-            // Draw preview
             previewCtx.save();
             previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
             previewCtx.drawImage(results.image, 0, 0, previewCanvas.width, previewCanvas.height);
@@ -262,24 +264,14 @@
                 state.handDetected = true;
                 const landmarks = results.multiHandLandmarks[0];
                 
-                // Draw skeleton on preview
                 drawSkeleton(previewCtx, landmarks);
 
-                // 1. Map Hand Position to Screen Cursor
-                // Index finger tip (8) and Thumb tip (4) midpoint for cursor
                 const x = (landmarks[8].x + landmarks[4].x) / 2;
                 const y = (landmarks[8].y + landmarks[4].y) / 2;
                 
-                // Convert to Normalized Device Coordinates (-1 to +1)
-                // Note: MediaPipe x is 0(left) to 1(right). ThreeJS is -1(left) to 1(right).
-                // But Webcam is mirrored usually. Let's handle logical mapping:
-                // If I move hand right in air, I want cursor to go right.
-                // MediaPipe output is already mirrored relative to user if using selfie mode logic usually.
-                // Let's invert X to feel natural.
                 state.cursor.x = (1 - x) * 2 - 1; 
-                state.cursor.y = -(y * 2 - 1); // Invert Y
+                state.cursor.y = -(y * 2 - 1); 
                 
-                // 2. Gesture Detection
                 detectGestures(landmarks);
                 
                 statusElement.innerText = `Detected: ${state.gesture}`;
@@ -298,12 +290,9 @@
             ctx.strokeStyle = '#00ffcc';
             ctx.lineWidth = 2;
             ctx.beginPath();
-            // Simple connections for preview
             const connections = [[0,1],[1,2],[2,3],[3,4], [0,5],[5,6],[6,7],[7,8], [5,9],[9,10],[10,11],[11,12], [9,13],[13,14],[14,15],[15,16], [13,17],[17,18],[18,19],[19,20], [0,17]];
-            
             const w = ctx.canvas.width;
             const h = ctx.canvas.height;
-
             connections.forEach(pair => {
                 const p1 = landmarks[pair[0]];
                 const p2 = landmarks[pair[1]];
@@ -321,24 +310,14 @@
             const thumbTip = lm[4];
             const indexTip = lm[8];
             const middleTip = lm[12];
-            const ringTip = lm[16];
-            const pinkyTip = lm[20];
             const wrist = lm[0];
 
-            // 1. Pinch (Thumb + Index close)
             const pinchDist = distance(thumbTip, indexTip);
             const isPinching = pinchDist < 0.05;
-
-            // 2. Fist (All fingers close to wrist)
             const fingersOpen = (distance(indexTip, wrist) > 0.3 && distance(middleTip, wrist) > 0.3);
             const isFist = !fingersOpen && !isPinching;
-
-            // 3. Thumbs Up (Thumb up, others curled)
-            // Thumb tip y is significantly higher (lower value) than thumb IP, and other fingers curled
             const isThumbsUp = (thumbTip.y < lm[3].y) && !fingersOpen && pinchDist > 0.1;
 
-            // 4. Wave (Track wrist movement)
-            // Simple logic: if x changes rapidly
             const currX = wrist.x;
             if (state.waveCooldown <= 0 && Math.abs(currX - state.lastWaveX) > 0.15 && fingersOpen) {
                 state.gesture = 'Wave';
@@ -347,15 +326,11 @@
             state.lastWaveX = currX;
             if(state.waveCooldown > 0) state.waveCooldown--;
 
-            // 5. Rotation (Angle of Index Metacarpal vs vertical)
-            // Check tilt of hand
             const dx = lm[9].x - lm[0].x;
             const dy = lm[9].y - lm[0].y;
-            const angle = Math.atan2(dy, dx); // Radians
+            const angle = Math.atan2(dy, dx); 
             
-            // --- Set State ---
             if (state.gesture === 'Wave' && state.waveCooldown > 0) {
-                // Keep wave active
             } else if (isFist) {
                 state.gesture = 'Fist';
             } else if (isThumbsUp) {
@@ -365,38 +340,30 @@
             } else {
                 state.gesture = 'Open Palm';
             }
-
             state.handRotation = angle;
         }
 
-        // --- Main Animation Loop ---
+        // --- Animation ---
         const raycaster = new THREE.Raycaster();
         const clock = new THREE.Clock();
 
         function animate() {
             requestAnimationFrame(animate);
-            const delta = clock.getDelta();
             const time = clock.getElapsedTime();
 
-            // 1. Update Raycaster based on cursor
             raycaster.setFromCamera(state.cursor, camera);
             
-            // Move 3D cursor
-            const cursorDist = 6; // distance from camera
+            const cursorDist = 6;
             const cursorVec = new THREE.Vector3(state.cursor.x, state.cursor.y, 0.5).unproject(camera);
             const dir = cursorVec.sub(camera.position).normalize();
             const targetCursorPos = camera.position.clone().add(dir.multiplyScalar(cursorDist));
             cursor3D.position.lerp(targetCursorPos, 0.2);
 
-            // 2. Interaction Logic
-            
-            // Check intersections if not already dragging something
             if (!state.pinchedObject) {
                 const intersects = raycaster.intersectObjects(blocks);
                 
-                // Clear previous hover
                 if (state.hoveredObject && (!intersects.length || intersects[0].object !== state.hoveredObject)) {
-                    state.hoveredObject.material.emissiveIntensity = 0.2; // Reset glow
+                    state.hoveredObject.material.emissiveIntensity = 0.2; 
                     state.hoveredObject.scale.setScalar(state.hoveredObject.userData.originalScale);
                     state.hoveredObject = null;
                 }
@@ -404,25 +371,18 @@
                 if (intersects.length > 0) {
                     const obj = intersects[0].object;
                     state.hoveredObject = obj;
-                    
-                    // Highlight effect
                     obj.material.emissiveIntensity = 0.8; 
                     const scaleOsc = 1 + Math.sin(time * 10) * 0.05;
                     obj.scale.setScalar(obj.userData.originalScale * scaleOsc);
                     
-                    // Interaction Triggers
-                    if (state.gesture === 'Pinch') {
-                        state.pinchedObject = obj;
-                    }
+                    if (state.gesture === 'Pinch') state.pinchedObject = obj;
                     if (state.gesture === 'Fist') {
                         explodeBlock(obj);
                         state.hoveredObject = null;
                     }
                 }
                 
-                // Global Actions
                 if (state.gesture === 'Wave' && state.waveCooldown > 15) {
-                     // Pan Camera logic
                      const panSpeed = (state.cursor.x > 0 ? 1 : -1) * 0.1;
                      camera.position.x += panSpeed;
                      camera.lookAt(0,0,0);
@@ -431,43 +391,31 @@
                 if (state.gesture === 'ThumbsUp') {
                     if (state.duplicateCooldown <= 0 && state.hoveredObject) {
                         createBlock(state.hoveredObject.position.clone().add(new THREE.Vector3(1.2,0,0)));
-                        state.duplicateCooldown = 60; // 1 second cooldown
+                        state.duplicateCooldown = 60;
                     }
                 }
             } else {
-                // Dragging Logic
                 const obj = state.pinchedObject;
-                
                 if (state.gesture !== 'Pinch') {
-                    // Release
                     state.pinchedObject = null;
                 } else {
-                    // Move object to cursor
                     obj.position.lerp(cursor3D.position, 0.1);
                     obj.rotation.x += 0.02;
                     obj.rotation.y += 0.02;
-                    
-                    // Rotate Wrist Logic
-                    // Normal angle is roughly -1.5 (vertical). 
-                    // If user twists wrist, angle changes.
-                    // Simple implementation: rotate object based on hand tilt
                     obj.rotation.z = state.handRotation + 1.5; 
                 }
             }
             
             if(state.duplicateCooldown > 0) state.duplicateCooldown--;
 
-            // 3. Update Scene Physics/Animations
-            blocks.forEach((block, i) => {
+            blocks.forEach((block) => {
                 if (block !== state.pinchedObject) {
-                    // Idle Float
                     block.position.y += Math.sin(time + block.userData.floatOffset) * 0.002;
                     block.rotation.x += 0.001;
                     block.rotation.y += 0.001;
                 }
             });
 
-            // Update Particles
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
                 p.position.add(p.userData.velocity);
@@ -479,16 +427,12 @@
                     particles.splice(i, 1);
                 }
             }
-
-            // Move stars slowly
             stars.rotation.y += 0.0005;
-
             renderer.render(scene, camera);
         }
 
         animate();
 
-        // Handle Resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
