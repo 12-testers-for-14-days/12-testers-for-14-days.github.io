@@ -426,44 +426,183 @@
             font-size: 1.2rem;
         }
 
-        /* --- Pricing --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            align-items: center;
-        }
-        .price-card {
-            background: white;
-            padding: 50px 30px;
-            border-radius: 24px;
-            border: 1px solid #eee;
-            text-align: center;
-            transition: 0.3s;
+        /* --- MERGED PRICING & CONTACT SECTION --- */
+        #pricing {
+            background: var(--accent);
+            color: white;
             position: relative;
+            overflow: hidden;
         }
-        .price-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
-        .price-card.popular {
-            border: 2px solid var(--primary);
-            box-shadow: 0 20px 40px rgba(61, 220, 132, 0.15);
-            transform: scale(1.05);
-            z-index: 2;
+        .pricing-bg-pattern {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233DDC84' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
         }
-        .popular-badge {
-            background: var(--primary); color: var(--accent); font-weight: 700; padding: 5px 15px;
-            border-radius: 20px; position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-            font-size: 0.8rem; text-transform: uppercase;
+        
+        .pricing-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
-        .price-amount { font-size: 3rem; font-weight: 800; color: var(--accent); margin: 20px 0 5px; }
-        .price-meta { display: block; color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; }
-        .features-list { text-align: left; margin-bottom: 30px; }
-        .features-list li { margin-bottom: 12px; color: var(--text-dark); display: flex; gap: 10px; font-size: 0.95rem; }
-        .features-list li i { color: var(--primary); margin-top: 4px; }
-        .btn-outline {
-            width: 100%; border: 2px solid var(--accent); background: transparent; color: var(--accent);
+
+        /* Slider Styles */
+        .slider-wrapper {
+            margin-bottom: 40px;
         }
-        .btn-outline:hover { background: var(--accent); color: white; }
-        .btn-full { width: 100%; }
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+        }
+        .app-count {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .app-label {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-left: 10px;
+        }
+        .price-display {
+            text-align: right;
+        }
+        .total-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+        .price-per-app {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+            margin: 20px 0;
+        }
+        input[type=range]:focus { outline: none; }
+        
+        /* Slider Track */
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 12px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        /* Slider Thumb */
+        input[type=range]::-webkit-slider-thumb {
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -13px; /* center on track */
+            box-shadow: 0 0 15px rgba(61, 220, 132, 0.5);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        /* Discount Badge */
+        .savings-badge {
+            display: inline-block;
+            background: rgba(61, 220, 132, 0.2);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .savings-badge.visible { opacity: 1; }
+
+        /* Form Styles inside Pricing */
+        .order-form {
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, opacity 0.6s ease;
+            opacity: 0;
+        }
+        .order-form.active {
+            max-height: 800px; /* Arbitrary large height */
+            opacity: 1;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .pricing-container { padding: 30px 20px; }
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: inherit;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        .form-input:focus { 
+            outline: none; 
+            border-color: var(--primary); 
+            background: rgba(255,255,255,0.1); 
+            box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.1);
+        }
+        .form-input::placeholder { color: rgba(255,255,255,0.3); }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: var(--accent);
+            font-size: 1.2rem;
+            padding: 18px;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+        .btn-submit:hover {
+            background: #2da863;
+            color: white;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
 
         /* --- FAQ (NEW) --- */
         .faq-section {
@@ -512,55 +651,6 @@
             color: var(--primary);
         }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
-
-        /* --- Contact Split Layout --- */
-        .contact-section { background: var(--accent); color: white; position: relative; overflow: hidden; }
-        .contact-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233DDC84' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .contact-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            position: relative; z-index: 2;
-        }
-        .contact-image-col {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            animation: float 6s ease-in-out infinite;
-        }
-        .contact-img {
-            max-width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            border: 8px solid #333;
-            transition: transform 0.5s;
-        }
-        .contact-img:hover { transform: scale(1.03); }
-        .contact-form-col {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .form-group { margin-bottom: 20px; }
-        .form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: #ccc; }
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            color: white;
-            font-family: inherit;
-            transition: 0.3s;
-        }
-        .form-input:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.1); }
-        textarea.form-input { resize: vertical; min-height: 120px; }
 
         /* --- Footer (ENHANCED CENTER LOGO) --- */
         footer {
@@ -650,12 +740,12 @@
             .hero-cta { justify-content: center; }
             .hero-img { display: none; }
             .section-header h2 { font-size: 2.2rem; }
-            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-            .price-card.popular { transform: scale(1); }
-            .contact-wrapper { flex-direction: column-reverse; }
             .why-grid { grid-template-columns: 1fr; }
             .footer-logo { font-size: 3rem; }
             .footer-logo i { font-size: 4rem; }
+            
+            .slider-header { flex-direction: column; align-items: center; text-align: center; }
+            .price-display { margin-top: 15px; text-align: center; }
         }
     </style>
 </head>
@@ -685,10 +775,9 @@
             <div class="nav-links">
                 <a href="#why-12-testers">Why 12 Testers?</a>
                 <a href="#how">Process</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#pricing">Order Now</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="#faq">FAQ</a>
-                <a href="#contact">Get Started</a>
             </div>
         </div>
     </nav>
@@ -848,52 +937,88 @@
         </div>
     </section>
 
+    <!-- NEW MERGED PRICING & CONTACT SECTION -->
     <section id="pricing" class="section-padding">
+        <div class="pricing-bg-pattern"></div>
         <div class="container">
-            <div class="section-header">
-                <h2>Packages for 12 Testers for 14 Days</h2>
-                <p>Choose the perfect plan for your app's closed testing needs</p>
+            <div class="section-header" style="position: relative; z-index: 1; color: white;">
+                <h2 style="color: white; -webkit-text-fill-color: white;">Customize Your Order</h2>
+                <p style="color: rgba(255,255,255,0.7);">Slide to select number of apps. Price drops automatically with volume.</p>
             </div>
-            <div class="pricing-grid">
-                <div class="price-card" data-aos="fade-right">
-                    <h3>Starter</h3>
-                    <h2 class="price-amount">$29<span>.00</span></h2>
-                    <span class="price-meta">1 App</span>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-check"></i> 12 Real Testers</li>
-                        <li><i class="fa-solid fa-check"></i> Active for 14 Days</li>
-                        <li><i class="fa-solid fa-check"></i> App Size < 250MB</li>
-                        <li><i class="fa-solid fa-check"></i> Standard Support</li>
-                    </ul>
-                    <a href="https://link.payoneer.com/Token?t=4F0BF6A872F145B1B61F5C92EFC59628&src=tpl" onclick="selectPlan('Starter')" class="btn btn-outline">Get 12 Testers</a>
+
+            <div class="pricing-container" data-aos="zoom-in">
+                
+                <!-- Interactive Slider UI -->
+                <div class="slider-wrapper">
+                    <div class="slider-header">
+                        <div>
+                            <span id="appCountDisplay" class="app-count">1</span>
+                            <span class="app-label">App(s)</span>
+                        </div>
+                        <div class="price-display">
+                            <div class="total-price">$<span id="totalPriceDisplay">39</span></div>
+                            <div class="price-per-app">$<span id="perAppPriceDisplay">39</span> per app</div>
+                        </div>
+                    </div>
+
+                    <!-- The Slider -->
+                    <input type="range" id="appSlider" min="1" max="10" value="1" step="1">
+                    
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: rgba(255,255,255,0.4); margin-top: 5px;">
+                        <span>1 App</span>
+                        <span style="color: var(--primary); font-weight: 600;">Max Discount at 10 Apps</span>
+                        <span>10 Apps</span>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 10px;">
+                        <span id="savingsBadge" class="savings-badge">Save 0%</span>
+                    </div>
                 </div>
 
-                <div class="price-card popular" data-aos="fade-up">
-                    <div class="popular-badge">Most Popular</div>
-                    <h3>Professional</h3>
-                    <h2 class="price-amount">$39<span>.00</span></h2>
-                    <span class="price-meta">2 apps</span>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-check"></i> <strong>12 Testers + Feedback</strong></li>
-                        <li><i class="fa-solid fa-check"></i> 14 Days Active</li>
-                        <li><i class="fa-solid fa-check"></i> App Size < 500MB</li>
-                        <li><i class="fa-solid fa-check"></i> Submission Guidance</li>
-                    </ul>
-                    <a href="https://link.payoneer.com/Token?t=2BAA7F2B41EB4420A6A5963AF8825D8A&src=tpl" onclick="selectPlan('Professional')" class="btn btn-primary">Get 12 Testers</a>
-                </div>
+                <!-- Contact Form (Hidden initially, reveals on slide) -->
+                <form id="orderForm" class="order-form" action="https://formsubmit.co/ssbasemaker@gmail.com" method="POST">
+                    
+                    <!-- Hidden Fields for FormSubmit -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
+                    <input type="hidden" name="_next" value="https://betatesterpro.com/thank-you.html">
+                    
+                    <!-- Hidden Fields to capture Pricing Data -->
+                    <input type="hidden" name="Number_of_Apps" id="inputApps">
+                    <input type="hidden" name="Total_Price" id="inputPrice">
+                    <input type="hidden" name="Price_Per_App" id="inputPerApp">
 
-                <div class="price-card" data-aos="fade-left">
-                    <h3>Agency</h3>
-                    <h2 class="price-amount">$20<span>.00</span></h2>
-                    <span class="price-meta">3+ Apps</span>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-check"></i> <strong>12 Testers per App</strong></li>
-                        <li><i class="fa-solid fa-check"></i> Unlimited Size</li>
-                        <li><i class="fa-solid fa-check"></i> Priority Support</li>
-                        <li><i class="fa-solid fa-check"></i> Volume Discount</li>
-                    </ul>
-                    <a href="https://link.payoneer.com/Token?t=AA2D6299C3D041A890DBB9996658590A&src=tpl" onclick="selectPlan('Agency')" class="btn btn-outline">Get 12 Testers</a>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Your Name *</label>
+                            <input type="text" name="Name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" name="Email" class="form-input" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">App Link / Package Name *</label>
+                            <input type="text" name="App_Link" class="form-input" placeholder="com.yourcompany.app" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp (Optional)</label>
+                            <input type="text" name="WhatsApp" class="form-input" placeholder="+1 234 567 890">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Let's Go - Send Request
+                    </button>
+                    
+                    <p class="form-note">
+                        <i class="fa-solid fa-lock"></i> You will receive a payment link via email shortly.
+                    </p>
+                </form>
             </div>
         </div>
     </section>
@@ -945,76 +1070,6 @@
         </div>
     </section>
 
-    <!-- UPDATE THE CONTACT FORM SECTION -->
-    <section id="contact" class="section-padding contact-section">
-        <div class="contact-bg"></div>
-        <div class="container contact-wrapper">
-            <div class="contact-image-col">
-                <img src="https://i.pinimg.com/736x/2c/ae/84/2cae84b57b5ed3e6c523da3e4e8613b5.jpg" alt="12 testers for 14 days support team" class="contact-img" loading="lazy">
-            </div>
-
-            <div class="contact-form-col">
-                <h2 style="margin-bottom: 20px;">Start Your 14-Day Testing</h2>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">Fill the form and we'll provide 12 testers within 24 hours</p>
-                
-                <!-- IMPORTANT: Remove action and method from form tag -->
-                <form id="contactForm">
-                    <!-- Hidden fields remain the same -->
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
-                    <input type="hidden" name="_replyto" value="email"> <!-- Add this for reply functionality -->
-                    <input type="hidden" name="_next" value="https://betatesterpro.com/thank-you.html">
-
-                    <div class="form-group">
-                        <label class="form-label">Selected Plan</label>
-                        <select name="plan" id="form-plan-select" class="form-input">
-                            <option value="Starter">Starter sinngle app - 12 Testers for 14 Days ($39.00)</option>
-                            <option value="Professional">Professional - 2 apps ($29.00)</option>
-                            <option value="Agency">Agency - More than 2 apps ($20.00+)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Your Name *</label>
-                        <input type="text" name="name" class="form-input" placeholder="Enter your full name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Email Address *</label>
-                        <input type="email" name="email" class="form-input" placeholder="name@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">WhatsApp Number (For Fast Contact)</label>
-                        <input type="text" name="whatsapp" class="form-input" placeholder="+92 300 1234567">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">App Package Name / Link</label>
-                        <input type="text" name="app_link" class="form-input" placeholder="com.yourapp.name">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Message / Special Requirements</label>
-                        <textarea name="message" class="form-input" placeholder="Tell us about your app or specific needs..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full" style="font-size: 1.1rem; padding: 16px;">
-                        <i class="fa-solid fa-paper-plane"></i> Send Request
-                    </button>
-                </form>
-
-                <div style="text-align: center; margin-top: 25px;">
-                    <p style="color: rgba(255,255,255,0.7); font-size: 1rem;">Prefer instant chat?</p>
-                    <a href="https://wa.me/+923472061598" style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp: +92 347 2061598
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1032,10 +1087,9 @@
                 </div>
                 <div class="footer-links">
                     <a href="#why-12-testers">About 12 Testers</a>
-                    <a href="#pricing">Pricing</a>
+                    <a href="#pricing">Order Now</a>
                     <a href="#faq">FAQ</a>
-                    <a href="#contact">Contact</a>
-                                   </div>
+                </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2024 12 Testers for 14 Days. All Rights Reserved.</p>
@@ -1104,113 +1158,74 @@
             }
         }
 
-        // Select Plan in Form
-        function selectPlan(planName) {
-            const select = document.getElementById('form-plan-select');
-            select.value = planName;
-            // Scroll to contact form
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        // --- PRICING SLIDER LOGIC ---
+        const slider = document.getElementById('appSlider');
+        const appCountDisplay = document.getElementById('appCountDisplay');
+        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        const perAppPriceDisplay = document.getElementById('perAppPriceDisplay');
+        const savingsBadge = document.getElementById('savingsBadge');
+        const orderForm = document.getElementById('orderForm');
+        
+        // Hidden Inputs
+        const inputApps = document.getElementById('inputApps');
+        const inputPrice = document.getElementById('inputPrice');
+        const inputPerApp = document.getElementById('inputPerApp');
+
+        // Pricing Logic
+        function calculatePrice(apps) {
+            // Base price $39 for 1
+            // Target $15 for 10
+            // Linear interpolation for simplicity or tiered logic
+            // Let's do a tiered discount approach
+            let pricePerApp = 39;
+            
+            if (apps >= 10) pricePerApp = 15;
+            else if (apps >= 7) pricePerApp = 18;
+            else if (apps >= 5) pricePerApp = 22;
+            else if (apps >= 3) pricePerApp = 28;
+            else if (apps >= 2) pricePerApp = 34;
+            
+            const total = apps * pricePerApp;
+            const originalTotal = apps * 39;
+            const savings = originalTotal - total;
+            const savingsPercent = Math.round(((39 - pricePerApp) / 39) * 100);
+
+            return { total, pricePerApp, savings, savingsPercent };
         }
 
-        // AJAX Form Submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault(); // STOP default redirect
-                
-                // Show loading state
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-                submitBtn.disabled = true;
-                
-                // Prepare form data
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData);
-                
-                // Send via AJAX
-                fetch('https://formsubmit.co/ajax/ssbasemaker@gmail.com', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(result => {
-                    if (result.success === "true") {
-                        showFormMessage('success', '✅ Success! We will contact you within 2 hours.');
-                        contactForm.reset();
-                        
-                        // Scroll to top of form
-                        document.getElementById('contact').scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
-                    } else {
-                        showFormMessage('error', '❌ Error! Please try again or use WhatsApp.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Form Error:', error);
-                    showFormMessage('error', '❌ Network error. Please contact us via WhatsApp.');
-                })
-                .finally(() => {
-                    // Reset button
-                    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Request';
-                    submitBtn.disabled = false;
-                });
-            });
-            
-            function showFormMessage(type, message) {
-                // Remove existing messages
-                const existingMsg = contactForm.querySelector('.form-message');
-                if (existingMsg) existingMsg.remove();
-                
-                // Create message element
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `form-message ${type}`;
-                messageDiv.style.cssText = `
-                    margin-top: 20px;
-                    padding: 15px;
-                    border-radius: 10px;
-                    font-weight: 500;
-                    text-align: center;
-                    animation: fadeIn 0.5s ease;
-                `;
-                messageDiv.textContent = message;
-                
-                // Style based on type
-                if (type === 'success') {
-                    messageDiv.style.background = 'rgba(61, 220, 132, 0.2)';
-                    messageDiv.style.color = 'var(--primary)';
-                    messageDiv.style.border = '1px solid var(--primary)';
-                } else {
-                    messageDiv.style.background = 'rgba(239, 68, 68, 0.2)';
-                    messageDiv.style.color = '#ef4444';
-                    messageDiv.style.border = '1px solid #ef4444';
-                }
-                
-                // Add to form
-                contactForm.appendChild(messageDiv);
-                
-                // Auto-remove after 8 seconds
-                setTimeout(() => {
-                    if (messageDiv.parentNode) {
-                        messageDiv.style.animation = 'fadeOut 0.5s ease';
-                        setTimeout(() => messageDiv.remove(), 500);
-                    }
-                }, 8000);
-            }
-        });
+        function updatePricing() {
+            const apps = parseInt(slider.value);
+            const pricing = calculatePrice(apps);
 
-        // Add subtle parallax to hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            hero.style.backgroundPositionY = -(scrolled * 0.3) + 'px';
-        });
+            // Update UI
+            appCountDisplay.textContent = apps;
+            totalPriceDisplay.textContent = pricing.total;
+            perAppPriceDisplay.textContent = pricing.pricePerApp;
+
+            // Update Savings Badge
+            if (pricing.savingsPercent > 0) {
+                savingsBadge.textContent = `Save ${pricing.savingsPercent}% ($${pricing.savings})`;
+                savingsBadge.classList.add('visible');
+            } else {
+                savingsBadge.classList.remove('visible');
+            }
+
+            // Update Hidden Form Inputs
+            inputApps.value = apps;
+            inputPrice.value = `$${pricing.total}`;
+            inputPerApp.value = `$${pricing.pricePerApp}`;
+
+            // Reveal Form if not already active
+            if (!orderForm.classList.contains('active')) {
+                orderForm.classList.add('active');
+            }
+        }
+
+        // Event Listener
+        slider.addEventListener('input', updatePricing);
+
+        // Initialize
+        updatePricing();
 
         // Simple Cookie Consent
         if (!localStorage.getItem('cookiesAccepted')) {
@@ -1223,10 +1238,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
