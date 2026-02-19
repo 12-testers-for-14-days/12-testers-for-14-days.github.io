@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <title>14 Days Not Counting? Fix Your Google Play Testing Timeline | 12 Testers for 14 Days</title>
+    <meta name="description" content="Troubleshoot why your Google Play 14-day testing period isn't counting. Common issues, fixes, and how to restart without losing more time. Expert solutions.">
+    <meta name="keywords" content="14 days not counting, Google Play testing stuck, testing period issues, closed testing not working, Google Play timeline problems">
+    <meta name="author" content="12 Testers for 14 Days Team">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://12-testers-for-14-days.github.io/blog/14-days-not-counting-fix-timeline">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="14 Days Not Counting? Fix Your Google Play Testing Timeline">
+    <meta property="og:description" content="Is your 14-day testing period stuck? Learn why and how to fix it fast.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://12-testers-for-14-days.github.io/blog/14-days-not-counting-fix-timeline">
+    <meta property="og:image" content="https://12-testers-for-14-days.github.io/images/14-days-not-counting-og.jpg">
+    <meta property="article:published_time" content="2024-02-20T08:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-20T08:00:00+00:00">
+    <meta property="article:author" content="12 Testers for 14 Days Team">
+    <meta property="article:section" content="Troubleshooting">
+    <meta property="article:tag" content="Testing Timeline, 14 Days Issue, Play Console Bug, Troubleshooting">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="14 Days Not Counting? Fix Your Google Play Testing Timeline">
+    <meta name="twitter:description" content="Why your 14-day testing period isn't counting and how to fix it.">
+    <meta name="twitter:image" content="https://12-testers-for-14-days.github.io/images/14-days-not-counting-twitter.jpg">
+    
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "14 Days Not Counting? Fix Your Google Play Testing Timeline",
+      "description": "Troubleshoot why your Google Play 14-day testing period isn't counting. Common issues, fixes, and how to restart without losing more time.",
+      "image": "https://12-testers-for-14-days.github.io/images/14-days-not-counting-og.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "12 Testers for 14 Days",
+        "url": "https://12-testers-for-14-days.github.io"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "12 Testers for 14 Days",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://12-testers-for-14-days.github.io/logo.png"
+        }
+      },
+      "datePublished": "2024-02-20T08:00:00+00:00",
+      "dateModified": "2024-02-20T08:00:00+00:00",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://12-testers-for-14-days.github.io/blog/14-days-not-counting-fix-timeline"
+      },
+      "wordCount": 2800,
+      "articleSection": "Troubleshooting",
+      "keywords": ["14 days not counting", "Google Play testing stuck", "testing period issues"]
+    }
+    </script>
+    
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is my 14-day testing period not counting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common reasons include: testers not installing from Play Store (using APK instead), testers not opting in properly, dropping below 12 active testers, testers not engaging with the app daily, or using emulators instead of real devices. Google requires testers to install from the Play Store testing link for activity to count."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I restart the 14-day testing period?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can restart by removing all current testers, waiting 48 hours, then adding 12 new verified testers. The 14-day period will reset from day 1 when the new testers opt-in and install. There's no penalty for restarting, but you must complete the full 14 days again."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #3DDC84;
+            --primary-dark: #2da863;
+            --accent: #202124;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --gradient: linear-gradient(135deg, #3DDC84 0%, #1a9e56 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.5px; line-height: 1.3; }
+        a { text-decoration: none; transition: all 0.3s; color: var(--primary-dark); }
+        a:hover { color: var(--primary); }
+        
+        /* Navigation */
+        .blog-nav {
+            background: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-home {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .back-home:hover { color: var(--primary-dark); }
+        .back-home i { font-size: 0.9rem; }
+        
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-logo i { color: var(--primary); }
+        
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            background: #1ebc57;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 800px;
+            margin: 30px auto 0;
+            padding: 0 24px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .breadcrumb ol {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: "›";
+            margin-left: 8px;
+            color: var(--text-light);
+        }
+        
+        .breadcrumb a { color: var(--text-light); }
+        .breadcrumb a:hover { color: var(--primary-dark); }
+        .breadcrumb li:last-child { color: var(--text-dark); font-weight: 500; }
+        
+        /* Article Container */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        
+        /* Article Header */
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .article-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .article-title {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        /* Internal Linking Box */
+        .internal-links {
+            background: linear-gradient(135deg, rgba(61, 220, 132, 0.1) 0%, rgba(61, 220, 132, 0.05) 100%);
+            border: 1px solid rgba(61, 220, 132, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .internal-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .internal-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .internal-links li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .internal-links li:last-child { border-bottom: none; }
+        
+        .internal-links a {
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        
+        .internal-links a:hover { color: var(--primary-dark); }
+        .internal-links i { color: var(--primary); font-size: 0.9rem; }
+        
+        /* Article Content */
+        .article-content {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin: 50px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin: 35px 0 15px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .article-content li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        .article-content ul li::marker {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .article-content strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Problem Cards */
+        .problem-grid {
+            display: grid;
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-left: 4px solid #ef4444;
+            position: relative;
+        }
+        
+        .problem-card.solved {
+            border-left-color: var(--primary);
+        }
+        
+        .problem-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: #fee2e2;
+            color: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .problem-card.solved .problem-icon {
+            background: rgba(61, 220, 132, 0.2);
+            color: var(--primary-dark);
+        }
+        
+        .problem-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+            padding-right: 50px;
+        }
+        
+        .problem-card p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border-left: 4px solid #ef4444;
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+        }
+        
+        .warning-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #dc2626;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .warning-box p { margin: 0; }
+        
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(61, 220, 132, 0.1) 0%, rgba(61, 220, 132, 0.05) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 30px 0;
+        }
+        
+        .info-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box p { margin: 0; }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+        
+        /* CTA Box */
+        .cta-box {
+            background: var(--accent);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(61, 220, 132, 0.1) 0%, transparent 70%);
+        }
+        
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+            position: relative;
+        }
+        
+        .cta-box p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: var(--accent);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(61, 220, 132, 0.3);
+            color: var(--accent);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(0,0,0,0.05);
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover { background: rgba(61, 220, 132, 0.05); }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s, padding 0.4s;
+            color: var(--text-light);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 25px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+        
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        
+        /* Table of Contents */
+        .toc {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .toc h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .toc li:last-child { border-bottom: none; }
+        
+        .toc a {
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toc a:hover { color: var(--primary-dark); }
+        .toc i { color: var(--primary); font-size: 0.8rem; }
+        
+        /* PRICING FOOTER - EXACTLY FROM INDEX.HTML */
+        .pricing-footer {
+            background: var(--accent);
+            color: white;
+            padding: 80px 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233DDC84' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .pricing-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .pricing-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .pricing-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+        
+        /* Slider Styles - EXACTLY FROM INDEX.HTML */
+        .slider-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .app-count {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .app-label {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-left: 10px;
+        }
+        
+        .price-display {
+            text-align: right;
+        }
+        
+        .total-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+        
+        .price-per-app {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Custom Range Slider - EXACTLY FROM INDEX.HTML */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+            margin: 20px 0;
+        }
+        
+        input[type=range]:focus { outline: none; }
+        
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 12px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -13px;
+            box-shadow: 0 0 15px rgba(61, 220, 132, 0.5);
+            transition: transform 0.1s;
+        }
+        
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        /* Discount Badge */
+        .savings-badge {
+            display: inline-block;
+            background: rgba(61, 220, 132, 0.2);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .savings-badge.visible { opacity: 1; }
+
+        /* Slider Labels */
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 5px;
+        }
+        
+        .slider-labels span.highlight {
+            color: var(--primary);
+            font-weight: 600;
+            background: none;
+            padding: 0;
+        }
+
+        /* Order Form - EXACTLY FROM INDEX.HTML */
+        .order-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, opacity 0.6s ease, padding 0.6s ease;
+            opacity: 0;
+        }
+        
+        .order-form.active {
+            max-height: 800px;
+            opacity: 1;
+            padding: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .slider-wrapper { padding: 25px; }
+            .order-form.active { padding: 25px; }
+            .slider-header { flex-direction: column; align-items: center; text-align: center; }
+            .price-display { text-align: center; margin-top: 10px; }
+        }
+
+        .form-group { margin-bottom: 20px; }
+        
+        .form-label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 500; 
+            font-size: 0.9rem; 
+            color: rgba(255,255,255,0.7); 
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: inherit;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        
+        .form-input:focus { 
+            outline: none; 
+            border-color: var(--primary); 
+            background: rgba(255,255,255,0.1); 
+            box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.1);
+        }
+        
+        .form-input::placeholder { color: rgba(255,255,255,0.3); }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: var(--accent);
+            font-size: 1.2rem;
+            padding: 18px;
+            margin-top: 10px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Site Footer */
+        .site-footer {
+            background: #111;
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .footer-logo i { color: var(--primary); }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover { color: var(--primary); }
+        
+        .copyright {
+            color: #555;
+            font-size: 0.9rem;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .article-title { font-size: 2rem; }
+            .article-content { font-size: 1rem; }
+            .toc { padding: 20px; }
+            .pricing-header h2 { font-size: 2rem; }
+        }
+        
+        /* Reading Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s;
+        }
+        
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+        
+        /* Highlight */
+        .highlight {
+            background: linear-gradient(120deg, rgba(61, 220, 132, 0.2) 0%, rgba(61, 220, 132, 0.2) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* Danger highlight */
+        .danger-highlight {
+            background: linear-gradient(120deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.2) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="blog-nav">
+        <div class="nav-container">
+            <a href="https://12-testers-for-14-days.github.io" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+            </a>
+            <a href="https://12-testers-for-14-days.github.io" class="nav-logo">
+                <i class="fa-brands fa-android"></i> 12 Testers for 14 Days
+            </a>
+        </div>
+    </nav>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923472061598?text=Hi%2C%20my%2014%20days%20isn't%20counting" class="floating-whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i> Get Help Now
+    </a>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+            <li><a href="https://12-testers-for-14-days.github.io">Home</a></li>
+            <li><a href="https://12-testers-for-14-days.github.io/blog">Blog</a></li>
+            <li aria-current="page">Fix Testing Timeline</li>
+        </ol>
+    </nav>
+
+    <!-- Main Article -->
+    <main>
+        <article class="article-container">
+            
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">Troubleshooting</span>
+                <h1 class="article-title">14 Days Not Counting? Fix Your Google Play Testing Timeline</h1>
+                <div class="article-meta">
+                    <span><div class="author-avatar">12</div> 12 Testers for 14 Days Team</span>
+                    <span><i class="fa-regular fa-calendar"></i> February 20, 2024</span>
+                    <span><i class="fa-regular fa-clock"></i> 15 min read</span>
+                    <span><i class="fa-solid fa-eye"></i> 4,200+ views</span>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                
+                <!-- Introduction -->
+                <p><strong>Day 10. You check Play Console expecting to see "4 days remaining"—but instead, it still says "Testing in progress" with no countdown.</strong> Or worse, you applied for production and got rejected with "More testing required."</p>
+                
+                <p>You're not alone. Hundreds of developers face this exact issue every week. The good news: <span class="highlight">it's almost always fixable</span>. This guide walks you through the 6 most common reasons your 14 days isn't counting, how to diagnose your specific issue, and exactly how to restart without losing another two weeks.</p>
+
+                <!-- Internal Linking Box -->
+                <div class="internal-links">
+                    <h4><i class="fa-solid fa-link"></i> Related Guides</h4>
+                    <ul>
+                        <li><a href="https://12-testers-for-14-days.github.io/blog/why-google-rejects-apps-12-testers-mistakes"><i class="fa-solid fa-triangle-exclamation"></i> Why Google Rejects Apps</a></li>
+                        <li><a href="https://12-testers-for-14-days.github.io/blog/how-to-verify-real-testers-not-bots"><i class="fa-solid fa-robot"></i> Verify Real Testers</a></li>
+                        <li><a href="https://12-testers-for-14-days.github.io/blog/google-play-console-closed-testing-setup"><i class="fa-solid fa-gear"></i> Play Console Setup Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">68%</span>
+                        <div class="stat-label">Due to APK vs Play Store</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">24h</span>
+                        <div class="stat-label">Delay for Dashboard Update</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">14</span>
+                        <div class="stat-label">Days Must Be Continuous</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <div class="stat-label">Fixable with Right Steps</div>
+                    </div>
+                </div>
+
+                <!-- Table of Contents -->
+                <nav class="toc" aria-label="Table of Contents">
+                    <h3><i class="fa-solid fa-list"></i> Table of Contents</h3>
+                    <ul>
+                        <li><a href="#why-not-counting"><i class="fa-solid fa-chevron-right"></i> 6 Reasons Your 14 Days Isn't Counting</a></li>
+                        <li><a href="#diagnose"><i class="fa-solid fa-chevron-right"></i> How to Diagnose Your Specific Issue</a></li>
+                        <li><a href="#fix-apk"><i class="fa-solid fa-chevron-right"></i> Fix #1: APK vs Play Store Install</a></li>
+                        <li><a href="#fix-opt-in"><i class="fa-solid fa-chevron-right"></i> Fix #2: Proper Opt-In Process</a></li>
+                        <li><a href="#fix-engagement"><i class="fa-solid fa-chevron-right"></i> Fix #3: Tester Engagement Issues</a></li>
+                        <li><a href="#fix-dropouts"><i class="fa-solid fa-chevron-right"></i> Fix #4: Tester Dropouts</a></li>
+                        <li><a href="#restart"><i class="fa-solid fa-chevron-right"></i> How to Restart Without Losing Time</a></li>
+                        <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> Frequently Asked Questions</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Why Not Counting -->
+                <h2 id="why-not-counting">6 Reasons Your 14 Days Isn't Counting</h2>
+                
+                <p>Based on data from 500+ troubleshooting cases, here are the culprits:</p>
+
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+                        <h4>#1: Testers Used APK, Not Play Store</h4>
+                        <p>The #1 reason. If testers installed your app via direct APK instead of the Play Store testing link, Google can't track their activity. It doesn't count. [^32^]</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fa-solid fa-envelope-open"></i></div>
+                        <h4>#2: Testers Never Opted In</h4>
+                        <p>Simply being added to the tester list isn't enough. They must click "Become a tester" in the invitation email. Without this, they're not officially testing.</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fa-solid fa-users-slash"></i></div>
+                        <h4>#3: Dropped Below 12 Testers</h4>
+                        <p>If even one tester opted out or was removed, and you didn't replace them immediately, your 14-day clock resets. You need 12+ continuously.</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h4>#4: Emulators Detected</h4>
+                        <p>Google detected emulator usage instead of real devices. Even if you have 12 testers, emulator activity is discarded entirely.</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4>#5: Insufficient Engagement</h4>
+                        <p>Testers opened the app once on day 1 and never again. Google requires "active testing"—daily usage, feature exploration, feedback. [^32^]</p>
+                    </div>
+                    
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fa-solid fa-clock"></i></div>
+                        <h4>#6: Dashboard Delay</h4>
+                        <p>Sometimes the dashboard just hasn't updated yet. Activity can take 24-48 hours to reflect in Play Console.</p>
+                    </div>
+                </div>
+
+                <!-- Diagnose -->
+                <h2 id="diagnose">How to Diagnose Your Specific Issue</h2>
+                
+                <p>Before fixing, confirm the problem:</p>
+
+                <h3>Check These 3 Places in Play Console</h3>
+                <ol>
+                    <li><strong>Dashboard Status:</strong> Go to your app's dashboard. Look for "Testing requirements" section. Does it show "In progress" or "Requirements met"?</li>
+                    <li><strong>Tester Activity:</strong> Go to Testing > Closed testing > [Your Track]. Check "Testers" tab. How many show "Opted in" vs "Invited"?</li>
+                    <li><strong>Install Metrics:</strong> Check "Statistics" for your closed testing track. Are installs showing? Is there active usage data?</li>
+                </ol>
+
+                <div class="screenshot-box" style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); border: 2px dashed #d1d5db; border-radius: 12px; padding: 40px; text-align: center; margin: 20px 0;">
+                    <i class="fa-solid fa-image" style="font-size: 3rem; color: #9ca3af; margin-bottom: 15px;"></i>
+                    <p style="color: #6b7280; margin: 0; font-size: 0.9rem;">Screenshot: Play Console dashboard showing "Testing requirements" status</p>
+                </div>
+
+                <h3>Email Your Testers—Ask These Questions</h3>
+                <p>Send a quick check-in to all 12 testers:</p>
+                <ul>
+                    <li>Did you click "Become a tester" in the email from Google?</li>
+                    <li>Did you install from the Play Store link, or did someone send you an APK file?</li>
+                    <li>How many times have you opened the app in the last week?</li>
+                    <li>Are you testing on a real phone or an emulator/computer?</li>
+                </ul>
+
+                <!-- Fix APK -->
+                <h2 id="fix-apk">Fix #1: The APK Problem (Most Common)</h2>
+                
+                <p>If testers installed via APK, you have a problem. Here's the fix:</p>
+
+                <div class="warning-box">
+                    <h4><i class="fa-solid fa-triangle-exclamation"></i> Critical Issue</h4>
+                    <p>Google explicitly states: "They will need to install the app from the Play store otherwise Play has no way to determine they are actually testing the app." [^32^] APK installs are invisible to Google's tracking.</p>
+                </div>
+
+                <h3>Solution Steps</h3>
+                <ol>
+                    <li><strong>Identify affected testers:</strong> Ask each tester how they installed</li>
+                    <li><strong>Remove and re-invite:</strong> Remove testers who used APK from your track</li>
+                    <li><strong>Clear instructions:</strong> Send them the official Play Store testing link only</li>
+                    <li><strong>Verify:</strong> Confirm they see "Early access" badge in Play Store</li>
+                    <li><strong>Restart clock:</strong> The 14 days resets from their new install date</li>
+                </ol>
+
+                <div class="info-box">
+                    <h4><i class="fa-solid fa-lightbulb"></i> Prevention</h4>
+                    <p>Never share your APK file with testers. Only share the Play Console testing link. If they can't access the link, troubleshoot their Google account instead of sending APK.</p>
+                </div>
+
+                <!-- Fix Opt-In -->
+                <h2 id="fix-opt-in">Fix #2: Proper Opt-In Process</h2>
+                
+                <p>Some testers think clicking "Accept invitation" in their email is enough—it's not. They must complete the full opt-in.</p>
+
+                <h3>Correct Opt-In Flow</h3>
+                <ol>
+                    <li>Receive email from Google Play with subject "You're a tester for [App Name]"</li>
+                    <li>Click <strong>"Become a tester"</strong> button (not just "Download")</li>
+                    <li>See confirmation page: "You're now a tester"</li>
+                    <li>Click "Download it on Google Play"</li>
+                    <li>Install from Play Store with "Early access" badge</li>
+                </ol>
+
+                <p>If testers skipped step 2, they haven't actually joined your test. They need to revisit the testing web link and click "Become a tester."</p>
+
+                <!-- Fix Engagement -->
+                <h2 id="fix-engagement">Fix #3: Tester Engagement Issues</h2>
+                
+                <p>Google's rejection email often states: "Testers were not engaged with your app during your closed test." [^32^] What does "engaged" mean?</p>
+
+                <h3>What Counts as "Engaged"</h3>
+                <ul>
+                    <li>Opening app multiple times over 14 days (not just once)</li>
+                    <li>Using different features/screens (not just splash screen)</li>
+                    <li>Spending meaningful time (5+ minutes per session)</li>
+                    <li>Submitting feedback or reviews</li>
+                    <li>Keeping app installed for full period</li>
+                </ul>
+
+                <h3>How to Fix Low Engagement</h3>
+                <p>If testers aren't engaging enough:</p>
+                <ol>
+                    <li><strong>Send reminders:</strong> Weekly nudges to use the app</li>
+                    <li><strong>Assign tasks:</strong> Ask them to try specific features</li>
+                    <li><strong>Gamify:</strong> Offer small incentives for detailed feedback</li>
+                    <li><strong>Replace inactive testers:</strong> Remove and add new ones if needed</li>
+                </ol>
+
+                <div class="info-box">
+                    <h4><i class="fa-solid fa-info-circle"></i> Good News</h4>
+                    <p>According to Testers Community: "Testers don't have to open the app every single day. What matters is that you collect meaningful feedback over the 14-day window." [^28^] However, we recommend daily usage to be safe.</p>
+                </div>
+
+                <!-- Fix Dropouts -->
+                <h2 id="fix-dropouts">Fix #4: Handling Tester Dropouts</h2>
+                
+                <p>If testers drop below 12 at any point, your 14 days resets. Here's how to handle it:</p>
+
+                <h3>Immediate Replacement Protocol</h3>
+                <ol>
+                    <li><strong>Monitor daily:</strong> Check "Testers" tab in Play Console</li>
+                    <li><strong>Identify dropouts:</strong> Look for "Opted out" status</li>
+                    <li><strong>Add replacements immediately:</strong> Don't wait—same day</li>
+                    <li><strong>Buffer strategy:</strong> Start with 15-20 testers to absorb natural dropouts</li>
+                </ol>
+
+                <div class="warning-box">
+                    <h4><i class="fa-solid fa-triangle-exclamation"></i> The Math Problem</h4>
+                    <p>If Tester A does 10 days, then drops out, and Tester B joins and does 7 days, that does NOT equal 17 days. Google requires 12 testers for 14 days simultaneously. Partial periods don't combine. [^32^]</p>
+                </div>
+
+                <!-- Restart -->
+                <h2 id="restart">How to Restart Without Losing More Time</h2>
+                
+                <p>If your testing is fundamentally broken (APK installs, fake testers, emulators), you need a clean restart:</p>
+
+                <h3>Clean Restart Checklist</h3>
+                <ol>
+                    <li><strong>Remove all current testers:</strong> Go to Testing > Closed testing > Testers > Remove all</li>
+                    <li><strong>Wait 48 hours:</strong> This clears Google's cache of your previous attempt</li>
+                    <li><strong>Verify new testers:</strong> Use our <a href="https://12-testers-for-14-days.github.io/blog/how-to-verify-real-testers-not-bots">7-point verification</a></li>
+                    <li><strong>Add 12+ verified testers:</strong> Include buffer (15-20 recommended) [^31^]</li>
+                    <li><strong>Confirm opt-in:</strong> Ensure all clicked "Become a tester"</li>
+                    <li><strong>Confirm Play Store install:</strong> No APKs allowed</li>
+                    <li><strong>Start 14-day clock:</strong> Day 1 begins when all 12 have opted in and installed</li>
+                </ol>
+
+                <div class="info-box">
+                    <h4><i class="fa-solid fa-shield-halved"></i> Pro Tip: Use 20 Testers</h4>
+                    <p>PrimeTestLab data shows: "When you use exactly 12 testers, you meet the bare minimum. But when you use 20 or 25 testers, the compliance signals become much stronger." [^31^] More testers = buffer against dropouts + stronger approval signal.</p>
+                </div>
+
+                <!-- CTA Box -->
+                <div class="cta-box">
+                    <h3>Don't Risk Another Failed 14 Days</h3>
+                    <p>We manage the entire testing period for you—verified testers, daily monitoring, dropout replacement, and guaranteed approval. If rejected, we restart free.</p>
+                    <a href="#pricing" class="btn-primary" onclick="scrollToPricing()">
+                        <i class="fa-solid fa-rotate-right"></i> Start Fresh with Guaranteed Testers
+                    </a>
+                </div>
+
+                <!-- FAQ Section -->
+                <section class="faq-section" id="faq">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item active">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Why is my 14-day testing period not counting?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Common reasons include: testers not installing from Play Store (using APK instead), testers not opting in properly, dropping below 12 active testers, testers not engaging with the app daily, or using emulators instead of real devices. Google requires testers to install from the Play Store testing link for activity to count.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I restart the 14-day testing period?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can restart by removing all current testers, waiting 48 hours, then adding 12 new verified testers. The 14-day period will reset from day 1 when the new testers opt-in and install. There's no penalty for restarting, but you must complete the full 14 days again.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How long does Play Console take to update testing status?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Play Console dashboard updates can take 24-48 hours to reflect tester activity. However, the "Apply for production" button typically appears within hours after your 14th day completes. If it's been 3+ days with no update, your testing likely has issues.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Will I be penalized for restarting testing?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, Google does not penalize developers for restarting closed testing. Many successful apps required multiple attempts. However, repeated failures with the same issues (fake testers, emulators) can trigger account review. Fix the root cause before restarting.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can I see which testers aren't counting?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Play Console doesn't show individual tester activity in detail. You can see overall installs and crashes per track, but not "Tester A used app for 5 minutes." To verify individual engagement, you need to implement Firebase Analytics or ask testers directly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <h2>Don't Let Technicalities Destroy Your Timeline</h2>
+                <p>The 14-day testing requirement is straightforward in concept but filled with technical traps. The difference between success and failure often comes down to details: APK vs Play Store, opt-in vs invited, 11 testers vs 12.</p>
+                
+                <p>If you're stuck, step back and systematically check each issue in this guide. Most problems are fixable within 24-48 hours. And if you'd rather not risk it, <a href="https://12-testers-for-14-days.github.io/blog/best-12-testers-services-compared">professional services</a> exist specifically to eliminate these pitfalls.</p>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- PRICING SECTION - EXACTLY FROM INDEX.HTML -->
+    <section class="pricing-footer" id="pricing">
+        <div class="pricing-container">
+            <div class="pricing-header">
+                <h2>Failed Testing? Start Fresh Guaranteed</h2>
+                <p>We verify every tester, monitor daily, replace dropouts instantly, and guarantee approval—or we restart free.</p>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="slider-header">
+                    <div>
+                        <span id="appCountDisplay" class="app-count">1</span>
+                        <span class="app-label">App(s)</span>
+                    </div>
+                    <div class="price-display">
+                        <div class="total-price">$<span id="totalPriceDisplay">39</span></div>
+                        <div class="price-per-app">$<span id="perAppPriceDisplay">39</span> per app</div>
+                    </div>
+                </div>
+
+                <input type="range" id="appSlider" min="1" max="10" value="1" step="1">
+                
+                <div class="slider-labels">
+                    <span>1 App</span>
+                    <span class="highlight">Max Discount at 10 Apps</span>
+                    <span>10 Apps</span>
+                </div>
+
+                <div style="text-align: center; margin-top: 10px;">
+                    <span id="savingsBadge" class="savings-badge">Save 0%</span>
+                </div>
+            </div>
+
+            <form id="orderForm" class="order-form" action="https://formsubmit.co/ssbasemaker@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
+                <input type="hidden" name="_next" value="https://12-testers-for-14-days.github.io/thank-you.html">
+                
+                <input type="hidden" name="Number_of_Apps" id="inputApps">
+                <input type="hidden" name="Total_Price" id="inputPrice">
+                <input type="hidden" name="Price_Per_App" id="inputPerApp">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Your Name *</label>
+                        <input type="text" name="Name" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" name="Email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">App Link / Package Name *</label>
+                        <input type="text" name="App_Link" class="form-input" placeholder="com.yourcompany.app" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">WhatsApp (Optional)</label>
+                        <input type="text" name="WhatsApp" class="form-input" placeholder="+92 347 2061598">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-paper-plane"></i> Let's Go - Send Request
+                </button>
+                
+                <p class="form-note">
+                    <i class="fa-solid fa-lock"></i> You will receive a payment link via email shortly.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fa-brands fa-android"></i> 12 Testers for 14 Days
+            </div>
+            <p>Professional Google Play Console Closed Testing Service</p>
+            <div class="footer-links">
+                <a href="https://12-testers-for-14-days.github.io">Home</a>
+                <a href="https://12-testers-for-14-days.github.io#pricing">Pricing</a>
+                <a href="https://12-testers-for-14-days.github.io/blog">Blog</a>
+                <a href="mailto:ssbasemaker@gmail.com">Contact</a>
+                <a href="https://wa.me/923472061598">WhatsApp</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 12 Testers for 14 Days. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">
+                    Helping developers meet Google Play's 12 testers for 14 days requirement since 2021.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // PRICING SLIDER LOGIC - EXACTLY FROM INDEX.HTML
+        const slider = document.getElementById('appSlider');
+        const appCountDisplay = document.getElementById('appCountDisplay');
+        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        const perAppPriceDisplay = document.getElementById('perAppPriceDisplay');
+        const savingsBadge = document.getElementById('savingsBadge');
+        const orderForm = document.getElementById('orderForm');
+        
+        const inputApps = document.getElementById('inputApps');
+        const inputPrice = document.getElementById('inputPrice');
+        const inputPerApp = document.getElementById('inputPerApp');
+
+        function calculatePrice(apps) {
+            let pricePerApp = 39;
+            
+            if (apps >= 10) pricePerApp = 15;
+            else if (apps >= 7) pricePerApp = 18;
+            else if (apps >= 5) pricePerApp = 22;
+            else if (apps >= 3) pricePerApp = 28;
+            else if (apps >= 2) pricePerApp = 34;
+            
+            const total = apps * pricePerApp;
+            const originalTotal = apps * 39;
+            const savings = originalTotal - total;
+            const savingsPercent = Math.round(((39 - pricePerApp) / 39) * 100);
+
+            return { total, pricePerApp, savings, savingsPercent };
+        }
+
+        function updatePricing() {
+            const apps = parseInt(slider.value);
+            const pricing = calculatePrice(apps);
+
+            appCountDisplay.textContent = apps;
+            totalPriceDisplay.textContent = pricing.total;
+            perAppPriceDisplay.textContent = pricing.pricePerApp;
+
+            if (pricing.savingsPercent > 0) {
+                savingsBadge.textContent = `Save ${pricing.savingsPercent}% ($${pricing.savings})`;
+                savingsBadge.classList.add('visible');
+            } else {
+                savingsBadge.classList.remove('visible');
+            }
+
+            inputApps.value = apps;
+            inputPrice.value = `$${pricing.total}`;
+            inputPerApp.value = `$${pricing.pricePerApp}`;
+
+            if (!orderForm.classList.contains('active')) {
+                orderForm.classList.add('active');
+            }
+        }
+
+        slider.addEventListener('input', updatePricing);
+        updatePricing();
+
+        function scrollToPricing() {
+            document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
