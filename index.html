@@ -963,50 +963,46 @@
 
     <!-- NEW MERGED PRICING & CONTACT SECTION -->
     <section id="pricing" class="section-padding">
-        <div class="pricing-bg-pattern"></div>
-        <div class="container">
-            <div class="section-header" style="position: relative; z-index: 1; color: white;">
-                <h2 style="color: white; -webkit-text-fill-color: white;">Customize Your Order</h2>
-                <p style="color: rgba(255,255,255,0.7);">Slide to select number of apps. Price drops automatically with volume.</p>
-            </div>
+    <div class="pricing-bg-pattern"></div>
+    <div class="container">
+        <div class="section-header" style="position: relative; z-index: 1; color: white;">
+            <h2 style="color: white; -webkit-text-fill-color: white;">Customize Your Order</h2>
+            <p style="color: rgba(255,255,255,0.7);">Slide to select number of apps. Price drops automatically with volume.</p>
+        </div>
 
-            <div class="pricing-container" data-aos="zoom-in">
-                
-                <!-- Interactive Slider UI -->
-                <div class="slider-wrapper">
-                    <div class="slider-header">
-                        <div>
-                            <span id="appCountDisplay" class="app-count">1</span>
-                            <span class="app-label">App(s)</span>
-                        </div>
-                        <div class="price-display">
-                            <div class="total-price">$<span id="totalPriceDisplay">39</span></div>
-                            <div class="price-per-app">$<span id="perAppPriceDisplay">39</span> per app</div>
-                        </div>
+        <div class="pricing-container" data-aos="zoom-in">
+            <div class="slider-wrapper">
+                <div class="slider-header">
+                    <div>
+                        <span id="appCountDisplay" class="app-count">1</span>
+                        <span class="app-label">App(s)</span>
                     </div>
-
-                    <!-- The Slider -->
-                    <input type="range" id="appSlider" min="1" max="10" value="1" step="1">
-                    
-                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: rgba(255,255,255,0.4); margin-top: 5px;">
-                        <span>1 App</span>
-                        <span style="color: var(--primary); font-weight: 600;">Max Discount at 10 Apps</span>
-                        <span>10 Apps</span>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 10px;">
-                        <span id="savingsBadge" class="savings-badge">Save 0%</span>
+                    <div class="price-display">
+                        <div class="total-price">$<span id="totalPriceDisplay">39</span></div>
+                        <div class="price-per-app">$<span id="perAppPriceDisplay">39</span> per app</div>
                     </div>
                 </div>
 
-                <!-- Contact Form (Hidden initially, reveals on slide) -->
-                <form id="orderForm" class="order-form" action="https://formsubmit.co/ssbasemaker@gmail.com" method="POST">
-                    
-                    <!-- Hidden Fields for FormSubmit -->
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
-                    <input type="hidden" name="_next" value="https://12-testers-for-14-days.github.io/thank-you.html">
-                    <input type="hidden" name="_autoresponse" value="Hi {{Name}}! 
+                <input type="range" id="appSlider" min="1" max="10" value="1" step="1">
+                
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: rgba(255,255,255,0.4); margin-top: 5px;">
+                    <span>1 App</span>
+                    <span style="color: var(--primary); font-weight: 600;">Max Discount at 10 Apps</span>
+                    <span>10 Apps</span>
+                </div>
+
+                <div style="text-align: center; margin-top: 10px;">
+                    <span id="savingsBadge" class="savings-badge">Save 0%</span>
+                </div>
+            </div>
+
+            <form id="orderForm" class="order-form" action="https://formsubmit.co/ssbasemaker@gmail.com" method="POST">
+                
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
+                <input type="hidden" name="_next" value="https://12-testers-for-14-days.github.io/thank-you.html">
+                
+                <input type="hidden" name="_autoresponse" value="Hi {{Name}}! 
 
 Thank you for ordering our 12 Testers for 14 Days service.
 
@@ -1020,46 +1016,39 @@ Best regards,
 12 Testers Team
 ssbasemaker@gmail.com">
 
-                    
-                    
-                    <!-- Hidden Fields to capture Pricing Data -->
-                    <input type="hidden" name="Number_of_Apps" id="inputApps">
-                    <input type="hidden" name="Total_Price" id="inputPrice">
-                    <input type="hidden" name="Price_Per_App" id="inputPerApp">
+                <input type="hidden" name="Number_of_Apps" id="inputApps" value="1">
+                <input type="hidden" name="Total_Price" id="inputPrice" value="$39">
+                <input type="hidden" name="Price_Per_App" id="inputPerApp" value="$39">
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Your Name *</label>
-                            <input type="text" name="Name" class="form-input" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Email Address *</label>
-                            <input type="email" name="email" class="form-input" placeholder="john@example.com" required>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Your Name *</label>
+                        <input type="text" name="Name" class="form-input" placeholder="John Doe" required>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">App Link / Package Name *</label>
-                            <input type="text" name="App_Link" class="form-input" placeholder="com.yourcompany.app" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">WhatsApp (Optional)</label>
-                            <input type="text" name="WhatsApp" class="form-input" placeholder="+1 234 567 890">
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" name="email" class="form-input" placeholder="john@example.com" required>
                     </div>
+                </div>
 
-                    <button type="submit" class="btn btn-submit">
-                        <i class="fa-solid fa-paper-plane"></i> Let's Go - Send Request
-                    </button>
-                    
-                    <p class="form-note">
-                        <i class="fa-solid fa-lock"></i> You will receive a payment link via email shortly.
-                    </p>
-                </form>
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">App Link / Package Name *</label>
+                        <input type="text" name="App_Link" class="form-input" placeholder="com.yourcompany.app" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">WhatsApp (Optional)</label>
+                        <input type="text" name="WhatsApp" class="form-input" placeholder="+1 234 567 890">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">
+                    <i class="fa-solid fa-paper-plane"></i> Let's Go - Send Request
+                </button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="faq" class="section-padding faq-section">
         <div class="container">
@@ -1221,74 +1210,62 @@ ssbasemaker@gmail.com">
             }
         }
 
-        // --- PRICING SLIDER LOGIC ---
-        const slider = document.getElementById('appSlider');
-        const appCountDisplay = document.getElementById('appCountDisplay');
-        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
-        const perAppPriceDisplay = document.getElementById('perAppPriceDisplay');
-        const savingsBadge = document.getElementById('savingsBadge');
-        const orderForm = document.getElementById('orderForm');
+     
+    const slider = document.getElementById('appSlider');
+    const appCountDisplay = document.getElementById('appCountDisplay');
+    const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+    const perAppPriceDisplay = document.getElementById('perAppPriceDisplay');
+    const savingsBadge = document.getElementById('savingsBadge');
+    const orderForm = document.getElementById('orderForm');
+    
+    const inputApps = document.getElementById('inputApps');
+    const inputPrice = document.getElementById('inputPrice');
+    const inputPerApp = document.getElementById('inputPerApp');
+
+    function calculatePrice(apps) {
+        let pricePerApp = 39;
         
-        // Hidden Inputs
-        const inputApps = document.getElementById('inputApps');
-        const inputPrice = document.getElementById('inputPrice');
-        const inputPerApp = document.getElementById('inputPerApp');
+        // Your specific tiered logic
+        if (apps >= 10) pricePerApp = 15;
+        else if (apps >= 7) pricePerApp = 18;
+        else if (apps >= 5) pricePerApp = 22;
+        else if (apps >= 3) pricePerApp = 28;
+        else if (apps >= 2) pricePerApp = 34;
+        
+        const total = apps * pricePerApp;
+        const originalTotal = apps * 39;
+        const savings = originalTotal - total;
+        const savingsPercent = Math.round(((39 - pricePerApp) / 39) * 100);
 
-        // Pricing Logic
-        function calculatePrice(apps) {
-            // Base price $39 for 1
-            // Target $15 for 10
-            // Linear interpolation for simplicity or tiered logic
-            // Let's do a tiered discount approach
-            let pricePerApp = 39;
-            
-            if (apps >= 10) pricePerApp = 15;
-            else if (apps >= 7) pricePerApp = 18;
-            else if (apps >= 5) pricePerApp = 22;
-            else if (apps >= 3) pricePerApp = 28;
-            else if (apps >= 2) pricePerApp = 34;
-            
-            const total = apps * pricePerApp;
-            const originalTotal = apps * 39;
-            const savings = originalTotal - total;
-            const savingsPercent = Math.round(((39 - pricePerApp) / 39) * 100);
+        return { total, pricePerApp, savings, savingsPercent };
+    }
 
-            return { total, pricePerApp, savings, savingsPercent };
+    function updatePricing() {
+        const apps = parseInt(slider.value);
+        const pricing = calculatePrice(apps);
+
+        // Update UI
+        appCountDisplay.textContent = apps;
+        totalPriceDisplay.textContent = pricing.total;
+        perAppPriceDisplay.textContent = pricing.pricePerApp;
+
+        // Update Savings Badge
+        if (pricing.savingsPercent > 0) {
+            savingsBadge.textContent = `Save ${pricing.savingsPercent}% ($${pricing.savings})`;
+            savingsBadge.style.display = "inline-block"; // Ensure it shows
+        } else {
+            savingsBadge.style.display = "none";
         }
 
-        function updatePricing() {
-            const apps = parseInt(slider.value);
-            const pricing = calculatePrice(apps);
+        // --- CRITICAL FIX ---
+        // Update Hidden Form Inputs so FormSubmit receives the data
+        inputApps.value = apps;
+        inputPrice.value = `$${pricing.total}`;
+        inputPerApp.value = `$${pricing.pricePerApp}`;
+    }
 
-            // Update UI
-            appCountDisplay.textContent = apps;
-            totalPriceDisplay.textContent = pricing.total;
-            perAppPriceDisplay.textContent = pricing.pricePerApp;
-
-            // Update Savings Badge
-            if (pricing.savingsPercent > 0) {
-                savingsBadge.textContent = `Save ${pricing.savingsPercent}% ($${pricing.savings})`;
-                savingsBadge.classList.add('visible');
-            } else {
-                savingsBadge.classList.remove('visible');
-            }
-
-            // Update Hidden Form Inputs
-            inputApps.value = apps;
-            inputPrice.value = `$${pricing.total}`;
-            inputPerApp.value = `$${pricing.pricePerApp}`;
-
-            // Reveal Form if not already active
-            if (!orderForm.classList.contains('active')) {
-                orderForm.classList.add('active');
-            }
-        }
-
-        // Event Listener
-        slider.addEventListener('input', updatePricing);
-
-        // Initialize
-        updatePricing();
+    slider.addEventListener('input', updatePricing);
+    updatePricing(); // Run once on load
 
         // Simple Cookie Consent
         if (!localStorage.getItem('cookiesAccepted')) {
