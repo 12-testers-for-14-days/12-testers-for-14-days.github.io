@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00FF94;
+  --color-primary-dark: #00D37F;
+  --color-accent: #111111;
+  --color-tp-green: #00B67A;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1ebc57;
+  
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  @apply overflow-x-hidden bg-[#050505] text-gray-300;
+}
+
+/* Custom scrollbar for webkit */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
