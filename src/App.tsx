@@ -212,12 +212,15 @@ const WhyUs = () => {
               Google mandates 12 testers for 14 continuous days for new developer accounts. One dropped tester means starting over. We remove the risk entirely.
             </p>
             
-            <div className="flex gap-4 overflow-x-auto pb-6 mb-8 whitespace-nowrap snap-x hide-scrollbar">
-               {["Samsung Galaxy (A&S)", "Google Pixel (API 26-36)", "Xiaomi / Redmi (MIUI)", "OnePlus (OxygenOS)", "Oppo (ColorOS)", "Motorola"].map((dev, i) => (
-                  <div key={i} className="flex-none bg-white/5 border border-white/10 px-6 py-3 rounded-full text-sm font-medium text-gray-300 snap-start hover:border-primary/50 transition-colors cursor-default">
+            <div className="relative overflow-hidden w-full pb-6 mb-8 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex w-max animate-marquee space-x-4">
+                {[...["Samsung Galaxy S24 Ultra", "Google Pixel 8", "Xiaomi 14 Pro", "OnePlus 12", "Oppo Find X7", "Motorola Edge 50", "Vivo X100 Pro", "Realme 12 Pro+", "Nothing Phone (2)", "Asus ROG Phone 8"], 
+                  ...["Samsung Galaxy S24 Ultra", "Google Pixel 8", "Xiaomi 14 Pro", "OnePlus 12", "Oppo Find X7", "Motorola Edge 50", "Vivo X100 Pro", "Realme 12 Pro+", "Nothing Phone (2)", "Asus ROG Phone 8"]].map((dev, i) => (
+                  <div key={i} className="bg-white/5 border border-white/10 px-6 py-3 rounded-full text-sm font-medium text-gray-300 whitespace-nowrap cursor-default hover:border-primary/50 transition-colors">
                     {dev}
                   </div>
-               ))}
+                ))}
+              </div>
             </div>
           </FadeIn>
           
@@ -240,19 +243,47 @@ const WhyUs = () => {
           <div className="aspect-square md:aspect-[4/5] rounded-[2.5rem] bg-gradient-to-tr from-[#111] to-[#222] border border-white/10 overflow-hidden relative shadow-2xl shadow-primary/10 flex items-center justify-center group p-8">
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
             
-            {/* Abstract visual representing devices testing */}
-            <div className="relative w-full h-full flex flex-col gap-4">
-              {[...Array(6)].map((_, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ width: '40%', opacity: 0 }}
-                  whileInView={{ width: `${60 + Math.random() * 40}%`, opacity: 1 }}
-                  transition={{ duration: 1, delay: i * 0.1 }}
-                  className="h-full bg-white/5 border border-white/10 rounded-xl relative overflow-hidden"
-                >
-                   <div className="absolute top-0 left-0 h-full w-[20%] bg-gradient-to-r from-transparent via-primary/20 to-transparent skew-x-12 translate-x-[-200%] animate-[shimmer_3s_infinite]" style={{ animationDelay: `${i * 0.4}s`}}></div>
-                </motion.div>
-              ))}
+            {/* Abstract visual representing testing completion */}
+            <div className="relative w-full h-full flex flex-col p-4 md:p-6 lg:p-8">
+              <div className="relative w-full h-full border border-white/10 rounded-2xl bg-[#0A0A0A] overflow-hidden flex flex-col justify-end group/chart">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent pointer-events-none" />
+                <div className="p-6 md:p-8 w-full">
+                  <div className="flex items-start justify-between mb-8">
+                    <div>
+                      <h4 className="text-white font-medium text-lg mb-1">Active Testers</h4>
+                      <div className="flex items-baseline gap-2">
+                        <div className="text-5xl font-display font-bold text-primary">12</div>
+                        <div className="text-xl text-gray-500 font-normal">/ 12</div>
+                      </div>
+                    </div>
+                    <div className="bg-[#00FF94]/20 text-[#00FF94] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider animate-pulse flex items-center gap-2">
+                      <span className="w-2 h-2 bg-[#00FF94] rounded-full inline-block"></span>
+                      Live Testing
+                    </div>
+                  </div>
+                  
+                  {/* Chart bars */}
+                  <div className="flex items-end gap-2 h-[120px] sm:h-[160px] w-full">
+                    {[100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100].map((height, i) => (
+                      <div key={i} className="flex-1 bg-white/5 rounded-t-md relative group/bar h-[80%]">
+                        <motion.div 
+                          initial={{ height: 0 }}
+                          whileInView={{ height: `${height}%` }}
+                          transition={{ duration: 1.5, delay: i * 0.1, ease: 'easeOut' }}
+                          className={cn(
+                            "absolute bottom-0 w-full rounded-t-md transition-all duration-300", 
+                            i === 13 ? "bg-primary shadow-[0_0_20px_rgba(0,255,148,0.4)]" : "bg-white/30 group-hover/bar:bg-primary/50"
+                          )} 
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex justify-between mt-4 text-xs font-mono text-gray-500 uppercase tracking-widest px-1">
+                    <span>Day 1</span>
+                    <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">Day 14</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#050505] p-6 rounded-2xl border border-white/10 shadow-2xl flex flex-col items-center gap-2 backdrop-blur-xl group-hover:scale-105 transition-transform">
@@ -551,6 +582,18 @@ const Footer = () => (
 export default function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const [showBanner, setShowBanner] = useState(true);
+  const [scrolledEnough, setScrolledEnough] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setScrolledEnough(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-300 selection:bg-primary/30 selection:text-white overflow-hidden">
@@ -574,6 +617,38 @@ export default function App() {
       </main>
       
       <Footer />
+
+      <AnimatePresence>
+        {showBanner && scrolledEnough && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="fixed bottom-24 right-6 z-50 w-[calc(100vw-3rem)] max-w-[400px] bg-[#111]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl shadow-black/80"
+          >
+            <button 
+              onClick={() => setShowBanner(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-white transition-colors"
+              aria-label="Close message banner"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="flex gap-4 pr-4">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mt-1">
+                <Star className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-white font-bold mb-2 tracking-wide leading-tight">Premium Testing Network</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Hey! We also have a custom domain <a href="https://www.getsome.rest" target="_blank" rel="noreferrer" className="text-primary hover:underline font-medium">www.getsome.rest</a> with premium Android testing & QA. 
+                  <br/><br/>
+                  This GitHub site is very well-known on Reddit and other founder platforms, which is why we keep it live and don't redirect it to our primary domain.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       <motion.a
         initial={{ opacity: 0, scale: 0.8 }}
