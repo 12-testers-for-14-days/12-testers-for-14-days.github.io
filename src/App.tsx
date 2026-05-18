@@ -74,9 +74,9 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
           <button onClick={() => scrollTo('why')} className="text-gray-400 hover:text-white transition-colors">WHY US</button>
           <button onClick={() => scrollTo('process')} className="text-gray-400 hover:text-white transition-colors">PROCESS</button>
-          <button onClick={() => window.open('https://docs.google.com/document/d/1Nenq0Qqj_JhjKncjm8genzTLjVFj7T-dQKZuPc-B1Tw/edit?tab=t.j61rkm11fs70#heading=h.cuklqo1w4n6q', '_blank')} className="text-white hover:text-primary transition-colors">Proofs</button>
-          <button onClick={() => scrollTo('proofs')} className="text-white hover:text-primary transition-colors">Trustpilot 4.7</button>
+          <button onClick={() => scrollTo('proofs')} className="text-gray-400 hover:text-white transition-colors">PROOFS</button>
           <button onClick={() => scrollTo('faq')} className="text-gray-400 hover:text-white transition-colors">FAQ</button>
+          <a href="https://docs.google.com" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">GOOGLE DOCS</a>
           <button onClick={() => scrollTo('pricing')} className="bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-gray-200 transition-colors">
             ORDER NOW
           </button>
@@ -94,9 +94,9 @@ const Navbar = () => {
         )}>
           <button onClick={() => scrollTo('why')} className="text-white hover:text-primary transition-colors">Why Us?</button>
           <button onClick={() => scrollTo('process')} className="text-white hover:text-primary transition-colors">Process</button>
-          <button onClick={() => window.open('https://docs.google.com/document/d/1Nenq0Qqj_JhjKncjm8genzTLjVFj7T-dQKZuPc-B1Tw/edit?tab=t.j61rkm11fs70#heading=h.cuklqo1w4n6q', '_blank')} className="text-white hover:text-primary transition-colors">Proofs</button>
-          <button onClick={() => scrollTo('proofs')} className="text-white hover:text-primary transition-colors">Trustpilot 4.7</button>
+          <button onClick={() => scrollTo('proofs')} className="text-white hover:text-primary transition-colors">Proofs</button>
           <button onClick={() => scrollTo('faq')} className="text-white hover:text-primary transition-colors">FAQ</button>
+          <a href="https://docs.google.com" target="_blank" rel="noreferrer" className="text-white hover:text-primary transition-colors">Google Docs</a>
           <button onClick={() => scrollTo('pricing')} className="bg-primary text-black px-8 py-4 rounded-full w-4/5 text-center mt-4">
             Order Now
           </button>
@@ -367,7 +367,7 @@ const ApprovedApps = () => {
     { name: "GlobtrotterQuiz", link: "https://play.google.com/store/apps/details?id=com.ross.globetrotterquiz" }
   ].map(app => ({
     ...app,
-    icon: `https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=random&color=fff&size=128&font-size=0.33`
+    icon: `https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=random&color=fff&size=256&font-size=0.33`
   }));
 
   return (
@@ -382,8 +382,8 @@ const ApprovedApps = () => {
           {apps.map((app, i) => (
             <FadeIn key={i} delay={(i % 10) * 0.05} className="flex flex-col items-center group">
               <a href={app.link} className="flex flex-col items-center w-full min-w-0">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-[1.2rem] overflow-hidden bg-white/5 border border-white/10 mb-3 group-hover:border-primary/50 group-hover:scale-[1.05] transition-all shadow-lg shadow-black/50 flex-shrink-0">
-                  <img src={app.icon} alt={app.name} className="w-full h-full object-cover" />
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-[1.5rem] overflow-hidden bg-white/5 border border-white/10 mb-3 group-hover:border-primary/50 group-hover:scale-[1.05] transition-all shadow-lg shadow-black/50 flex-shrink-0 p-1">
+                  <img src={app.icon} alt={app.name} className="w-full h-full object-cover rounded-[1.2rem]" />
                 </div>
                 <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors truncate w-full text-center px-1">{app.name}</span>
               </a>
@@ -392,7 +392,7 @@ const ApprovedApps = () => {
         </div>
 
         <FadeIn className="text-center">
-          <a href="https://docs.google.com/spreadsheets/d/1FCSAmxwUawLme_KVG4UiTtW2dfYb2qujvk2Mss4V74U/edit?usp=sharing" className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors font-medium">
+          <a href="#" className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors font-medium">
             See all approved apps <ArrowRight className="w-5 h-5" />
           </a>
         </FadeIn>
@@ -405,11 +405,41 @@ const ProofsCarousel = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: 'start' }, [Autoplay({ delay: 4000 })]);
 
   const reviews = [
-    { name: "Asmik Arustamyan", init: "AA", loc: "US", title: "Very professional team", text: "Very professional team! It was very easy to work with them, highly recommend!", date: "April 1, 2026" },
-    { name: "MICHAEL", init: "MI", loc: "IE", title: "I needed testers FAST!!!", text: "I didnt know where to turn when Google said 'you need 12 testers for 14 days'. I discovered these guy through Reddit and I took the chance and signed up. Anyhow, these guys exceeded my expectations.", date: "Apr 2, 2026" },
-    { name: "riglesias", init: "RI", loc: "US", title: "App approved", text: "App approved. Responsive and helpful.", date: "Apr 2, 2026" },
-    { name: "Omar Dini", init: "OD", loc: "IT", title: "Perfect service!", text: "Perfect service! We got the production access seamlessly. Thank you team.", date: "Mar 28, 2026" },
-    { name: "Sarah J.", init: "SJ", loc: "UK", title: "Saved my launch", text: "I was struggling to find 12 people to keep the app installed. They handled it perfectly.", date: "Feb 14, 2026" }
+    { 
+      name: "Asmik Arustamyan",
+      clientImage: "https://ui-avatars.com/api/?name=Asmik+Arustamyan&background=random",
+      appImage: "https://ui-avatars.com/api/?name=App1&background=random",
+      appLink: "https://play.google.com/store/apps",
+      loc: "US", title: "Very professional team", text: "Very professional team! It was very easy to work with them, highly recommend!", date: "April 1, 2026" 
+    },
+    { 
+      name: "MICHAEL", 
+      clientImage: "https://ui-avatars.com/api/?name=MICHAEL&background=random",
+      appImage: "https://ui-avatars.com/api/?name=App2&background=random",
+      appLink: "https://play.google.com/store/apps",
+      loc: "IE", title: "I needed testers FAST!!!", text: "I didnt know where to turn when Google said 'you need 12 testers for 14 days'. I discovered these guy through Reddit and I took the chance and signed up. Anyhow, these guys exceeded my expectations.", date: "Apr 2, 2026" 
+    },
+    { 
+      name: "riglesias", 
+      clientImage: "https://ui-avatars.com/api/?name=riglesias&background=random",
+      appImage: "https://ui-avatars.com/api/?name=App3&background=random",
+      appLink: "https://play.google.com/store/apps",
+      loc: "US", title: "App approved", text: "App approved. Responsive and helpful.", date: "Apr 2, 2026" 
+    },
+    { 
+      name: "Omar Dini", 
+      clientImage: "https://ui-avatars.com/api/?name=Omar+Dini&background=random",
+      appImage: "https://ui-avatars.com/api/?name=App4&background=random",
+      appLink: "https://play.google.com/store/apps",
+      loc: "IT", title: "Perfect service!", text: "Perfect service! We got the production access seamlessly. Thank you team.", date: "Mar 28, 2026" 
+    },
+    { 
+      name: "Sarah J.", 
+      clientImage: "https://ui-avatars.com/api/?name=Sarah+J&background=random",
+      appImage: "https://ui-avatars.com/api/?name=App5&background=random",
+      appLink: "https://play.google.com/store/apps",
+      loc: "UK", title: "Saved my launch", text: "I was struggling to find 12 people to keep the app installed. They handled it perfectly.", date: "Feb 14, 2026" 
+    }
   ];
 
   return (
@@ -429,21 +459,32 @@ const ProofsCarousel = () => {
           <div className="flex -ml-6">
             {reviews.map((r, i) => (
               <div key={i} className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_30%] pl-6">
-                <div className="bg-[#111] p-8 rounded-3xl border border-white/5 h-full flex flex-col select-none">
+                <div className="bg-[#111] p-8 rounded-3xl border border-white/5 h-full flex flex-col select-none min-h-[300px]">
                   <div className="flex gap-1 text-[#00B67A] mb-6">
                     {[...Array(5)].map((_, j) => <StarIcon key={j} className="w-4 h-4 fill-current" />)}
                   </div>
                   <h4 className="text-lg font-bold text-white mb-4 line-clamp-1">{r.title}</h4>
                   <p className="text-gray-400 mb-8 leading-relaxed text-sm flex-grow">"{r.text}"</p>
                   
-                  <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center font-bold text-white text-sm">
-                      {r.init}
+                  <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
+                    <div className="flex items-center gap-4">
+                      {r.clientImage ? (
+                        <img src={r.clientImage} alt={r.name} className="w-10 h-10 rounded-full object-cover" />
+                      ) : (
+                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center font-bold text-white text-sm">
+                          {(r as any).init}
+                        </div>
+                      )}
+                      <div>
+                        <div className="text-white font-medium text-sm">{r.name}</div>
+                        <div className="text-gray-500 text-xs">{r.loc} • Verified</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-white font-medium text-sm">{r.name}</div>
-                      <div className="text-gray-500 text-xs">{r.loc} • Verified</div>
-                    </div>
+                    {r.appImage && r.appLink && (
+                      <a href={r.appLink} target="_blank" rel="noreferrer" title="View App" className="flex-shrink-0 hover:scale-105 transition-transform">
+                        <img src={r.appImage} alt="App Icon" className="w-12 h-12 rounded-[0.8rem] bg-white/10 border border-white/5 object-cover" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -545,6 +586,22 @@ const FAQSection = () => {
   );
 };
 
+const QuoteCTA = () => (
+  <section className="py-24 bg-[#050505] relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+    <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+      <FadeIn>
+        <span className="text-primary text-6xl font-display mb-4 block">"</span>
+        <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
+          The difference between a stalled app and a successful launch is having the right technical partner behind you.
+        </h2>
+        <div className="text-gray-400 font-medium tracking-wide uppercase text-sm mb-2">Build faster, launch smoother</div>
+        <div className="text-gray-600 text-xs">— 12 Testers for 14 Days Team</div>
+      </FadeIn>
+    </div>
+  </section>
+);
+
 const Footer = () => (
   <footer className="bg-black pt-24 pb-12 border-t border-white/10 text-center relative overflow-hidden">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
@@ -616,6 +673,7 @@ export default function App() {
         <ProofsCarousel />
         <Pricing />
         <FAQSection />
+        <QuoteCTA />
       </main>
       
       <Footer />
