@@ -408,35 +408,35 @@ const ProofsCarousel = () => {
     { 
       name: "Asmik Arustamyan",
       clientImage: "https://ui-avatars.com/api/?name=Asmik+Arustamyan&background=random",
-      appImage: "https://ui-avatars.com/api/?name=App1&background=random",
+      appImage: "https://picsum.photos/seed/app21/512/512",
       appLink: "https://play.google.com/store/apps",
       loc: "US", title: "Very professional team", text: "Very professional team! It was very easy to work with them, highly recommend!", date: "April 1, 2026" 
     },
     { 
       name: "MICHAEL", 
       clientImage: "https://ui-avatars.com/api/?name=MICHAEL&background=random",
-      appImage: "https://ui-avatars.com/api/?name=App2&background=random",
+      appImage: "https://picsum.photos/seed/app22/512/512",
       appLink: "https://play.google.com/store/apps",
       loc: "IE", title: "I needed testers FAST!!!", text: "I didnt know where to turn when Google said 'you need 12 testers for 14 days'. I discovered these guy through Reddit and I took the chance and signed up. Anyhow, these guys exceeded my expectations.", date: "Apr 2, 2026" 
     },
     { 
       name: "riglesias", 
       clientImage: "https://ui-avatars.com/api/?name=riglesias&background=random",
-      appImage: "https://ui-avatars.com/api/?name=App3&background=random",
+      appImage: "https://picsum.photos/seed/app23/512/512",
       appLink: "https://play.google.com/store/apps",
       loc: "US", title: "App approved", text: "App approved. Responsive and helpful.", date: "Apr 2, 2026" 
     },
     { 
       name: "Omar Dini", 
       clientImage: "https://ui-avatars.com/api/?name=Omar+Dini&background=random",
-      appImage: "https://ui-avatars.com/api/?name=App4&background=random",
+      appImage: "https://picsum.photos/seed/app24/512/512",
       appLink: "https://play.google.com/store/apps",
       loc: "IT", title: "Perfect service!", text: "Perfect service! We got the production access seamlessly. Thank you team.", date: "Mar 28, 2026" 
     },
     { 
       name: "Sarah J.", 
       clientImage: "https://ui-avatars.com/api/?name=Sarah+J&background=random",
-      appImage: "https://ui-avatars.com/api/?name=App5&background=random",
+      appImage: "https://picsum.photos/seed/app25/512/512",
       appLink: "https://play.google.com/store/apps",
       loc: "UK", title: "Saved my launch", text: "I was struggling to find 12 people to keep the app installed. They handled it perfectly.", date: "Feb 14, 2026" 
     }
@@ -481,8 +481,8 @@ const ProofsCarousel = () => {
                       </div>
                     </div>
                     {r.appImage && r.appLink && (
-                      <a href={r.appLink} target="_blank" rel="noreferrer" title="View App" className="flex-shrink-0 hover:scale-105 transition-transform">
-                        <img src={r.appImage} alt="App Icon" className="w-12 h-12 rounded-[0.8rem] bg-white/10 border border-white/5 object-cover" />
+                      <a href={r.appLink} target="_blank" rel="noreferrer" title="View App" className="flex-shrink-0 hover:scale-105 transition-transform ml-4">
+                        <img src={r.appImage} alt="App Icon" className="w-16 h-16 rounded-2xl bg-white/10 border border-white/5 object-cover" />
                       </a>
                     )}
                   </div>
