@@ -74,7 +74,8 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
           <button onClick={() => scrollTo('why')} className="text-gray-400 hover:text-white transition-colors">WHY US</button>
           <button onClick={() => scrollTo('process')} className="text-gray-400 hover:text-white transition-colors">PROCESS</button>
-          <button onClick={() => scrollTo('proofs')} className="text-gray-400 hover:text-white transition-colors">PROOFS</button>
+          <button onClick={() => window.open('https://docs.google.com/document/d/1Nenq0Qqj_JhjKncjm8genzTLjVFj7T-dQKZuPc-B1Tw/edit?tab=t.j61rkm11fs70#heading=h.cuklqo1w4n6q', '_blank')} className="text-white hover:text-primary transition-colors">Proofs</button>
+          <button onClick={() => scrollTo('proofs')} className="text-white hover:text-primary transition-colors">Trustpilot 4.7</button>
           <button onClick={() => scrollTo('faq')} className="text-gray-400 hover:text-white transition-colors">FAQ</button>
           <button onClick={() => scrollTo('pricing')} className="bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-gray-200 transition-colors">
             ORDER NOW
@@ -93,7 +94,8 @@ const Navbar = () => {
         )}>
           <button onClick={() => scrollTo('why')} className="text-white hover:text-primary transition-colors">Why Us?</button>
           <button onClick={() => scrollTo('process')} className="text-white hover:text-primary transition-colors">Process</button>
-          <button onClick={() => scrollTo('proofs')} className="text-white hover:text-primary transition-colors">Proofs</button>
+          <button onClick={() => window.open('https://docs.google.com/document/d/1Nenq0Qqj_JhjKncjm8genzTLjVFj7T-dQKZuPc-B1Tw/edit?tab=t.j61rkm11fs70#heading=h.cuklqo1w4n6q', '_blank')} className="text-white hover:text-primary transition-colors">Proofs</button>
+          <button onClick={() => scrollTo('proofs')} className="text-white hover:text-primary transition-colors">Trustpilot 4.7</button>
           <button onClick={() => scrollTo('faq')} className="text-white hover:text-primary transition-colors">FAQ</button>
           <button onClick={() => scrollTo('pricing')} className="bg-primary text-black px-8 py-4 rounded-full w-4/5 text-center mt-4">
             Order Now
@@ -390,7 +392,7 @@ const ApprovedApps = () => {
         </div>
 
         <FadeIn className="text-center">
-          <a href="#" className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors font-medium">
+          <a href="https://docs.google.com/spreadsheets/d/1FCSAmxwUawLme_KVG4UiTtW2dfYb2qujvk2Mss4V74U/edit?usp=sharing" className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors font-medium">
             See all approved apps <ArrowRight className="w-5 h-5" />
           </a>
         </FadeIn>
