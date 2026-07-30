@@ -1,892 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Blog & Guides | 12 Testers for 14 Days</title>
-    <meta name="description" content="Expert guides, tips, and tutorials for passing the Google Play Console 12 testers for 14 days closed testing requirement.">
-    <meta name="keywords" content="google play closed testing, 12 testers 14 days, android app testing, google play console guides">
-    <meta name="author" content="12 Testers for 14 Days Team">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://12-testers-for-14-days.github.io/blog/">
-    
-    <meta property="og:title" content="Android Development & Play Console Guides | 12 Testers for 14 Days">
-    <meta property="og:description" content="Expert guides, tips, and tutorials for passing the Google Play Console 12 testers for 14 days closed testing requirement.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://12-testers-for-14-days.github.io/blog/">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #3DDC84;
-            --primary-dark: #2da863;
-            --accent: #202124;
-            --text-dark: #1F2937;
-            --text-light: #6B7280;
-            --bg-light: #F8F9FA;
-            --white: #FFFFFF;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --gradient: linear-gradient(135deg, #3DDC84 0%, #1a9e56 100%);
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0a0f" />
+<title>Guides — Google Play Closed Testing, 12 Testers for 14 Days | 12Testers14Days</title>
+<meta name="description" content="In-depth guides on Google Play's 14-day closed testing requirement, the 12-tester rule for personal developer accounts, and how to pass production access on the first try." />
+<meta name="keywords" content="google play closed testing guide, 12 testers 14 days guide, google play 14 day testing, google play production access guide" />
+<meta name="author" content="12Testers14Days" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://12-testers-for-14-days.github.io/blog/" />
+<link rel="alternate" hreflang="x-default" href="https://12-testers-for-14-days.github.io/blog/" />
+<link rel="alternate" hreflang="en" href="https://12-testers-for-14-days.github.io/blog/" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            overflow-x: hidden;
-            line-height: 1.7;
-            font-size: 16px;
-        }
-        
-        h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.5px; line-height: 1.3; }
-        a { text-decoration: none; transition: all 0.3s; color: var(--primary-dark); }
-        a:hover { color: var(--primary); }
-        
-        /* Navigation */
-        .blog-nav {
-            background: var(--white);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .back-home {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-        
-        .back-home:hover { color: var(--primary-dark); }
-        .back-home i { font-size: 0.9rem; }
-        
-        .nav-logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-logo i { color: var(--primary); }
-        
-        /* Floating WhatsApp Button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            z-index: 999;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            animation: slideIn 0.5s ease;
-        }
-        
-        .floating-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-            background: #1ebc57;
-            color: white;
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @media (max-width: 768px) {
-            .floating-whatsapp {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 30px auto 0;
-            padding: 0 24px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .breadcrumb ol {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .breadcrumb li:not(:last-child)::after {
-            content: "›";
-            margin-left: 8px;
-            color: var(--text-light);
-        }
-        
-        .breadcrumb a { color: var(--text-light); }
-        .breadcrumb a:hover { color: var(--primary-dark); }
-        .breadcrumb li:last-child { color: var(--text-dark); font-weight: 500; }
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="12Testers14Days" />
+<meta property="og:title" content="Guides — Google Play Closed Testing" />
+<meta property="og:description" content="In-depth guides on Google Play's 14-day closed testing requirement." />
+<meta property="og:url" content="https://12-testers-for-14-days.github.io/blog/" />
+<meta property="og:image" content="https://12-testers-for-14-days.github.io/assets/og-image.png" />
 
-        /* Blog Hub Styles (Grid & Cards) */
-        .blog-header {
-            text-align: center;
-            padding: 40px 24px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Guides — Google Play Closed Testing" />
+<meta name="twitter:description" content="In-depth guides on Google Play's 14-day closed testing requirement." />
 
-        .blog-header h1 {
-            font-size: 2.8rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://12-testers-for-14-days.github.io/blog/#blog",
+  "name": "12Testers14Days Guides",
+  "description": "In-depth guides on Google Play closed testing and the 12-tester rule.",
+  "url": "https://12-testers-for-14-days.github.io/blog/",
+  "publisher": {"@type": "Organization", "name": "12Testers14Days"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://12-testers-for-14-days.github.io/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://12-testers-for-14-days.github.io/blog/"}
+  ]
+}
+</script>
 
-        .blog-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 24px;
-        }
-
-        .blog-card {
-            background: var(--white);
-            border-radius: 16px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(61, 220, 132, 0.3);
-        }
-
-        .blog-card-content {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .blog-category {
-            display: inline-block;
-            color: var(--primary-dark);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-            background: rgba(61, 220, 132, 0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
-            align-self: flex-start;
-        }
-
-        .blog-card-title {
-            font-size: 1.3rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .blog-card-title a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .blog-card-title a:hover {
-            color: var(--primary-dark);
-        }
-
-        .blog-card-excerpt {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-top: auto;
-            transition: gap 0.3s;
-        }
-
-        .read-more i { transition: transform 0.3s; }
-        .blog-card:hover .read-more { gap: 12px; }
-        
-        /* PRICING & CONTACT SECTION */
-        .pricing-footer {
-            background: var(--accent);
-            color: white;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pricing-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233DDC84' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            z-index: 0;
-        }
-        
-        .pricing-container {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .pricing-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-        
-        .pricing-header p {
-            color: rgba(255,255,255,0.7);
-            font-size: 1.1rem;
-        }
-        
-        /* Slider Styles */
-        .slider-wrapper {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .slider-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .app-count {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-        
-        .app-label {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.7);
-            margin-left: 10px;
-        }
-        
-        .price-display {
-            text-align: right;
-        }
-        
-        .total-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            line-height: 1;
-        }
-        
-        .price-per-app {
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Custom Range Slider */
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            background: transparent;
-            margin: 20px 0;
-        }
-        
-        input[type=range]:focus { outline: none; }
-        
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 12px;
-            cursor: pointer;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        input[type=range]::-webkit-slider-thumb {
-            height: 36px;
-            width: 36px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -13px;
-            box-shadow: 0 0 15px rgba(61, 220, 132, 0.5);
-            transition: transform 0.1s;
-        }
-        
-        input[type=range]::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-        }
-
-        /* Discount Badge */
-        .savings-badge {
-            display: inline-block;
-            background: rgba(61, 220, 132, 0.2);
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-top: 10px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .savings-badge.visible { opacity: 1; }
-
-        /* Slider Labels */
-        .slider-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.4);
-            margin-top: 5px;
-        }
-        
-        .slider-labels span.highlight {
-            color: var(--primary);
-            font-weight: 600;
-            background: none;
-            padding: 0;
-        }
-
-        /* Order Form */
-        .order-form {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease-out, opacity 0.6s ease, padding 0.6s ease;
-            opacity: 0;
-        }
-        
-        .order-form.active {
-            max-height: 800px;
-            opacity: 1;
-            padding: 40px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .form-group { margin-bottom: 20px; }
-        
-        .form-label { 
-            display: block; 
-            margin-bottom: 8px; 
-            font-weight: 500; 
-            font-size: 0.9rem; 
-            color: rgba(255,255,255,0.7); 
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            color: white;
-            font-family: inherit;
-            transition: 0.3s;
-            font-size: 1rem;
-        }
-        
-        .form-input:focus { 
-            outline: none; 
-            border-color: var(--primary); 
-            background: rgba(255,255,255,0.1); 
-            box-shadow: 0 0 0 3px rgba(61, 220, 132, 0.1);
-        }
-        
-        .form-input::placeholder { color: rgba(255,255,255,0.3); }
-        
-        .btn-submit {
-            width: 100%;
-            background: var(--primary);
-            color: var(--accent);
-            font-size: 1.2rem;
-            padding: 18px;
-            margin-top: 10px;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-        
-        .btn-submit:hover {
-            background: var(--primary-dark);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .form-note {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        /* Site Footer */
-        .site-footer {
-            background: #111;
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .footer-logo i { color: var(--primary); }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a { color: #888; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--primary); }
-        
-        .copyright {
-            color: #555;
-            font-size: 0.9rem;
-            padding-top: 30px;
-            border-top: 1px solid #222;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .blog-header h1 { font-size: 2.2rem; }
-            .pricing-header h2 { font-size: 2rem; }
-        }
-
-        @media (max-width: 600px) {
-            .form-row { grid-template-columns: 1fr; }
-            .slider-wrapper { padding: 25px; }
-            .order-form.active { padding: 25px; }
-            .slider-header { flex-direction: column; align-items: center; text-align: center; }
-            .price-display { text-align: center; margin-top: 10px; }
-            .blog-grid { grid-template-columns: 1fr; }
-        }
-        
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
-    </style>
+<link rel="stylesheet" href="/css/style.css" />
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 
-    <nav class="blog-nav">
-        <div class="nav-container">
-            <a href="https://12-testers-for-14-days.github.io" class="back-home">
-                <i class="fa-solid fa-arrow-left"></i> Back to Homepage
-            </a>
-            <a href="https://12-testers-for-14-days.github.io" class="nav-logo">
-                <i class="fa-brands fa-android"></i> 12 Testers for 14 Days
-            </a>
-        </div>
-    </nav>
-
-    <a href="https://wa.me/923472061598?text=Hi%2C%20I%20have%20a%20question%20about%20the%2012%20testers" class="floating-whatsapp" target="_blank" rel="noopener noreferrer">
-        <i class="fa-brands fa-whatsapp"></i> Get Instant Help
+<header class="header" role="banner">
+  <nav class="container nav" aria-label="Primary">
+    <a href="/" class="brand">
+      <span class="brand-logo" aria-hidden="true">12</span>
+      <span>12Testers14Days</span>
     </a>
+    <div class="nav-links" data-nav-links>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/" aria-current="page">Guides</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/about/">About</a>
+    </div>
+    <div class="nav-cta">
+      <a href="/#pricing" class="btn btn-primary btn-sm">Get started</a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
 
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-            <li><a href="https://12-testers-for-14-days.github.io">Home</a></li>
-            <li aria-current="page">Blog & Guides</li>
-        </ol>
-    </nav>
+<main id="main">
+  <section class="hero" style="padding: 4rem 0 2rem;">
+    <div class="bg-aurora"></div>
+    <div class="container hero-inner" style="position: relative; z-index: 1;">
+      <span class="badge badge-brand">Knowledge base</span>
+      <h1>Guides to passing Google Play closed testing</h1>
+      <p class="lead">Everything we know about the 12-tester, 14-day rule — written for solo developers and indie studios who want to ship on the first try.</p>
+    </div>
+  </section>
 
-    <main>
-        <section class="blog-header">
-            <h1>Expert Guides & Testing Strategies</h1>
-            <p>Everything you need to know to successfully pass the Google Play Console 12 testers for 14 days requirement.</p>
-        </section>
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="blog-grid">
+        <article class="post">
+          <div class="post-thumb"><span>14-day Testing Guide</span></div>
+          <div class="post-body">
+            <div class="post-meta"><span>Jan 15, 2026</span><span>·</span><span>12 min read</span></div>
+            <h2 class="post-title"><a href="/blog/google-play-14-day-closed-testing-guide/">Google Play 14-day closed testing guide (2026)</a></h2>
+            <p class="post-excerpt">Full 2026 guide: what the rule says, how to set up the closed track, the most common rejection reasons, and the fastest way to pass.</p>
+            <a href="/blog/google-play-14-day-closed-testing-guide/" class="btn btn-ghost btn-sm" style="align-self: flex-start; padding-left: 0;">Read guide →</a>
+          </div>
+        </article>
 
-        <section class="blog-grid">
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Guide</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing">The Complete Guide to Google Play Closed Testing</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Master the 12 testers for 14 days requirement with this comprehensive, step-by-step walkthrough for Android developers.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+        <article class="post">
+          <div class="post-thumb"><span>Personal vs Org</span></div>
+          <div class="post-body">
+            <div class="post-meta"><span>Feb 8, 2026</span><span>·</span><span>9 min read</span></div>
+            <h2 class="post-title"><a href="/blog/personal-vs-organization-google-play-account/">Personal vs organization Google Play account</a></h2>
+            <p class="post-excerpt">Does the 12-tester rule apply to you? How to tell which account type you have, and what to do about it.</p>
+            <a href="/blog/personal-vs-organization-google-play-account/" class="btn btn-ghost btn-sm" style="align-self: flex-start; padding-left: 0;">Read guide →</a>
+          </div>
+        </article>
 
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Troubleshooting</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/14-days-not-counting-fix-timeline">14 Days Not Counting? How to Fix Your Timeline</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Is your Google Play Console stuck? Learn exactly why your active testing days aren't counting and how to fix it immediately.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/14-days-not-counting-fix-timeline" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+        <article class="post">
+          <div class="post-thumb"><span>Invite Testers</span></div>
+          <div class="post-body">
+            <div class="post-meta"><span>Mar 12, 2026</span><span>·</span><span>7 min read</span></div>
+            <h2 class="post-title"><a href="/blog/how-to-invite-testers-google-play-closed-testing/">How to invite testers in Google Play Console</a></h2>
+            <p class="post-excerpt">Step-by-step walkthrough of the exact clicks to add 12 testers to your closed testing track, share the opt-in URL, and verify everyone joined.</p>
+            <a href="/blog/how-to-invite-testers-google-play-closed-testing/" class="btn btn-ghost btn-sm" style="align-self: flex-start; padding-left: 0;">Read guide →</a>
+          </div>
+        </article>
 
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Next Steps</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/after-14-days-apply-production-access">After 14 Days: How to Apply for Production Access</a>
-                    </h2>
-                    <p class="blog-card-excerpt">You finished the 14 days! Now discover the exact steps and questionnaire tips to apply for production access and get approved.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/after-14-days-apply-production-access" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+        <article class="post">
+          <div class="post-thumb"><span>Track Types</span></div>
+          <div class="post-body">
+            <div class="post-meta"><span>Apr 2, 2026</span><span>·</span><span>6 min read</span></div>
+            <h2 class="post-title"><a href="/blog/google-play-internal-vs-closed-vs-open-testing/">Internal vs closed vs open testing on Google Play</a></h2>
+            <p class="post-excerpt">Which track do you need? The differences between internal, closed, and open testing, and which one counts for the 12-tester rule.</p>
+            <a href="/blog/google-play-internal-vs-closed-vs-open-testing/" class="btn btn-ghost btn-sm" style="align-self: flex-start; padding-left: 0;">Read guide →</a>
+          </div>
+        </article>
 
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Reviews</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/best-12-testers-services-compared-reviewed">Best 12 Testers Services Compared & Reviewed</a>
-                    </h2>
-                    <p class="blog-card-excerpt">An honest comparison of the top testing services for Google Play. Find out which ones use real testers vs bots.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/best-12-testers-services-compared-reviewed" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+        <article class="post">
+          <div class="post-thumb"><span>Rejection Fixes</span></div>
+          <div class="post-body">
+            <div class="post-meta"><span>May 10, 2026</span><span>·</span><span>8 min read</span></div>
+            <h2 class="post-title"><a href="/blog/why-google-play-closed-testing-rejected/">Why Google Play closed testing gets rejected (and how to fix it)</a></h2>
+            <p class="post-excerpt">Got rejected? Here are the 7 most common reasons, what the rejection emails mean, and exactly how to fix each one.</p>
+            <a href="/blog/why-google-play-closed-testing-rejected/" class="btn btn-ghost btn-sm" style="align-self: flex-start; padding-left: 0;">Read guide →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Tips</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/cant-find-12-testers-ways-to-get-testers">Can't Find 12 Testers? 7 Proven Ways to Get Them</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Struggling to find enough people? Here are 7 highly effective, free and paid strategies to source real testers for your app.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/cant-find-12-testers-ways-to-get-testers" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Skip the research. Get testers in 24 hours.</h2>
+        <p>You've read the guides. Now let us handle the 14-day test for you. 100% approval guarantee.</p>
+        <a href="/#pricing" class="btn btn-primary btn-lg">Get 12 testers — from $22.99</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Strategy</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/free-vs-paid-testers-which-works">Free vs Paid Testers: Which Actually Works?</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Should you pay for testing services or hunt for free testers on Reddit? We break down the pros, cons, and hidden risks.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/free-vs-paid-testers-which-works" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <span class="brand-logo" aria-hidden="true">12</span>
+          <span>12Testers14Days</span>
+        </a>
+        <p>Professional Google Play closed testing service. 12 real testers in 24 hours.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#how-it-works">How it works</a></li>
+          <li><a href="/#features">Features</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog/">Guides</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="mailto:support@12-testers-for-14-days.github.io">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024–2026 12Testers14Days. All rights reserved.</span>
+      <span>Made for Android developers · Not affiliated with Google LLC.</span>
+    </div>
+  </div>
+</footer>
 
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Updates</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/google-play-20-testers-vs-12-testers-difference">20 Testers vs 12 Testers: The Major Differences</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Confused by the old 20 testers rule and the new 12 testers requirement? Here is everything you need to know about the policy change.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/google-play-20-testers-vs-12-testers-difference" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Setup</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/google-play-console-closed-testing-setup">How to Setup Console Closed Testing</a>
-                    </h2>
-                    <p class="blog-card-excerpt">A beginner-friendly walkthrough for configuring your first closed testing track, adding emails, and opting-in testers.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/google-play-console-closed-testing-setup" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Security</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/how-to-verify-real-testers-not-bots">How to Verify You Have Real Testers (Not Bots)</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Protect your developer account from bans. Learn how to verify your testers are real humans before Google rejects you.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/how-to-verify-real-testers-not-bots" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <span class="blog-category">Warning Guide</span>
-                    <h2 class="blog-card-title">
-                        <a href="https://12-testers-for-14-days.github.io/blog/why-google-rejects-apps-12-testers-mistakes">Why Google Rejects Apps: 12 Testers Mistakes</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Discover the critical mistakes that get apps rejected during Google Play's 12 testers requirement and how to pass on your first attempt.</p>
-                    <a href="https://12-testers-for-14-days.github.io/blog/why-google-rejects-apps-12-testers-mistakes" class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-        </section>
-    </main>
-
-    <section class="pricing-footer" id="pricing">
-        <div class="pricing-container">
-            <div class="pricing-header">
-                <h2>Get 12 Real Testers - 100% Approval Guarantee</h2>
-                <p>Slide to select number of apps. Price drops automatically with volume.</p>
-            </div>
-
-            <div class="slider-wrapper">
-                <div class="slider-header">
-                    <div>
-                        <span id="appCountDisplay" class="app-count">1</span>
-                        <span class="app-label">App(s)</span>
-                    </div>
-                    <div class="price-display">
-                        <div class="total-price">$<span id="totalPriceDisplay">39</span></div>
-                        <div class="price-per-app">$<span id="perAppPriceDisplay">39</span> per app</div>
-                    </div>
-                </div>
-
-                <input type="range" id="appSlider" min="1" max="10" value="1" step="1">
-                
-                <div class="slider-labels">
-                    <span>1 App</span>
-                    <span class="highlight">Max Discount at 10 Apps</span>
-                    <span>10 Apps</span>
-                </div>
-
-                <div style="text-align: center; margin-top: 10px;">
-                    <span id="savingsBadge" class="savings-badge">Save 0%</span>
-                </div>
-            </div>
-
-            <form id="orderForm" class="order-form" action="https://formsubmit.co/ssbasemaker@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_subject" value="New Order: 12 Testers for 14 Days">
-                <input type="hidden" name="_next" value="https://12-testers-for-14-days.github.io/thank-you.html">
-                
-                <input type="hidden" name="Number_of_Apps" id="inputApps">
-                <input type="hidden" name="Total_Price" id="inputPrice">
-                <input type="hidden" name="Price_Per_App" id="inputPerApp">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">Your Name *</label>
-                        <input type="text" name="Name" class="form-input" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email Address *</label>
-                        <input type="email" name="Email" class="form-input" placeholder="john@example.com" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">App Link / Package Name *</label>
-                        <input type="text" name="App_Link" class="form-input" placeholder="com.yourcompany.app" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">WhatsApp (Optional)</label>
-                        <input type="text" name="WhatsApp" class="form-input" placeholder="+92 347 2061598">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-submit">
-                    <i class="fa-solid fa-paper-plane"></i> Let's Go - Send Request
-                </button>
-                
-                <p class="form-note">
-                    <i class="fa-solid fa-lock"></i> You will receive a payment link via email shortly.
-                </p>
-            </form>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fa-brands fa-android"></i> 12 Testers for 14 Days
-            </div>
-            <p>Professional Google Play Console Closed Testing Service</p>
-            <div class="footer-links">
-                <a href="https://12-testers-for-14-days.github.io">Home</a>
-                <a href="https://12-testers-for-14-days.github.io#pricing">Pricing</a>
-                <a href="https://12-testers-for-14-days.github.io/blog">Blog</a>
-                <a href="mailto:ssbasemaker@gmail.com">Contact</a>
-                <a href="https://wa.me/923472061598">WhatsApp</a>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 12 Testers for 14 Days. All rights reserved.</p>
-                <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">
-                    Helping developers meet Google Play's 12 testers for 14 days requirement since 2021.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // --- PRICING SLIDER LOGIC ---
-        const slider = document.getElementById('appSlider');
-        const appCountDisplay = document.getElementById('appCountDisplay');
-        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
-        const perAppPriceDisplay = document.getElementById('perAppPriceDisplay');
-        const savingsBadge = document.getElementById('savingsBadge');
-        const orderForm = document.getElementById('orderForm');
-        
-        const inputApps = document.getElementById('inputApps');
-        const inputPrice = document.getElementById('inputPrice');
-        const inputPerApp = document.getElementById('inputPerApp');
-
-        function calculatePrice(apps) {
-            let pricePerApp = 39;
-            
-            if (apps >= 10) pricePerApp = 15;
-            else if (apps >= 7) pricePerApp = 18;
-            else if (apps >= 5) pricePerApp = 22;
-            else if (apps >= 3) pricePerApp = 28;
-            else if (apps >= 2) pricePerApp = 34;
-            
-            const total = apps * pricePerApp;
-            const originalTotal = apps * 39;
-            const savings = originalTotal - total;
-            const savingsPercent = Math.round(((39 - pricePerApp) / 39) * 100);
-
-            return { total, pricePerApp, savings, savingsPercent };
-        }
-
-        function updatePricing() {
-            const apps = parseInt(slider.value);
-            const pricing = calculatePrice(apps);
-
-            appCountDisplay.textContent = apps;
-            totalPriceDisplay.textContent = pricing.total;
-            perAppPriceDisplay.textContent = pricing.pricePerApp;
-
-            if (pricing.savingsPercent > 0) {
-                savingsBadge.textContent = `Save ${pricing.savingsPercent}% ($${pricing.savings})`;
-                savingsBadge.classList.add('visible');
-            } else {
-                savingsBadge.classList.remove('visible');
-            }
-
-            inputApps.value = apps;
-            inputPrice.value = `$${pricing.total}`;
-            inputPerApp.value = `$${pricing.pricePerApp}`;
-
-            if (!orderForm.classList.contains('active')) {
-                orderForm.classList.add('active');
-            }
-        }
-
-        slider.addEventListener('input', updatePricing);
-        updatePricing();
-    </script>
+<script src="/js/main.js" defer></script>
 </body>
 </html>
