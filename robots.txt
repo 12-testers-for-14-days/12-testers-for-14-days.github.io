@@ -1,4 +1,5 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
+Allow: /
+Disallow: /assets/_*
 Sitemap: https://12-testers-for-14-days.github.io/sitemap.xml
+Crawl-delay: 1
