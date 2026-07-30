@@ -1,0 +1,15 @@
+/* TEAM */
+  12Testers14Days — Indie developer collective
+  Built with care for Android developers worldwide.
+
+/* SITE */
+  Last update: 2026/07/01
+  Language: English (en-US)
+  Doctype: HTML5
+  Standards: W3C CSS, ES2022 JavaScript
+  Components: HTML, CSS, JavaScript (no frameworks)
+  Performance: <30KB CSS, <3KB JS, all images optimized
+
+/* THANKS */
+  Google — for creating the most accessible app store on the planet
+  Android developers — for shipping amazing apps every day
