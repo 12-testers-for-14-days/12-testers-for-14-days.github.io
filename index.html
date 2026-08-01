@@ -86,15 +86,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 /* Header */
 .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
 .header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); }
+.brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); flex-shrink: 0; }
 .brand-icon { width: 32px; height: 32px; background: #0f172a; color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; }
 .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--primary); border: 2px solid #fff; border-radius: 50%; }
 .nav-links { display: flex; gap: 2rem; }
-.nav-links a { position: relative; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
+.nav-links a { position: relative; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; white-space: nowrap; }
 .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: var(--primary); transition: right 0.25s ease; }
 .nav-links a:hover { color: var(--text-main); }
 .nav-links a:hover::after { right: 0; }
-.header-actions { display: flex; align-items: center; gap: 1rem; }
+.header-actions { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition), background var(--transition); border: none; font-family: var(--font-sans); }
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
@@ -108,7 +108,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
  
 /* Language dropdown (header) */
 .lang-dropdown { position: relative; }
-.lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-main); font-family: var(--font-sans); transition: border-color var(--transition), color var(--transition); }
+.lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-main); font-family: var(--font-sans); transition: border-color var(--transition), color var(--transition); white-space: nowrap; }
 .lang-select:hover { border-color: var(--primary); color: var(--primary); }
 .lang-select svg { transition: transform var(--transition); }
 .lang-select[aria-expanded="true"] svg { transform: rotate(180deg); }
@@ -119,7 +119,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .lang-option[aria-current="true"] { background: var(--primary-light); color: var(--primary-hover); font-weight: 600; }
  
 /* Mobile nav toggle */
-.nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; align-items: center; justify-content: center; }
+.nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; align-items: center; justify-content: center; flex-shrink: 0; }
 .nav-toggle svg { width: 20px; height: 20px; color: var(--text-main); }
  
 /* Hero Area */
@@ -151,26 +151,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .video-mockup { position: relative; max-width: 320px; margin: 0 auto; background: #000; border-radius: 40px; padding: 10px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border: 2px solid #333; transition: transform var(--transition); }
 .video-mockup:hover { transform: translateY(-4px); }
 .video-mockup .notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 120px; height: 25px; background: #000; border-radius: 0 0 15px 15px; z-index: 2; }
-.video-mockup img { border-radius: 30px; opacity: 0.8; }
-.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: #fff; border-radius: 50%; display: grid; place-items: center; cursor: pointer; box-shadow: var(--shadow-lg); z-index: 3; transition: transform var(--transition); }
-.play-btn:hover { transform: translate(-50%, -50%) scale(1.08); }
-.play-btn svg { width: 24px; height: 24px; fill: #000; margin-left: 4px; }
 .video-meta { font-size: 0.75rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 2rem; }
  
 /* Timeline (How it works) */
 .timeline-sec h2 { font-size: 3rem; text-align: center; margin-bottom: 1rem; }
 .timeline-sec p.lead { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
 .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
-.timeline::before { content: ''; position: absolute; top: 14px; left: 0; right: 0; height: 2px; background: var(--primary); z-index: 0; }
-.timeline-step { position: relative; z-index: 1; background: var(--bg-page); padding-top: 2rem; transition: transform var(--transition); }
+.timeline::before { content: ''; position: absolute; top: 24px; left: 0; right: 0; height: 2px; background: var(--primary); z-index: 0; }
+.timeline-step { position: relative; z-index: 1; background: var(--bg-page); padding-top: 2rem; transition: transform var(--transition); text-align: center; }
 .timeline-step:hover { transform: translateY(-4px); }
+.timeline-icon { width: 48px; height: 48px; background: var(--bg-page); border: 2px solid var(--primary); color: var(--primary); border-radius: 50%; display: grid; place-items: center; margin: 0 auto 1rem; position: relative; z-index: 2; }
+.step-final .timeline-icon { background: var(--primary); color: #fff; }
 .timeline-badge { display: inline-block; background: #fff; border: 1px solid var(--border); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 1rem; position: relative; }
-.timeline-badge::before { content: ''; position: absolute; top: -2rem; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: #fff; border: 2px solid var(--primary); border-radius: 50%; }
 .step-final .timeline-badge { background: var(--primary); color: #fff; border-color: var(--primary); }
-.step-final .timeline-badge::before { background: var(--primary); }
 .timeline-step h3 { font-size: 1.25rem; margin-bottom: 1rem; }
 .timeline-step p { font-size: 0.95rem; margin-bottom: 1.5rem; }
-.step-meta { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); display: flex; align-items: center; gap: 0.5rem; }
+.step-meta { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 .step-meta span { color: var(--primary); }
  
 /* Compare Section */
@@ -313,14 +309,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: 0.5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: var(--shadow); }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
   .nav-links a::after { display: none; }
   .nav-toggle { display: flex; }
-}
-@media (max-width: 1024px) {
   .chapters-layout { grid-template-columns: 1fr; }
   .chapters-sidebar { position: static; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; max-height: none; }
   .timeline { grid-template-columns: 1fr; gap: 3rem; }
@@ -448,11 +442,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
  
     <div class="avatars-wrap">
       <div class="avatars">
-        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23cbd5e1' width='100' height='100'/%3E%3Ccircle fill='%2394a3b8' cx='50' cy='40' r='20'/%3E%3Cpath fill='%2394a3b8' d='M20 100c0-20 15-35 30-35s30 15 30 35H20z'/%3E%3C/svg%3E" alt="User" width="40" height="40">
-        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23e2e8f0' width='100' height='100'/%3E%3Ccircle fill='%23cbd5e1' cx='50' cy='40' r='20'/%3E%3Cpath fill='%23cbd5e1' d='M20 100c0-20 15-35 30-35s30 15 30 35H20z'/%3E%3C/svg%3E" alt="User" width="40" height="40">
-        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f1f5f9' width='100' height='100'/%3E%3Ccircle fill='%2394a3b8' cx='50' cy='40' r='20'/%3E%3Cpath fill='%2394a3b8' d='M20 100c0-20 15-35 30-35s30 15 30 35H20z'/%3E%3C/svg%3E" alt="User" width="40" height="40">
-        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23cbd5e1' width='100' height='100'/%3E%3Ccircle fill='%2364748b' cx='50' cy='40' r='20'/%3E%3Cpath fill='%2364748b' d='M20 100c0-20 15-35 30-35s30 15 30 35H20z'/%3E%3C/svg%3E" alt="User" width="40" height="40">
-        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23e2e8f0' width='100' height='100'/%3E%3Ccircle fill='%2394a3b8' cx='50' cy='40' r='20'/%3E%3Cpath fill='%2394a3b8' d='M20 100c0-20 15-35 30-35s30 15 30 35H20z'/%3E%3C/svg%3E" alt="User" width="40" height="40">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" width="40" height="40">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" width="40" height="40">
+        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="User" width="40" height="40">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User" width="40" height="40">
+        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User" width="40" height="40">
         <div class="avatar-count">+2.9k</div>
       </div>
       <div class="trust-stars">
@@ -490,15 +484,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       </a>
     </div>
  
-    <div class="video-mockup">
+    <div class="video-mockup" style="padding: 10px;">
       <div class="notch"></div>
-      <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Crect fill='%231e293b' width='300' height='600'/%3E%3Ctext x='150' y='300' font-family='sans-serif' font-size='20' fill='%2394a3b8' text-anchor='middle'%3EVideo Placeholder%3C/text%3E%3C/svg%3E" alt="Video review mockup" />
-      <div class="play-btn">
-        <svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
-      </div>
-      <div style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; color: white; font-weight: 600; font-size: 1.1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-        "switch the camera first.<br>Well, as you..."
-      </div>
+      <iframe width="100%" height="580" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 30px; display: block; position: relative; z-index: 1;"></iframe>
     </div>
   </div>
 </section>
@@ -512,19 +500,28 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
  
     <div class="timeline">
       <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
         <div class="timeline-badge">DAY 0</div>
         <h3>Order and add our testers</h3>
         <p>Check out in two minutes with just your email. We send your tester list right away; paste it into Play Console and share your test link with us.</p>
         <div class="step-meta">Your part: <span>~7 Minutes</span></div>
       </div>
       <div class="timeline-step">
+        <div class="timeline-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
         <div class="timeline-badge">DAYS 1-14</div>
         <h3>Real people test daily</h3>
         <p>12+ verified testers install your app on real Android devices and use it every day, exactly the 12 testers for 14 days Google checks for. You watch live.</p>
         <div class="step-meta">Your part: <span>Nothing</span></div>
       </div>
       <div class="timeline-step step-final">
-        <div class="timeline-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-bottom:-2px;"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="timeline-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="timeline-badge">DAY 15</div>
         <h3 style="color:var(--primary);">Apply and go live</h3>
         <p>Request production access and answer Google's short questionnaire. We hand you proven answers, and if Google pushes back, we retest free.</p>
         <div class="step-meta">Your part: <span>One Form</span></div>

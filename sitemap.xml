@@ -1,149 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Homepage -->
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://12-testers-for-14-days.github.io/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://12-testers-for-14-days.github.io/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://12-testers-for-14-days.github.io/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://12-testers-for-14-days.github.io/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://12-testers-for-14-days.github.io/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://12-testers-for-14-days.github.io/pt/" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://12-testers-for-14-days.github.io/ar/" />
-    <xhtml:link rel="alternate" hreflang="hi" href="https://12-testers-for-14-days.github.io/hi/" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://12-testers-for-14-days.github.io/id/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://12-testers-for-14-days.github.io/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://12-testers-for-14-days.github.io/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://12-testers-for-14-days.github.io/zh/" />
-  </url>
-
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/about/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Blog index -->
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Blog posts -->
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/google-play-14-day-closed-testing-guide/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/personal-vs-organization-google-play-account/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/how-to-invite-testers-google-play-closed-testing/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/google-play-internal-vs-closed-vs-open-testing/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/why-google-play-closed-testing-rejected/</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-    <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/14-days-not-counting-fix-timeline/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/after-14-days-apply-production-access/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/best-12-testers-services-compared-reviewed/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/buy-android-app-testers/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/cant-find-12-testers-ways-to-get-testers/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/free-vs-paid-testers-which-works/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/google-play-20-testers-vs-12-testers-difference/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/google-play-console-closed-testing-requirements-2026/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/google-play-console-closed-testing-setup/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/google-play-console-testing-service/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/how-to-verify-real-testers-not-bots/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://12-testers-for-14-days.github.io/blog/why-google-rejects-apps-12-testers-mistakes/</loc>
-    <lastmod>2026-05-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://your-website-url.com/</loc>
+<lastmod>2026-08-01T16:54:27+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/4c6908f5-6572-4b22-9556-9c945968ad32.html</loc>
+<lastmod>2026-03-28T19:10:57+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/index (1).html</loc>
+<lastmod>2026-04-11T17:08:26+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/thank-you.html</loc>
+<lastmod>2026-02-19T17:14:45+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/android-app-testing-service/</loc>
+<lastmod>2026-08-01T20:32:18+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/</loc>
+<lastmod>2026-07-31T17:54:24+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/pricing/</loc>
+<lastmod>2026-08-01T16:15:27+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/</loc>
+<lastmod>2026-07-31T19:48:27+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/14-days-not-counting-fix-timeline/</loc>
+<lastmod>2026-07-31T20:03:18+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/after-14-days-apply-production-access/</loc>
+<lastmod>2026-07-31T20:21:00+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/best-12-testers-services-compared-reviewed/</loc>
+<lastmod>2026-07-31T20:23:21+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/buy-android-app-testers/</loc>
+<lastmod>2026-08-01T13:57:08+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/cant-find-12-testers-ways-to-get-testers/</loc>
+<lastmod>2026-08-01T13:59:39+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/free-vs-paid-testers-which-works/</loc>
+<lastmod>2026-08-01T14:02:23+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/google-play-14-day-closed-testing-guide/</loc>
+<lastmod>2026-08-01T14:08:18+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/google-play-20-testers-vs-12-testers-difference/</loc>
+<lastmod>2026-08-01T14:10:59+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/google-play-console-closed-testing-requirements-2026/</loc>
+<lastmod>2026-08-01T14:17:12+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/google-play-console-closed-testing-setup/</loc>
+<lastmod>2026-08-01T14:20:37+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/google-play-console-testing-service/</loc>
+<lastmod>2026-08-01T14:23:24+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/google-play-internal-vs-closed-vs-open-testing/</loc>
+<lastmod>2026-08-01T14:39:17+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/how-to-invite-testers-google-play-closed-testing/</loc>
+<lastmod>2026-08-01T14:47:00+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/how-to-verify-real-testers-not-bots/</loc>
+<lastmod>2026-08-01T14:51:38+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/personal-vs-organization-google-play-account/</loc>
+<lastmod>2026-08-01T14:56:16+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/why-google-play-closed-testing-rejected/</loc>
+<lastmod>2026-08-01T15:05:05+05:00</lastmod>
+</url>
+<url>
+<loc>https://your-website-url.com/blog/why-google-rejects-apps-12-testers-mistakes/</loc>
+<lastmod>2026-08-01T15:08:02+05:00</lastmod>
+</url>
 </urlset>
