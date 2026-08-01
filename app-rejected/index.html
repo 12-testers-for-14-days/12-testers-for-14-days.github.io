@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: dark)" />
+    
+    <!-- Deep SEO Meta Tags -->
+    <title>Fix "More testing required to access Google Play Production" | 12Testers14Days</title>
+    <meta name="description" content="Did Google Play reject your app with 'more testing required'? Learn exactly why your closed test failed and follow our step-by-step guide to fix it, pass the 14-day requirement, and get production access.">
+    <meta name="keywords" content="more testing required to access google play production, google play closed testing rejected, insufficient testing activity google play, how to fix google play testing rejection, google play production access denied, 14 days closed testing failed, google play production questionnaire answers">
+    <meta name="author" content="12Testers14Days">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           Global CSS & Design System (Maintained 100% Consistency)
+           ========================================================= */
+        :root {
+          --bg-page: #ffffff;
+          --bg-hero: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+          --bg-alt: #f8fafc;
+          --bg-dark: #0b1120;
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --primary-onDark: #2dd4bf;
+          --whatsapp: #25d366;
+          --danger: #ef4444;
+          --danger-light: #fee2e2;
+          --warning: #f59e0b;
+          --border: #e2e8f0;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          --radius: 12px;
+          --radius-lg: 20px;
+          --transition: 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.7; font-size: 16px; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+        ul, ol { margin: 0; padding: 0; list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 5rem 0; }
+        .text-center { text-align: center; }
+
+        /* Header */
+        .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); flex-shrink: 0; }
+        .brand-icon { width: 32px; height: 32px; background: #0f172a; color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--primary); border: 2px solid #fff; border-radius: 50%; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { position: relative; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; white-space: nowrap; }
+        .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: var(--primary); transition: right 0.25s ease; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { right: 0; }
+        .header-actions { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all var(--transition); border: none; font-family: var(--font-sans); font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
+        .btn-outline { border: 1px solid var(--border); background: #fff; color: var(--text-main); }
+        .btn-outline:hover { background: var(--bg-alt); border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .btn-whatsapp { background: var(--whatsapp); color: #fff; border-radius: 99px; }
+        .btn-whatsapp:hover { background: #1fb959; transform: translateY(-2px); box-shadow: var(--shadow); }
+        .btn-block { width: 100%; }
+        .lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-main); }
+
+        /* Guide Hero */
+        .guide-hero { background: var(--bg-alt); padding: 5rem 0; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .hero-badge { display: inline-block; background: var(--danger-light); color: var(--danger); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); margin-bottom: 1.5rem; }
+        .guide-hero h1 { font-size: clamp(2.5rem, 4vw, 4rem); max-width: 900px; margin-bottom: 1.5rem; line-height: 1.15; }
+        .guide-hero p.lead { font-size: 1.125rem; color: var(--text-muted); max-width: 700px; margin-bottom: 2rem; }
+        .hero-author { display: flex; align-items: center; gap: 1rem; font-size: 0.95rem; color: var(--text-muted); }
+        .hero-author img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #fff; box-shadow: var(--shadow-sm); }
+        
+        .hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .rejection-mockup { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-xl); position: relative; transform: rotate(2deg); }
+        .rejection-mockup::before { content: '!'; position: absolute; top: -15px; right: -15px; width: 40px; height: 40px; background: var(--danger); color: #fff; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 1.5rem; font-family: var(--font-display); box-shadow: var(--shadow); }
+        .mock-header { font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; }
+        .mock-body h4 { color: var(--danger); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .mock-body p { font-size: 0.85rem; line-height: 1.5; color: var(--text-main); margin-bottom: 1rem; }
+
+        /* Split Layout for Long Form Content */
+        .article-layout { display: grid; grid-template-columns: 300px 1fr; gap: 4rem; padding: 4rem 0; align-items: start; }
+        
+        /* Sticky Sidebar TOC */
+        .toc-sidebar { position: sticky; top: 100px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+        .toc-sidebar h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono); }
+        .toc-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .toc-list a { color: var(--text-muted); font-size: 0.95rem; padding: 0.5rem 0.75rem; border-radius: 6px; transition: all var(--transition); font-weight: 500; }
+        .toc-list a:hover { background: var(--bg-alt); color: var(--primary); }
+        .toc-list a.active { background: var(--primary-light); color: var(--primary-hover); font-weight: 600; }
+
+        /* Article Content Typography */
+        .guide-content { max-width: 850px; font-size: 1.125rem; color: var(--text-main); line-height: 1.8; }
+        .guide-content h2 { font-size: 2.25rem; margin: 4rem 0 1.5rem; scroll-margin-top: 100px; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        .guide-content h3 { font-size: 1.5rem; margin: 2.5rem 0 1rem; }
+        .guide-content p { margin-bottom: 1.5rem; color: var(--text-muted); }
+        .guide-content strong { color: var(--text-main); }
+        
+        .guide-content ul.standard-list { list-style: disc; margin: 0 0 2rem 2rem; color: var(--text-muted); }
+        .guide-content ul.standard-list li { margin-bottom: 0.75rem; }
+
+        /* Info & Alert Boxes */
+        .info-box { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 1.5rem 2rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 2.5rem 0; }
+        .info-box h4 { color: var(--primary-hover); margin-bottom: 0.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .info-box p { color: var(--text-main); margin: 0; font-size: 1rem; }
+        
+        .alert-box { background: var(--danger-light); border-left: 4px solid var(--danger); padding: 1.5rem 2rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 2.5rem 0; }
+        .alert-box h4 { color: #b91c1c; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .alert-box p { color: var(--text-main); margin: 0; font-size: 1rem; }
+
+        /* The 3 Reasons Grid */
+        .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3rem 0; }
+        .reason-card { background: #fff; border: 1px solid var(--border); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+        .reason-icon { width: 48px; height: 48px; background: var(--bg-alt); border-radius: 50%; display: grid; place-items: center; margin-bottom: 1.5rem; color: var(--danger); }
+        .reason-card h4 { font-size: 1.25rem; margin-bottom: 1rem; }
+        .reason-card p { font-size: 0.95rem; margin: 0; }
+
+        /* Step by Step Fix Box */
+        .fix-box { background: #0f172a; color: #fff; padding: 3rem; border-radius: var(--radius-lg); margin: 3rem 0; position: relative; overflow: hidden; }
+        .fix-box h3 { color: #fff; margin-bottom: 1rem; border: none; }
+        .fix-box p { color: #94a3b8; margin-bottom: 2rem; }
+        .fix-steps { display: flex; flex-direction: column; gap: 1.5rem; position: relative; z-index: 2; }
+        .fix-step { display: flex; gap: 1.5rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.1); }
+        .step-num { width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-family: var(--font-mono); flex-shrink: 0; }
+        .step-content h4 { color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .step-content p { color: #cbd5e1; font-size: 0.95rem; margin: 0; }
+
+        /* Questionnaire Templates */
+        .q-template { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 2rem; overflow: hidden; }
+        .q-header { background: #e2e8f0; padding: 1rem 1.5rem; font-weight: 600; color: var(--text-main); font-size: 0.95rem; display: flex; gap: 0.5rem; align-items: flex-start; }
+        .q-header svg { flex-shrink: 0; margin-top: 3px; color: var(--primary); }
+        .q-body { padding: 1.5rem; }
+        .q-bad { border-left: 3px solid var(--danger); padding-left: 1rem; margin-bottom: 1.5rem; }
+        .q-bad span { display: block; font-size: 0.75rem; font-weight: 700; color: var(--danger); text-transform: uppercase; margin-bottom: 0.25rem; font-family: var(--font-mono); }
+        .q-bad p { font-size: 0.95rem; color: var(--text-muted); margin: 0; font-style: italic; }
+        .q-good { border-left: 3px solid var(--primary); padding-left: 1rem; background: #fff; padding: 1rem; border-radius: 0 8px 8px 0; box-shadow: var(--shadow-sm); }
+        .q-good span { display: block; font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font-mono); }
+        .q-good p { font-size: 0.95rem; color: var(--text-main); margin: 0; }
+
+        /* Compare Images */
+        .compare-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
+        .img-card { background: #fff; border: 1px solid var(--border); padding: 1rem; border-radius: var(--radius); text-align: center; }
+        .img-card img { width: 100%; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1rem; }
+        .img-card span { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .img-card.bad span { color: var(--danger); }
+        .img-card.good span { color: var(--primary); }
+
+        /* Pricing (Imported from homepage) */
+        .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .price-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; position: relative; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
+        .price-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .price-card.featured { border: 2px solid var(--primary); box-shadow: var(--shadow-lg); }
+        .price-name { font-weight: 700; color: var(--primary); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+        .price-amount { font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+        .price-amount small { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+        .price-desc { font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-muted); }
+        .price-features { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+        .price-features li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: var(--text-main); font-weight: 500; }
+        .price-features li svg { color: var(--primary); }
+        
+        .card-risk { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 20px; }
+
+        /* FAQ (Imported from homepage structure) */
+        .faq-grid { max-width: 900px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+        .faq-item { border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
+        .faq-item summary.faq-q { padding: 1.35rem 1.5rem; font-weight: 600; color: var(--text-main); font-size: 1.02rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; gap: 1rem; transition: color var(--transition); }
+        .faq-item summary.faq-q:hover { color: var(--primary); }
+        .faq-q::-webkit-details-marker { display: none; }
+        .faq-q::after { content: '+'; font-size: 1.5rem; color: var(--primary); font-weight: 400; transition: transform 0.2s ease; flex-shrink: 0; }
+        .faq-item details[open] .faq-q::after { content: '−'; }
+        .faq-a { padding: 0 1.5rem 1.35rem; color: var(--text-muted); line-height: 1.7; font-size: 0.98rem; }
+
+        /* Dark Pre-Footer & Footer (Exact Match) */
+        .dark-footer { background: #0b1120; color: #94a3b8; position: relative; overflow: hidden; padding-top: 6rem; margin-top: 5rem; }
+        .pre-footer { text-align: center; max-width: 800px; margin: 0 auto 5rem; position: relative; z-index: 10; }
+        .pre-footer .eyebrow { color: var(--primary-onDark); display:block; margin-bottom:1rem; font-weight:700; letter-spacing:0.1em; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;}
+        .pre-footer h2 { font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; margin-bottom: 1.5rem; }
+        .pre-footer p { margin-bottom: 2rem; font-size: 1.125rem; }
+        .pre-footer .actions { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .pre-footer .meta-links { font-family: var(--font-mono); font-size: 0.75rem; color: #64748b; letter-spacing: 0.05em; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding: 0 0 4rem; position: relative; z-index: 10; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; padding-top: 4rem;}
+        .footer-brand { color: #fff; }
+        .footer-brand p { margin: 1.5rem 0; font-size: 0.95rem; max-width: 300px; line-height: 1.6; }
+        .footer-contact { font-family: var(--font-sans); font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.75rem; color: #cbd5e1; }
+        .footer-contact a { color: #cbd5e1; transition: color var(--transition); display: flex; align-items: center; gap: 0.5rem; }
+        .footer-contact a:hover { color: var(--primary-onDark); }
+        .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1.5rem; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 1rem; margin:0; padding:0; }
+        .footer-col a { color: #cbd5e1; font-size: 0.95rem; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; font-size: 0.85rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-watermark { position: absolute; bottom: -5%; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 15vw; font-weight: 800; color: rgba(255,255,255,0.02); white-space: nowrap; z-index: 1; pointer-events: none; }
+
+        @media (max-width: 1024px) {
+            .hero-split, .article-layout { grid-template-columns: 1fr; }
+            .toc-sidebar { position: static; margin-bottom: 2rem; }
+            .pricing { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 768px) {
+            .reasons-grid { grid-template-columns: 1fr; }
+            .compare-img-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <div class="brand-icon">12</div>
+                12 testers for 14 days
+            </a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="/blog/">Guides</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-select">🇬🇧 EN</div>
+                <a href="/order" class="btn btn-primary">Get started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="guide-hero">
+        <div class="container hero-split">
+            <div>
+                <span class="hero-badge">App Rejected</span>
+                <h1>More testing required to access Google Play Production — How to Fix it</h1>
+                <p class="lead">You waited 14 days, applied for production, and Google hit you with a rejection email. Here is exactly why it happened, what the algorithm flagged, and the step-by-step process to fix it so you never get rejected again.</p>
+                <div class="hero-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
+                    <div>
+                        <strong>Written by Nabeel Saleem</strong><br>
+                        <span>Updated: August 2, 2026 • 12 Min Read</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rejection-mockup">
+                <div class="mock-header">
+                    <span>Google Play Console</span>
+                    <span>Inbox</span>
+                </div>
+                <div class="mock-body">
+                    <h4>Production access not granted</h4>
+                    <p><strong>App status:</strong> More testing required.</p>
+                    <p>Reviewers found that your app did not have sufficient testing activity to justify granting production access. To resolve this issue, you must run a new closed test with a minimum of 12 testers opted-in continuously for 14 days.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 1rem;">Go to Play Console →</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <section class="container article-layout">
+        
+        <!-- TOC Sidebar -->
+        <aside class="toc-sidebar">
+            <h3>Table of Contents</h3>
+            <nav class="toc-list" id="toc">
+                <a href="#meaning" class="active">1. What does this message mean?</a>
+                <a href="#reasons">2. The 3 reasons Google rejected you</a>
+                <a href="#fix">3. How to fix it before you reapply</a>
+                <a href="#questionnaire">4. Strong questionnaire templates</a>
+                <a href="#examples">5. Real examples: Rejected vs Approved</a>
+                <a href="#pricing">6. The Guaranteed Solution</a>
+                <a href="#faq">7. Rejection FAQ</a>
+            </nav>
+        </aside>
+
+        <!-- Guide Content -->
+        <article class="guide-content">
+            
+            <h2 id="meaning">1. What does the "More testing required" message actually mean?</h2>
+            <p>If you received the dreaded email stating <strong>"More testing required to access Google Play Production,"</strong> it means your app failed the behavioral audit during your 14-day closed test. It does not necessarily mean your app's code is bad, nor does it mean you violated a major content policy. It means Google's automated systems (and manual reviewers) looked at <em>how</em> your 12 testers interacted with your app and determined the data looked artificial, insufficient, or incomplete.</p>
+            
+            <p>In November 2023, Google fundamentally changed how personal developer accounts publish apps. The rule is strictly "12 testers opted-in continuously for 14 days." However, what Play Console doesn't explicitly state on the dashboard is that <strong>opt-ins are not enough</strong>. Having 12 people install your app on Day 1 and never open it again will technically unlock the "Apply for Production" button on Day 15, but it guarantees a rejection upon manual review.</p>
+
+            <div class="info-box">
+                <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> The Golden Rule of Closed Testing</h4>
+                <p>Google evaluates the *depth* of testing, not just the duration. They monitor session lengths, crash rates (ANRs), device diversity, and daily active user (DAU) metrics across the entire 14-day period.</p>
+            </div>
+
+            <h2 id="reasons">2. The 3 core reasons Google rejected your app</h2>
+            <p>When analyzing over 7,000 app submissions, we found that 95% of "insufficient testing" rejections boil down to one of three critical failures in the developer's testing strategy.</p>
+
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h4>1. Zero Daily Engagement</h4>
+                    <p>You asked friends or a Reddit group to test your app. They installed it on Day 1, opened it for 30 seconds, and never touched it again. Google sees a 0% retention rate and flags the test as invalid.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    </div>
+                    <h4>2. The Count Dropped Below 12</h4>
+                    <p>Play Console requires a continuous 14-day streak. If one of your testers uninstalled the app or opted out on Day 10, your active count dropped to 11. Even if you added someone new on Day 11, the continuous streak was broken.</p>
+                </div>
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l2-9 5 18 3-10h6"/></svg>
+                    </div>
+                    <h4>3. Bot Farms & Emulators</h4>
+                    <p>You paid a $5 Fiverr gig for "20 testers". These providers use Android Studio emulators, rooted devices, and scripted bots. The <em>Play Integrity API</em> detects these immediately, resulting in a swift rejection and a potential strike on your developer account.</p>
+                </div>
+            </div>
+
+            <h2 id="fix">3. How to fix it before you reapply</h2>
+            <p>If you have received the rejection, <strong>do not just click re-apply immediately</strong>. Doing so without running a fresh, legitimate test will result in a second rejection, and Google takes secondary rejections much more seriously.</p>
+            <p>You must run a brand new 14-day cycle. Here is the exact blueprint to ensure your next application is approved seamlessly.</p>
+
+            <div class="fix-box">
+                <h3>The 14-Day Recovery Blueprint</h3>
+                <p>Follow these steps to generate the testing data Google actually wants to see.</p>
+                
+                <div class="fix-steps">
+                    <div class="fix-step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>Build a Buffer (Get 15-20 Testers)</h4>
+                            <p>Do not aim for exactly 12 testers. Humans are unpredictable. Aim for 15 to 20 testers so that if 2 or 3 people lose their phones or uninstall the app, your core count of 12 remains unbroken.</p>
+                        </div>
+                    </div>
+                    <div class="fix-step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>Enforce Daily Active Sessions</h4>
+                            <p>You need your testers to open the app for at least 1-3 minutes every single day. They need to click buttons, navigate menus, and generate actual analytics data in the Play Console backend.</p>
+                        </div>
+                    </div>
+                    <div class="fix-step">
+                        <div class="step-content">
+                            <div style="background: var(--primary); padding: 1.5rem; border-radius: 8px; margin-top: 0.5rem;">
+                                <h4 style="color: #fff; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Don't want to chase people for 14 days?
+                                </h4>
+                                <p style="color: #ccfbf1; font-size: 0.95rem; margin-bottom: 1rem;">Our professional service provides 12+ real, verified human testers who will generate daily, organic engagement for the full 14 days. 100% Guaranteed approval.</p>
+                                <a href="#pricing" class="btn" style="background: #fff; color: var(--primary); font-size: 0.9rem;">View pricing plans</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fix-step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>Push at least one update mid-test</h4>
+                            <p>Around Day 7, push a small update to the closed track (e.g., a minor bug fix or UI tweak). Having your testers download an update demonstrates an active feedback loop between developer and user.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="questionnaire">4. What strong questionnaire answers look like</h2>
+            <p>When the 14 days are over, Google asks you to fill out a production access questionnaire. This is where many developers fail. If you write vague answers, the manual reviewer will assume your test was fake. You must provide specific, actionable insights that prove real humans used your app.</p>
+
+            <div class="q-template">
+                <div class="q-header">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Question: How did you recruit your testers?
+                </div>
+                <div class="q-body">
+                    <div class="q-bad">
+                        <span>Rejected Answer</span>
+                        <p>"I asked my friends to install it."</p>
+                    </div>
+                    <div class="q-good">
+                        <span>Approved Answer</span>
+                        <p>"I utilized a dedicated group of 15 verified Android users who fall into my app's target demographic. We communicated via email, and they tested the app on a variety of physical hardware including Samsung S23, Google Pixel 7, and Xiaomi devices across different Android OS versions (12 through 14)."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="q-template">
+                <div class="q-header">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Question: What feedback did you receive, and what did you change?
+                </div>
+                <div class="q-body">
+                    <div class="q-bad">
+                        <span>Rejected Answer</span>
+                        <p>"The app is good, there were no bugs so I changed nothing."</p>
+                    </div>
+                    <div class="q-good">
+                        <span>Approved Answer</span>
+                        <p>"During the 14-day test, testers noted that the loading animation on the primary dashboard took too long on older devices. Based on this feedback, I optimized the image assets and reduced the payload size. I pushed version 1.0.2 to the closed track on day 8, and testers confirmed the dashboard load time improved by 40%."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <h4>Crucial Tip for the Questionnaire</h4>
+                <p>Never submit the form until your Play Console dashboard explicitly shows 14 consecutive days completed. Submitting on Day 13 and 23 hours will result in an automatic algorithmic rejection.</p>
+            </div>
+
+            <h2 id="examples">5. Real examples: Rejected vs Approved Data</h2>
+            <p>Google's backend analytics reveal the truth about your test. Below is a conceptual visualization of what Google reviewers see when evaluating your application.</p>
+
+            <div class="compare-img-grid">
+                <div class="img-card bad">
+                    <div style="height: 200px; background: var(--bg-alt); border-radius: 4px; border: 1px dashed var(--border); margin-bottom: 1rem; display: flex; align-items: flex-end; padding: 1rem; gap: 4px;">
+                        <!-- Conceptual Bar Chart -->
+                        <div style="width: 10%; height: 90%; background: var(--text-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 10%; background: var(--danger); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 5%; background: var(--danger); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 2%; background: var(--danger); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 0%; background: var(--danger); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 0%; background: var(--danger); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 0%; background: var(--danger); border-radius: 2px;"></div>
+                    </div>
+                    <span>REJECTED: Massive Drop-off</span>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Testers open the app once and never return. This simulates bot behavior or unengaged friends.</p>
+                </div>
+                <div class="img-card good">
+                    <div style="height: 200px; background: var(--bg-alt); border-radius: 4px; border: 1px dashed var(--border); margin-bottom: 1rem; display: flex; align-items: flex-end; padding: 1rem; gap: 4px;">
+                        <!-- Conceptual Bar Chart -->
+                        <div style="width: 10%; height: 80%; background: var(--primary-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 85%; background: var(--primary-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 75%; background: var(--primary-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 90%; background: var(--primary-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 80%; background: var(--primary-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 85%; background: var(--primary-light); border-radius: 2px;"></div>
+                        <div style="width: 10%; height: 95%; background: var(--primary); border-radius: 2px;"></div>
+                    </div>
+                    <span>APPROVED: Consistent Engagement</span>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Daily sessions logged across the entire 14-day window. This is what our professional service provides.</p>
+                </div>
+            </div>
+
+        </article>
+    </section>
+
+    <!-- Pricing Section (Imported exactly from homepage) -->
+    <section class="section" id="pricing" style="background: var(--bg-alt); border-top: 1px solid var(--border);">
+        <div class="container">
+            <span class="hero-badge" style="display:block; text-align:center; margin: 0 auto 1.5rem; background: var(--primary-light); color: var(--primary-hover);">The Solution</span>
+            <h2 class="text-center">Don't risk another rejection delay.</h2>
+            <p class="text-center" style="color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem;">We provide the daily engagement Google demands. Choose a plan and pass your closed test in exactly 14 days.</p>
+        
+            <div class="pricing">
+                <article class="price-card">
+                    <div class="price-name">Starter</div>
+                    <div class="price-amount">$22.99<small> / order</small></div>
+                    <p class="price-desc">Everything you need to satisfy Google's 12-tester rule.</p>
+                    <ul class="price-features">
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 12 real testers</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 14 days of testing</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% approval guarantee</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Final engagement report</li>
+                    </ul>
+                    <a href="/order" class="btn btn-outline btn-block">Get Starter</a>
+                </article>
+            
+                <article class="price-card featured">
+                    <div class="card-risk">Most Popular</div>
+                    <div class="price-name">Professional</div>
+                    <div class="price-amount">$39.99<small> / order</small></div>
+                    <p class="price-desc">More testers, more coverage, more peace of mind.</p>
+                    <ul class="price-features">
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>20 real testers</strong></li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 14 days of testing</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% approval guarantee</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> ASO report included</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Country targeting</li>
+                    </ul>
+                    <a href="/order" class="btn btn-primary btn-block">Get Professional</a>
+                </article>
+            
+                <article class="price-card">
+                    <div class="price-name">Enterprise</div>
+                    <div class="price-amount">$89.99<small> / order</small></div>
+                    <p class="price-desc">For studios shipping multiple apps or high-stakes launches.</p>
+                    <ul class="price-features">
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>30 real testers</strong></li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 14 days of testing</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Daily engagement reports</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Dedicated account manager</li>
+                    </ul>
+                    <a href="/order" class="btn btn-outline btn-block">Get Enterprise</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rejection FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <span class="hero-badge" style="display:block; text-align:center; margin: 0 auto 1.5rem; background: #e2e8f0; color: var(--text-muted); border: 1px solid var(--border);">Recovery FAQ</span>
+            <h2 class="text-center">Google Play Rejection FAQ</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem; color: var(--text-muted);">Answers to common questions about recovering from an insufficient testing strike.</p>
+
+            <div class="faq-grid">
+                <article class="faq-item">
+                    <details>
+                        <summary class="faq-q">Do I have to wait before starting a new test?</summary>
+                        <div class="faq-a">No, there is no mandated cooldown period. You can begin a new 14-day closed testing track immediately after receiving your rejection notice. Just ensure you address the engagement issues before reapplying.</div>
+                    </details>
+                </article>
+                <article class="faq-item">
+                    <details>
+                        <summary class="faq-q">Will multiple rejections ban my developer account?</summary>
+                        <div class="faq-a">Rejections for "insufficient testing" are generally considered procedural rather than policy violations. They do not typically lead to immediate account bans like malware or copyright strikes do. However, repeatedly submitting fake testing data can trigger Google's automated fraud systems.</div>
+                    </details>
+                </article>
+                <article class="faq-item">
+                    <details>
+                        <summary class="faq-q">Can I reuse the same 12 testers from my failed attempt?</summary>
+                        <div class="faq-a">Yes, but they must opt-in to a new test cycle and generate completely new engagement data for 14 consecutive days. Since they failed to engage the first time, it is highly recommended to recruit a fresh, reliable batch of testers.</div>
+                    </details>
+                </article>
+                <article class="faq-item">
+                    <details>
+                        <summary class="faq-q">If I use your service, is approval guaranteed after a prior rejection?</summary>
+                        <div class="faq-a">Yes. We specialize in recovery testing. We provide real humans who log daily sessions, creating the exact metric graph Google wants to see. If we fail to get you approved based on testing metrics, we offer a free retest or a full refund.</div>
+                    </details>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Footer CTA (Imported from homepage) -->
+    <section style="background: #0b1120; padding-top: 6rem;">
+        <div class="container pre-footer">
+            <span class="eyebrow">GOOGLE PLAY CLOSED TESTING</span>
+            <h2>Your 12 testers are ready.</h2>
+            <p style="color: #94a3b8;">Order in two minutes and testing starts within 4-6 hours.</p>
+            <div class="actions">
+                <a href="/order" class="btn btn-primary" style="border-radius: 99px; padding: 1rem 2rem; font-size: 1.1rem;">Get your 12 testers →</a>
+                <a href="mailto:ssbasemaker@gmail.com" class="btn btn-outline" style="background:transparent; color:#fff; border-color:rgba(255,255,255,0.2); border-radius: 99px; padding: 1rem 2rem; font-size: 1.1rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-onDark)" stroke-width="2" style="margin-right:0.5rem;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask a question
+                </a>
+            </div>
+            <div class="meta-links">
+                <span>From $22.99</span> · <span>No subscription</span> · <span>Money-back guarantee</span>
+            </div>
+        </div>
+
+        <!-- Trust Strip -->
+        <div class="container" style="border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 500; color: #e2e8f0; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-onDark)" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> 100% money-back guarantee</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--primary-onDark)" style="border:none;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9/5 across 2,200+ reviews</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-onDark)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Testing starts in 4-6 hours</div>
+            <div>
+                <span style="font-weight:800; font-style:italic; font-size:1.2rem; color:#fff;">PAYONEER</span>
+                <span style="font-weight:800; font-size:1.1rem; color:#6366f1; margin-left:10px;">crypto</span>
+            </div>
+        </div>
+
+        <!-- Footer Grid -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand footer-col">
+                    <a href="/" class="brand" style="color:#fff;">
+                        <div class="brand-icon">12</div>
+                        12 testers 14 days
+                    </a>
+                    <p>Google Play closed testing with real human testers. A professional Android app testing service with 7,400+ apps approved across 120+ countries since 2021.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:ssbasemaker@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> ssbasemaker@gmail.com</a>
+                        <a href="https://wa.me/923472061598" target="_blank" rel="noopener" style="color:var(--primary-onDark);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +92 3472061598</a>
+                        <span style="font-size:0.85rem; color:#475569; margin-top: 1rem; line-height: 1.5; display: block;">1111B S Governors Ave, STE 84878,<br>Dover, DE 19904, US</span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li><a href="/#compare">Google Play 12 testers</a></li>
+                        <li><a href="/#compare">Closed testing service</a></li>
+                        <li><a href="/#how-it-works">Android app testing</a></li>
+                        <li><a href="/#compare">All services</a></li>
+                        <li><a href="/#pricing">Pricing plans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="/blog/">Help Center</a></li>
+                        <li><a href="/#reviews">Case studies</a></li>
+                        <li><a href="/#how-it-works">How it works</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                        <li><a href="https://wa.me/923472061598" target="_blank" rel="noopener">Book a meeting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="/about/">About us</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                    <h4 style="margin-top: 2rem;">LEGAL</h4>
+                    <ul>
+                        <li><a href="/privacy-policy/">Privacy policy</a></li>
+                        <li><a href="/terms-conditions/">Terms and conditions</a></li>
+                        <li><a href="/refund-policy/">Refund policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 12 testers for 14 days. All rights reserved.</div>
+            </div>
+            <div class="footer-watermark">12 testers for 14 days</div>
+        </div>
+    </section>
+
+    <!-- Floating Chat Widget -->
+    <a class="chat-widget" href="https://wa.me/923472061598?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%20closed%20testing" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: var(--whatsapp); border-radius: 50%; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); z-index: 999; transition: transform var(--transition);">
+        <svg viewBox="0 0 24 24" style="fill: #fff; width: 30px; height: 30px;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.19 3.7.59.25 1.04.41 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+    </a>
+
+    <!-- Interactive Scripts -->
+    <script>
+      // Language dropdown
+      var langToggle = document.getElementById('langToggle');
+      var langMenu = document.getElementById('langMenu');
+      if (langToggle && langMenu) {
+        langToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var isOpen = langMenu.classList.toggle('open');
+          langToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        document.addEventListener('click', function(e) {
+          if (!langMenu.contains(e.target) && e.target !== langToggle) {
+            langMenu.classList.remove('open');
+            langToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Smooth scrolling for TOC
+      document.querySelectorAll('.toc-list a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('.toc-list a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+      });
+    </script>
+</body>
+</html>

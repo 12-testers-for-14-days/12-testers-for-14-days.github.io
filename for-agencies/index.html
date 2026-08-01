@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: dark)" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Agency Partners | 12 Testers for 14 Days</title>
+    <meta name="description" content="Partner with us to scale your Android app publishing. We handle the 14-day Google Play testing requirement for your entire portfolio with dedicated support and volume discounts.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           Global CSS & Design System
+           ========================================================= */
+        :root {
+          --bg-page: #ffffff;
+          --bg-hero: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+          --bg-alt: #f8fafc;
+          --bg-dark: #0b1120;
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --primary-onDark: #2dd4bf;
+          --whatsapp: #25d366;
+          --border: #e2e8f0;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          --radius: 12px;
+          --radius-lg: 20px;
+          --transition: 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+        ul { list-style: none; margin: 0; padding: 0; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .text-center { text-align: center; }
+
+        /* Header */
+        .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); flex-shrink: 0; }
+        .brand-icon { width: 32px; height: 32px; background: #0f172a; color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--primary); border: 2px solid #fff; border-radius: 50%; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { position: relative; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; white-space: nowrap; }
+        .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: var(--primary); transition: right 0.25s ease; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { right: 0; }
+        .header-actions { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all var(--transition); border: none; font-family: var(--font-sans); font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
+        .btn-outline { border: 1px solid var(--border); background: #fff; color: var(--text-main); }
+        .btn-outline:hover { background: var(--bg-alt); border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+        .btn-whatsapp { background: var(--whatsapp); color: #fff; border-radius: 99px; }
+        .btn-whatsapp:hover { background: #1fb959; transform: translateY(-2px); box-shadow: var(--shadow); }
+        .lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-main); }
+
+        /* Agency Hero */
+        .agency-hero { background: var(--bg-hero); padding: 7rem 0 5rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .hero-badge { display: inline-block; background: #1e293b; color: #fff; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); margin-bottom: 1.5rem; }
+        .agency-hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); max-width: 900px; margin: 0 auto 1.5rem; line-height: 1.1; }
+        .agency-hero p { font-size: 1.125rem; max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-muted); }
+        
+        .trust-banner { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+        .trust-banner span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .agency-logos { display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center; opacity: 0.6; filter: grayscale(100%); }
+        .agency-logos svg { height: 28px; }
+
+        /* The Problem/Solution Split */
+        .problem-solution { padding: 6rem 0; background: #fff; }
+        .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; }
+        .ps-card { padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+        .ps-card.problem { background: var(--bg-alt); }
+        .ps-card.solution { background: #0f172a; color: #fff; border-color: #1e293b; box-shadow: var(--shadow-xl); transform: translateY(-1rem); }
+        .ps-card h3 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .ps-card.solution h3 { color: #fff; }
+        .ps-list li { margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .ps-card.problem .ps-list li { color: var(--text-muted); }
+        .ps-card.solution .ps-list li { color: #cbd5e1; }
+        .ps-list svg { flex-shrink: 0; margin-top: 4px; }
+        .ps-card.problem svg { color: var(--danger); }
+        .ps-card.solution svg { color: var(--primary-onDark); }
+
+        /* Agency Features */
+        .features-section { padding: 5rem 0; background: var(--bg-alt); border-top: 1px solid var(--border); }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1000px; margin: 4rem auto 0; }
+        .feature-box { background: #fff; padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: var(--transition); }
+        .feature-box:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        .feature-icon { width: 56px; height: 56px; background: var(--primary-light); color: var(--primary); border-radius: 16px; display: grid; place-items: center; margin-bottom: 1.5rem; }
+        .feature-box h4 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .feature-box p { color: var(--text-muted); margin: 0; font-size: 0.95rem; }
+
+        /* How it works for Agencies */
+        .workflow-section { padding: 6rem 0; background: #fff; }
+        .workflow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; max-width: 1100px; margin: 4rem auto 0; }
+        .workflow-grid::before { content: ''; position: absolute; top: 28px; left: 0; right: 0; height: 2px; background: var(--bg-alt); z-index: 0; }
+        .workflow-step { position: relative; z-index: 1; text-align: center; }
+        .step-number { width: 56px; height: 56px; background: #fff; border: 2px solid var(--border); border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 1.25rem; color: var(--text-muted); margin: 0 auto 1.5rem; transition: var(--transition); }
+        .workflow-step:hover .step-number { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+        .workflow-step h4 { font-size: 1.25rem; margin-bottom: 1rem; }
+        .workflow-step p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* B2B Contact Form Section */
+        .b2b-form-section { padding: 6rem 0; background: #0f172a; position: relative; overflow: hidden; }
+        .b2b-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; align-items: center; position: relative; z-index: 2; }
+        .b2b-text h2 { color: #fff; font-size: 3rem; margin-bottom: 1.5rem; }
+        .b2b-text p { color: #94a3b8; font-size: 1.125rem; margin-bottom: 2rem; }
+        .b2b-benefits { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+        .b2b-benefits li { display: flex; align-items: center; gap: 1rem; color: #cbd5e1; font-weight: 500; }
+        .b2b-benefits svg { color: var(--primary-onDark); }
+
+        .b2b-form-card { background: #fff; padding: 3rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); }
+        .b2b-form-card h3 { font-size: 1.5rem; margin-bottom: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
+        .form-input, .form-select { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font-sans); font-size: 0.95rem; transition: border-color var(--transition); background: var(--bg-alt); }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--primary); background: #fff; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+        /* Footer (Exact Match) */
+        .dark-footer { background: #0b1120; color: #94a3b8; position: relative; overflow: hidden; padding-top: 5rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding: 0 0 4rem; position: relative; z-index: 10; }
+        .footer-brand { color: #fff; }
+        .footer-brand p { margin: 1.5rem 0; font-size: 0.95rem; max-width: 300px; line-height: 1.6; }
+        .footer-contact { font-family: var(--font-sans); font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.75rem; color: #cbd5e1; }
+        .footer-contact a { color: #cbd5e1; transition: color var(--transition); display: flex; align-items: center; gap: 0.5rem; }
+        .footer-contact a:hover { color: var(--primary-onDark); }
+        .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1.5rem; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 1rem; margin:0; padding:0; }
+        .footer-col a { color: #cbd5e1; font-size: 0.95rem; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; font-size: 0.85rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-watermark { position: absolute; bottom: -5%; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 15vw; font-weight: 800; color: rgba(255,255,255,0.02); white-space: nowrap; z-index: 1; pointer-events: none; }
+
+        @media (max-width: 900px) {
+            .ps-grid, .features-grid, .b2b-form-grid { grid-template-columns: 1fr; }
+            .workflow-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .workflow-grid::before { display: none; }
+            .ps-card.solution { transform: translateY(0); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
+            .b2b-form-card { padding: 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <div class="brand-icon">12</div>
+                12 testers for 14 days
+            </a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="/blog/">Guides</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-select">🇬🇧 EN</div>
+                <a href="#partner" class="btn btn-primary">Request Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Agency Hero -->
+    <section class="agency-hero">
+        <div class="container">
+            <span class="hero-badge">For App Development Agencies</span>
+            <h1>Scale Your Publishing.<br>We Handle the Testing.</h1>
+            <p>Built for development agencies, mobile studios, and freelancers. Ship multiple apps to Google Play simultaneously without wasting hours begging for testers. We manage the humans, you write the code.</p>
+            
+            <a href="#partner" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 99px; margin-top: 1rem;">Apply for Partnership</a>
+
+            <div class="trust-banner">
+                <span>Empowering dev studios worldwide</span>
+                <div class="agency-logos">
+                    <!-- Placeholder generic SVG shapes to look like tech logos -->
+                    <svg viewBox="0 0 100 30" fill="currentColor"><path d="M10 15a5 5 0 100-10 5 5 0 000 10zm15 0h20v-3H25v3zm25-7v7h15v-7H50z"/></svg>
+                    <svg viewBox="0 0 100 30" fill="currentColor"><circle cx="15" cy="15" r="10"/><rect x="35" y="5" width="40" height="20"/></svg>
+                    <svg viewBox="0 0 100 30" fill="currentColor"><polygon points="10,25 30,5 50,25"/><rect x="60" y="10" width="30" height="15"/></svg>
+                    <svg viewBox="0 0 100 30" fill="currentColor"><path d="M5 5h20v20H5zM35 15a10 10 0 1020 0 10 10 0 10-20 0z"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem / Solution -->
+    <section class="problem-solution">
+        <div class="container ps-grid">
+            <div class="ps-card problem">
+                <h3>The Logistical Nightmare</h3>
+                <ul class="ps-list">
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        <span>If you build 5 apps a month, you need to recruit and manage <strong>60 unique human testers</strong> constantly.</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        <span>Chasing testers daily takes your team away from billable development hours.</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        <span>Client launches get delayed if just one tester uninstalls the app mid-test.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="ps-card solution">
+                <h3>The B2B Solution</h3>
+                <ul class="ps-list">
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span><strong>Infinite Capacity:</strong> Whether you are launching 1 app or 50 apps this month, we have the human testers ready.</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span><strong>Zero Management:</strong> You send us the app links. We handle the opt-ins, the 14-day engagement, and deliver the final report.</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span><strong>100% Guaranteed:</strong> On-time testing means you hit your client delivery deadlines, every time.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agency Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Why partner with us?</h2>
+                <p style="color: var(--text-muted);">We skip the complicated dashboards and APIs. We give you what matters: dedicated human support and flawless execution.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4>Dedicated Account Manager</h4>
+                    <p>No support tickets. You get a direct line via WhatsApp and Email to an account manager who handles your entire agency's portfolio. Need to fast-track an app? Just message us.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h4>Volume-Based Custom Quotes</h4>
+                    <p>Stop paying retail prices. We offer significant bulk discounts for agencies submitting 3, 5, or 10+ apps per month. Better margins for your agency, same premium testing.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h4>Strict NDA & Confidentiality</h4>
+                    <p>Your clients' IP is protected. Our testers are bound by strict NDAs. We never claim credit for testing your apps, allowing you to seamlessly deliver the results to your clients.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h4>PDF Engagement Reports</h4>
+                    <p>On Day 15, we email you a pristine, data-rich PDF report detailing the testing engagement. You can attach this directly to Google's production questionnaire to ensure rapid approval.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="workflow-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>The Agency Workflow</h2>
+                <p style="color: var(--text-muted);">As simple as sending an email.</p>
+            </div>
+            
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h4>Submit Your Batch</h4>
+                    <p>Email or WhatsApp your dedicated manager with the Play Console links and tester lists for the apps you built this week.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h4>We Run the 14 Days</h4>
+                    <p>Our human testers opt-in immediately and log daily sessions. You can monitor the progress directly inside your Play Console.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h4>Publish & Invoice</h4>
+                    <p>On day 15, receive your reports, click "Apply for Production", and hand the successfully published app over to your client.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B Form Section -->
+    <section class="b2b-form-section" id="partner">
+        <div class="container b2b-form-grid">
+            <div class="b2b-text">
+                <h2>Ready to scale your agency?</h2>
+                <p>Fill out the form to request a custom volume pricing quote. An account manager will reach out via WhatsApp or email within 2 hours.</p>
+                
+                <ul class="b2b-benefits">
+                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No monthly subscriptions or lock-ins</li>
+                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Pay only for the apps you test</li>
+                    <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Accept payments via Payoneer & Crypto</li>
+                </ul>
+            </div>
+
+            <div class="b2b-form-card">
+                <h3>Request Agency Pricing</h3>
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-input" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Agency Name</label>
+                            <input type="text" class="form-input" placeholder="Acme Dev Studio" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Work Email</label>
+                            <input type="email" class="form-input" placeholder="john@acme.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp Number</label>
+                            <input type="tel" class="form-input" placeholder="+1 234 567 8900" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Apps Published Per Month</label>
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Select volume...</option>
+                            <option value="1-3">1 to 3 apps/month</option>
+                            <option value="4-10">4 to 10 apps/month</option>
+                            <option value="11+">11+ apps/month</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Any specific requirements?</label>
+                        <textarea class="form-input" style="resize: vertical; min-height: 80px;" placeholder="Optional..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="padding: 1rem; font-size: 1.05rem;">Get Custom Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Chat Widget -->
+    <a class="chat-widget" href="https://wa.me/923472061598?text=Hi%2C%20I%20am%20an%20agency%20looking%20for%20testing%20services" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: var(--whatsapp); border-radius: 50%; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); z-index: 999; transition: transform var(--transition);">
+        <svg viewBox="0 0 24 24" style="fill: #fff; width: 30px; height: 30px;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.19 3.7.59.25 1.04.41 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="dark-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand footer-col">
+                    <a href="/" class="brand" style="color:#fff;">
+                        <div class="brand-icon">12</div>
+                        12 testers 14 days
+                    </a>
+                    <p>Google Play closed testing with real human testers. A professional Android app testing service with 7,400+ apps approved across 120+ countries since 2021.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:ssbasemaker@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> ssbasemaker@gmail.com</a>
+                        <a href="https://wa.me/923472061598" target="_blank" rel="noopener" style="color:var(--primary-onDark);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +92 3472061598</a>
+                        <span style="font-size:0.85rem; color:#475569; margin-top: 1rem; line-height: 1.5; display: block;">1111B S Governors Ave, STE 84878,<br>Dover, DE 19904, US</span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li><a href="/#compare">Google Play 12 testers</a></li>
+                        <li><a href="/#compare">Closed testing service</a></li>
+                        <li><a href="/#how-it-works">Android app testing</a></li>
+                        <li><a href="/#compare">All services</a></li>
+                        <li><a href="/#pricing">Pricing plans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="/blog/">Help Center</a></li>
+                        <li><a href="/#reviews">Case studies</a></li>
+                        <li><a href="/#how-it-works">How it works</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                        <li><a href="https://wa.me/923472061598" target="_blank" rel="noopener">Book a meeting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="/about/">About us</a></li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+                    <h4 style="margin-top: 2rem;">LEGAL</h4>
+                    <ul>
+                        <li><a href="/privacy-policy/">Privacy policy</a></li>
+                        <li><a href="/terms-conditions/">Terms and conditions</a></li>
+                        <li><a href="/refund-policy/">Refund policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 12 testers for 14 days. All rights reserved.</div>
+            </div>
+            <div class="footer-watermark">12 testers for 14 days</div>
+        </div>
+    </footer>
+    
+    <script>
+      // Mobile Nav
+      var langToggle = document.getElementById('langToggle');
+      var langMenu = document.getElementById('langMenu');
+      if (langToggle && langMenu) {
+        langToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var isOpen = langMenu.classList.toggle('open');
+          langToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        document.addEventListener('click', function(e) {
+          if (!langMenu.contains(e.target) && e.target !== langToggle) {
+            langMenu.classList.remove('open');
+            langToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    </script>
+</body>
+</html>
