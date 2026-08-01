@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <title>Pricing & Plans | 12Testers14Days - Google Play Closed Testing</title>
+    <meta name="description" content="Simple, transparent pricing for Google Play closed testing. Get 12 real, verified human testers for 14 days and secure your production access. 100% Money-Back Guarantee.">
+    <meta name="keywords" content="12 testers pricing, google play testing cost, buy android testers, google play closed testing service, 12 testers 14 days">
+    <meta name="author" content="12Testers14Days">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://12-testers-for-14-days.github.io/pricing/">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* =========================================================
+           Global CSS & Master Template Design
+           ========================================================= */
+        :root {
+          --bg-page: #ffffff;
+          --bg-hero: linear-gradient(180deg, #dbeafe 0%, #ffffff 100%);
+          --bg-alt: #f8fafc;
+          --bg-dark: #0b1120;
+          --bg-dark-hero: #1e1b4b; /* Deep Indigo for Pricing Hero */
+          
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --accent: #10b981;
+          
+          --border: #e2e8f0;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+          
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          
+          --radius: 12px;
+          --radius-lg: 20px;
+          --transition: 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.7; overflow-x: hidden; font-size: 16px; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
+        a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--primary-hover); }
+        img, svg { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ---------- Header ---------- */
+        .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); }
+        .brand-icon { width: 32px; height: 32px; background: #0f172a; color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; font-size: 14px; font-family: var(--font-sans); }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: #10b981; border: 2px solid #fff; border-radius: 50%; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+        .header-actions { display: flex; align-items: center; gap: 1rem; }
+        .lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+
+        /* ---------- Buttons ---------- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all var(--transition); border: none; font-family: var(--font-sans); font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: var(--shadow); color: #fff; }
+        .btn-outline { background: #fff; border: 1px solid var(--border); color: var(--text-main); }
+        .btn-outline:hover { background: var(--bg-alt); }
+        .btn-block { width: 100%; }
+
+        /* ---------- Pricing Hero ---------- */
+        .pricing-hero { background: var(--bg-dark-hero); color: #fff; padding: 6rem 0 10rem; text-align: center; position: relative; }
+        .pricing-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to bottom, transparent, var(--bg-page)); pointer-events: none; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 0.35rem 1.25rem; border-radius: 99px; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); }
+        .pricing-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); max-width: 900px; margin: 0 auto 1.5rem; color: #fff; }
+        .pricing-hero p { font-size: 1.125rem; max-width: 600px; margin: 0 auto; color: #cbd5e1; }
+        .hero-trust-row { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2.5rem; color: #94a3b8; font-size: 0.9rem; font-weight: 500; }
+        .hero-trust-row span { display: flex; align-items: center; gap: 0.5rem; }
+
+        /* ---------- Pricing Cards ---------- */
+        .pricing-section { position: relative; z-index: 10; margin-top: -6rem; padding-bottom: 5rem; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; }
+        .price-card { background: #fff; border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; position: relative; display: flex; flex-direction: column; box-shadow: var(--shadow-lg); transition: transform 0.3s; }
+        .price-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+        .price-card.featured { border: 2px solid var(--primary); transform: scale(1.03); }
+        .price-card.featured:hover { transform: scale(1.03) translateY(-5px); }
+        .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1.25rem; border-radius: 99px; }
+        
+        .plan-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; }
+        .plan-price { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem; line-height: 1; }
+        .plan-price small { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+        .plan-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; min-height: 3rem; }
+        
+        .plan-features { flex-grow: 1; list-style: none; margin: 0 0 2.5rem 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+        .plan-features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: var(--text-main); font-weight: 500; }
+        .plan-features li i { color: var(--accent); margin-top: 4px; }
+        .btn-plan { width: 100%; padding: 1rem; font-size: 1.05rem; border-radius: 12px; }
+
+        /* ---------- Guarantee Banner ---------- */
+        .guarantee-banner { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; display: flex; align-items: center; gap: 2rem; max-width: 900px; margin: 4rem auto; box-shadow: var(--shadow-sm); }
+        .guarantee-icon { width: 80px; height: 80px; background: var(--primary-light); color: var(--primary-hover); border-radius: 50%; display: grid; place-items: center; font-size: 2.5rem; flex-shrink: 0; }
+        .guarantee-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .guarantee-content p { margin: 0; color: var(--text-muted); }
+
+        /* ---------- "How It Works" Alternating Timeline ---------- */
+        .timeline-section { padding: 5rem 0; background: #fff; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-header p { font-size: 1.125rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 2rem 0; }
+        .timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--border); transform: translateX(-50%); }
+        
+        .timeline-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; width: 100%; position: relative; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        
+        .timeline-content { width: 45%; background: var(--bg-alt); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); position: relative; }
+        .timeline-number { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; background: var(--primary); color: #fff; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; z-index: 2; border: 4px solid #fff; box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1); }
+        
+        .timeline-item:nth-child(odd) .timeline-content { margin-left: auto; text-align: left; }
+        .timeline-item:nth-child(even) .timeline-content { margin-right: auto; text-align: right; }
+        
+        .timeline-content h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .timeline-content p { margin: 0; font-size: 1rem; color: var(--text-muted); }
+        
+        .timeline-badge { display: inline-block; background: #fff; padding: 0.25rem 0.75rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; border: 1px solid var(--border); }
+
+        /* ---------- Masonry Reviews ---------- */
+        .reviews-section { padding: 5rem 0; background: var(--bg-alt); }
+        .masonry-grid { column-count: 3; column-gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .review-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; break-inside: avoid; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); display: inline-block; width: 100%; transition: transform 0.2s; }
+        .review-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .review-stars { color: #facc15; font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        .review-text { font-size: 0.95rem; color: var(--text-main); line-height: 1.6; margin-bottom: 1.5rem; }
+        .review-author { display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+        .author-pic { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-light); color: var(--primary-hover); display: grid; place-items: center; font-weight: 700; font-family: var(--font-display); font-size: 0.9rem; }
+        .author-info strong { display: block; font-size: 0.9rem; color: var(--text-main); }
+        .author-info span { font-size: 0.8rem; color: var(--text-light); }
+        .verified-badge { margin-left: auto; color: var(--accent); font-size: 0.8rem; display: flex; align-items: center; gap: 0.25rem; font-weight: 600; }
+
+        /* ---------- FAQ Section ---------- */
+        .faq-section { padding: 5rem 0; background: #fff; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: #fff; border-radius: 16px; margin-bottom: 1rem; border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden; }
+        .faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.05rem; color: var(--text-main); transition: background 0.3s; }
+        .faq-question:hover { background: var(--bg-alt); }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-muted); }
+        .faq-item.active .faq-answer { max-height: 600px; padding: 0 1.5rem 1.5rem; }
+        .faq-icon { transition: transform 0.3s; color: var(--primary); font-size: 1.25rem; font-weight: 300; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        /* ---------- Bottom CTA ---------- */
+        .bottom-cta { padding: 6rem 0; background: var(--bg-hero); text-align: center; border-top: 1px solid var(--border); }
+        .bottom-cta h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .bottom-cta p { font-size: 1.125rem; max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); }
+
+        /* ---------- Redesigned Footer ---------- */
+        .dark-footer { background: var(--bg-alt); color: var(--text-muted); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding: 5rem 0; position: relative; z-index: 10; }
+        .footer-brand { color: var(--text-main); }
+        .footer-brand p { margin: 1.5rem 0; font-size: 0.95rem; max-width: 300px; color: var(--text-muted); }
+        .footer-contact { font-family: var(--font-mono); font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.75rem; color: var(--text-muted); }
+        .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-main); font-weight: 700; margin-bottom: 1.5rem; border: none; padding: 0; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+        .footer-col li { list-style: none; display: block; margin: 0; padding: 0; }
+        .footer-col a { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { border-top: 1px solid var(--border); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; font-size: 0.85rem; }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; z-index: 999; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); display: grid; place-items: center; transition: all 0.3s ease; animation: slideIn 0.5s ease; }
+        .floating-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); background: #1ebc57; color: white; }
+        .floating-whatsapp svg { width: 30px; height: 30px; fill: currentColor; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* ---------- Exit Intent Popup ---------- */
+        .exit-overlay { position: fixed; inset: 0; background: rgba(11, 17, 32, 0.75); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 1rem; }
+        .exit-overlay.active { opacity: 1; visibility: visible; }
+        .exit-modal { background: #fff; border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 500px; position: relative; transform: translateY(20px); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: var(--shadow-xl); }
+        .exit-overlay.active .exit-modal { transform: translateY(0); }
+        .exit-close { position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; background: var(--bg-alt); border-radius: 50%; display: grid; place-items: center; cursor: pointer; border: 1px solid var(--border); color: var(--text-muted); transition: all var(--transition); }
+        .exit-close:hover { background: var(--border); color: var(--text-main); }
+        .exit-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+        .exit-modal h2 { font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.3; color: var(--text-main); }
+        .exit-modal p.exit-lead { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .exit-features { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+        .exit-feature { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .exit-feature-icon { width: 20px; height: 20px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; margin-top: 2px; }
+        .exit-feature-icon svg { width: 12px; height: 12px; }
+        .exit-feature-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .exit-feature-text strong { color: var(--text-main); }
+        .exit-actions { display: flex; flex-direction: column; gap: 0.75rem; }
+        .exit-footer { margin-top: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .price-card.featured { transform: none; }
+            .price-card.featured:hover { transform: translateY(-5px); }
+            .masonry-grid { column-count: 2; }
+            .timeline::before { left: 30px; }
+            .timeline-number { left: 30px; }
+            .timeline-content { width: calc(100% - 80px); margin-left: auto !important; margin-right: 0 !important; text-align: left !important; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .header-actions .lang-select { display: none; }
+            .guarantee-banner { flex-direction: column; text-align: center; padding: 2rem; }
+            .masonry-grid { column-count: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <div class="brand-icon" aria-hidden="true">12</div>
+                12Testers14Days
+            </a>
+            <nav class="nav-links" data-nav-links aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/pricing/" class="active" aria-current="page">Pricing</a>
+                <a href="/blog/">Guides</a>
+                <a href="/about/">About Us</a>
+                <a href="https://wa.me/923472061598" target="_blank" rel="noopener">WhatsApp Support</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-select">
+                    🇬🇧 EN
+                    <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
+                </div>
+                <a href="/login/" class="btn btn-primary">Get started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <span class="hero-badge"><i class="fa-solid fa-shield-check"></i> 100% Approval Guarantee</span>
+            <h1>Get Google Play production access, guaranteed.</h1>
+            <p>Skip the rejection loop. We assign verified human testers, manage your 14-day track, and get you approved. No bots, no emulators.</p>
+            <div class="hero-trust-row">
+                <span><i class="fa-solid fa-check-circle" style="color:var(--accent)"></i> Real Humans</span>
+                <span><i class="fa-solid fa-check-circle" style="color:var(--accent)"></i> No Subscriptions</span>
+                <span><i class="fa-solid fa-check-circle" style="color:var(--accent)"></i> 24h Delivery</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                
+                <!-- Starter Plan -->
+                <div class="price-card">
+                    <h3 class="plan-name">Starter</h3>
+                    <div class="plan-price">$22.99<small> / app</small></div>
+                    <p class="plan-desc">Everything you need to satisfy Google's 12-tester baseline requirement.</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> 12 real, verified testers</li>
+                        <li><i class="fa-solid fa-check"></i> 14 days of continuous testing</li>
+                        <li><i class="fa-solid fa-check"></i> 100% production approval guarantee</li>
+                        <li><i class="fa-solid fa-check"></i> Final engagement report (PDF)</li>
+                        <li><i class="fa-solid fa-check"></i> Email support</li>
+                    </ul>
+                    <a href="/login/" class="btn btn-outline btn-plan">Get Starter</a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="price-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3 class="plan-name">Professional</h3>
+                    <div class="plan-price">$39.99<small> / app</small></div>
+                    <p class="plan-desc">More testers and coverage for absolute peace of mind during review.</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> <strong>20 real, verified testers</strong></li>
+                        <li><i class="fa-solid fa-check"></i> 14 days of continuous testing</li>
+                        <li><i class="fa-solid fa-check"></i> 100% production approval guarantee</li>
+                        <li><i class="fa-solid fa-check"></i> ASO Report (Keywords & Screenshots)</li>
+                        <li><i class="fa-solid fa-check"></i> Priority WhatsApp support</li>
+                        <li><i class="fa-solid fa-check"></i> Country targeting included</li>
+                    </ul>
+                    <a href="/login/" class="btn btn-primary btn-plan">Get Professional</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="price-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">$89.99<small> / app</small></div>
+                    <p class="plan-desc">For studios and agencies shipping high-stakes launches.</p>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> <strong>30 real, verified testers</strong></li>
+                        <li><i class="fa-solid fa-check"></i> 14 days of continuous testing</li>
+                        <li><i class="fa-solid fa-check"></i> 100% production approval guarantee</li>
+                        <li><i class="fa-solid fa-check"></i> Daily engagement analytics</li>
+                        <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fa-solid fa-check"></i> Custom geo-distribution</li>
+                    </ul>
+                    <a href="/login/" class="btn btn-outline btn-plan">Get Enterprise</a>
+                </div>
+
+            </div>
+            
+            <!-- Guarantee Banner -->
+            <div class="guarantee-banner">
+                <div class="guarantee-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="guarantee-content">
+                    <h3>100% Production Access Guarantee</h3>
+                    <p>If Google rejects your production access application due to "insufficient testing" while using our service, we will refund your payment in full or run a completely new 14-day test for free. Your choice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works (Vertical Timeline) -->
+    <section class="timeline-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Production Access in 4 Simple Steps</h2>
+                <p>We've completely redesigned the workflow to eliminate your risk. You don't pay a dime until our real humans are sitting in your Play Console.</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">2 Minutes</span>
+                        <h3>Fill the form</h3>
+                        <p>Tell us about your app. Share your Google Play closed testing Opt-in Link and your contact email. <strong>No payment is required upfront.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Within 6 Hours</span>
+                        <h3>We assign our testers</h3>
+                        <p>Our team manually assigns 12+ verified, real human testers to your testing track. You will see them opt-in live on your Google Play Console dashboard.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Secure Checkout</span>
+                        <h3>Make payment</h3>
+                        <p>Once you verify that our real testers have successfully opted into your app, we will send you a secure Payoneer invoice link to lock in the 14-day test.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <span class="timeline-badge">Day 15</span>
+                        <h3>Get production access</h3>
+                        <p>Our testers engage with your app daily for 14 continuous days. On Day 15, we hand you proven questionnaire answers, you apply for production, and you go live.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/login/" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem; border-radius: 99px;">Start Step 1 Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masonry Reviews -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Loved by Developers Worldwide</h2>
+                <p>Don't just take our word for it. Here is what developers say after they finally bypass Google's 14-day rejection loop.</p>
+            </div>
+            
+            <div class="masonry-grid">
+                
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Was stuck in the rejection loop for a month. Found these guys, got my 12 testers, and finally passed the review on my first try with them. The new flow where you see testers before paying is genius."</p>
+                    <div class="review-author">
+                        <div class="author-pic">D</div>
+                        <div class="author-info">
+                            <strong>David M.</strong>
+                            <span>Indie Developer</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The testers were 100% real people. I could literally see the crash analytics and real usage data in my Firebase console. WhatsApp support answered my panic questions at 11 PM."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#fef08a; color:#854d0e;">S</div>
+                        <div class="author-info">
+                            <strong>Sarah K.</strong>
+                            <span>App Founder</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Didn't want to bother my friends and family to install my buggy beta app. Paid for the Starter plan. 14 days later I had production access. So simple, it feels like a cheat code."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#fecaca; color:#b91c1c;">A</div>
+                        <div class="author-info">
+                            <strong>Alex J.</strong>
+                            <span>Game Dev</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Got rejected twice using 'free' tester exchange groups on Reddit because strangers kept uninstalling on Day 12. This paid service is worth every single penny to protect your sanity."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#bfdbfe; color:#1d4ed8;">C</div>
+                        <div class="author-info">
+                            <strong>Carlos R.</strong>
+                            <span>Startup CTO</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"I bought the Enterprise plan for our studio's new utility app because we needed US-only testers. The daily reports were excellent and we passed production easily."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#fed7aa; color:#a16207;">J</div>
+                        <div class="author-info">
+                            <strong>James W.</strong>
+                            <span>Agency Owner</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Fast communication. They added the 12 testers within 2 hours of my form submission. I verified them in the Play Console, paid the invoice, and let them do the rest."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#e9d5ff; color:#4338ca;">P</div>
+                        <div class="author-info">
+                            <strong>Priya T.</strong>
+                            <span>Freelancer</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"No bots. No emulators. Just real Android users. I previously got a warning from Google for using an emulator service. These guys use real phones. Approved in 2 days after the test ended."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#a7f3d0; color:#047857;">E</div>
+                        <div class="author-info">
+                            <strong>Elena S.</strong>
+                            <span>Developer</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The flow of assigning testers BEFORE payment gave me so much confidence. There are a lot of scams out there, but this is a deeply legit service."</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#fbcfe8; color:#7e22ce;">M</div>
+                        <div class="author-info">
+                            <strong>Mark D.</strong>
+                            <span>App Creator</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Passed the 12-tester requirement on the first try. Thank you for the detailed questionnaire answers at the end, I copy-pasted them and Google accepted it instantly!"</p>
+                    <div class="review-author">
+                        <div class="author-pic" style="background:#d9f99d; color:#4d7c0f;">H</div>
+                        <div class="author-info">
+                            <strong>Hassan A.</strong>
+                            <span>Student Dev</span>
+                        </div>
+                        <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container faq-container">
+            <div class="section-header">
+                <h2>Everything About 12 Testers & App Publishing</h2>
+            </div>
+            
+            <div class="faq-item active">
+                <div class="faq-question">
+                    <span>When do I actually pay?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We've removed the risk. You submit your app details first. We manually assign our 12+ real human testers to your Play Console track. You log into your console, verify they have opted in, and <strong>only then</strong> do we send you a secure payment link.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are your testers real humans?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. 100%. We never use emulators, bots, or automated scripts. Every tester uses a physical Android device and has an established Google account to ensure you pass Google's strict Play Integrity checks.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What happens if Google rejects my app?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>If your production access is rejected specifically for "insufficient testing activity" while using our service correctly, we will either provide a full refund or run a completely new 14-day test at zero cost.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need to change my app's code?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No. You simply add our tester email group to your Google Play Console "Closed Testing" track and share the opt-in URL with us. We handle the rest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+        <div class="container">
+            <h2>Ready to Meet Google Play's Requirements?</h2>
+            <p>Join 7,400+ developers who skipped the rejection loop and shipped their apps successfully.</p>
+            <a href="/login/" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem; border-radius: 99px;">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Exit Intent Popup Modal -->
+    <div class="exit-overlay" id="exitIntentPopup">
+        <div class="exit-modal">
+            <div class="exit-close" id="closeExitPopup">
+                <i class="fa-solid fa-times"></i>
+            </div>
+            <span class="exit-eyebrow">Wait, Before you go</span>
+            <h2>Your order is saved. Your doubts shouldn't be.</h2>
+            <p class="exit-lead">Whatever is holding you back, it is probably one of these three:</p>
+            
+            <div class="exit-features">
+                <div class="exit-feature">
+                    <div class="exit-feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="exit-feature-text"><strong>If Google says no, you pay nothing.</strong> Full refund or a free retest, your choice, in writing.</div>
+                </div>
+                <div class="exit-feature">
+                    <div class="exit-feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="exit-feature-text"><strong>We never touch your Play Console.</strong> You manage the track yourself and keep full control.</div>
+                </div>
+                <div class="exit-feature">
+                    <div class="exit-feature-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="exit-feature-text"><strong>Testing starts within 4-6 hours.</strong> Submit your link now and your test starts today.</div>
+                </div>
+            </div>
+            
+            <div class="exit-actions">
+                <a href="/login/" class="btn btn-primary btn-block" style="padding:1rem; font-size:1.1rem;">Start Step 1 (Free)</a>
+                <a href="https://wa.me/923472061598" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="padding:1rem; font-size:1.1rem;">Ask a human first</a>
+            </div>
+            
+            <div class="exit-footer">
+                4.9/5 ACROSS 7,400+ REVIEWS · SECURE CHECKOUT
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="dark-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand footer-col">
+                    <a href="/" class="brand" style="color:#0f172a;">
+                        <div class="brand-icon" aria-hidden="true">12</div>
+                        12Testers14Days
+                    </a>
+                    <p>Professional Google Play closed testing service. 12 real testers in 24 hours.</p>
+                    <div class="footer-contact">
+                        <span>✉ <a href="mailto:ssbasemaker@gmail.com" style="color:inherit; font-weight:normal;">ssbasemaker@gmail.com</a></span>
+                        <span style="color:var(--accent); font-weight:600;">
+                            <a href="https://wa.me/923472061598" target="_blank" rel="noopener" style="color:inherit;">✆ +92 347 2061598</a>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/app-rejected/">App Rejected?</a></li>
+                        <li><a href="/android-app-testing-service/">Android App Testing Service</a></li>
+                        <li><a href="/support/">Support</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/guides/">Guides</a></li>
+                        <li><a href="/for-agencies/">For Agencies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/terms-conditions/">Terms & Conditions</a></li>
+                        <li><a href="/refund-policy/">Refund Policy</a></li>
+                        <li><a href="/referral-policy/">Referral Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 12 Testers for 14 Days. All rights reserved.</div>
+                <div>Made for Android developers · Not affiliated with Google LLC.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/923472061598" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+          // FAQ Accordion Logic
+          const faqQuestions = document.querySelectorAll('.faq-question');
+          faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+              const item = question.parentElement;
+              const isActive = item.classList.contains('active');
+              
+              document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+              });
+              
+              if (!isActive) {
+                item.classList.add('active');
+              }
+            });
+          });
+
+          // Exit Intent Popup Logic
+          const exitPopup = document.getElementById('exitIntentPopup');
+          const closeBtn = document.getElementById('closeExitPopup');
+          let hasShownPopup = sessionStorage.getItem('exitIntentShown');
+
+          document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !hasShownPopup) {
+              exitPopup.classList.add('active');
+              sessionStorage.setItem('exitIntentShown', 'true');
+              hasShownPopup = true;
+            }
+          });
+
+          if (closeBtn) {
+              closeBtn.addEventListener('click', () => exitPopup.classList.remove('active'));
+          }
+          if (exitPopup) {
+              exitPopup.addEventListener('click', (e) => {
+                if (e.target === exitPopup) exitPopup.classList.remove('active');
+              });
+          }
+        });
+    </script>
+</body>
+</html>
