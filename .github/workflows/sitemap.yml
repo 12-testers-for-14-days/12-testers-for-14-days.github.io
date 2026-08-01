@@ -1,0 +1,25 @@
+name: Generate XML Sitemap
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate the sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://your-website-url.com
+
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Automatic sitemap.xml refresh"
+          file_pattern: sitemap.xml
