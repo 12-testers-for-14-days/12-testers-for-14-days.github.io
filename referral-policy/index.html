@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: dark)" />
+    <title>Referral Policy | 12 Testers for 14 Days</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           Global CSS & Design System
+           ========================================================= */
+        :root {
+          --bg-page: #ffffff;
+          --bg-hero: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+          --bg-alt: #f8fafc;
+          --bg-dark: #0f172a;
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --primary-onDark: #2dd4bf;
+          --whatsapp: #25d366;
+          --border: #e2e8f0;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          --radius: 12px;
+          --radius-lg: 20px;
+          --transition: 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .text-center { text-align: center; }
+
+        /* Header (Exact Match) */
+        .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); flex-shrink: 0; }
+        .brand-icon { width: 32px; height: 32px; background: #0f172a; color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--primary); border: 2px solid #fff; border-radius: 50%; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { position: relative; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; white-space: nowrap; }
+        .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: var(--primary); transition: right 0.25s ease; }
+        .nav-links a:hover { color: var(--text-main); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all var(--transition); border: none; font-family: var(--font-sans); font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
+        .btn-outline { border: 1px solid var(--border); background: #fff; color: var(--text-main); }
+        .btn-block { width: 100%; }
+
+        /* Referral Hero */
+        .referral-hero { background: var(--bg-alt); padding: 6rem 0 4rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .hero-badge { display: inline-block; background: var(--primary-light); color: var(--primary-hover); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); margin-bottom: 1.5rem; }
+        .referral-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); max-width: 900px; margin: 0 auto 1.5rem; }
+        .referral-hero p { font-size: 1.125rem; max-width: 650px; margin: 0 auto 2.5rem; color: var(--text-muted); }
+
+        /* Timeline UI (Adapted from homepage) */
+        .timeline-sec { padding: 5rem 0; background: var(--bg-page); }
+        .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; top: 24px; left: 0; right: 0; height: 2px; background: var(--border); z-index: 0; }
+        .timeline-step { position: relative; z-index: 1; background: var(--bg-page); padding-top: 1rem; text-align: center; }
+        .timeline-icon { width: 48px; height: 48px; background: var(--bg-page); border: 2px solid var(--primary); color: var(--primary); border-radius: 50%; display: grid; place-items: center; margin: 0 auto 1.5rem; position: relative; z-index: 2; font-weight: 700; font-family: var(--font-mono); }
+        .step-final .timeline-icon { background: var(--primary); color: #fff; }
+        .timeline-badge { display: inline-block; background: var(--bg-alt); border: 1px solid var(--border); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 1rem; }
+        .timeline-step h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+        .timeline-step p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* Social / Form Section */
+        .claim-section { background: var(--bg-alt); padding: 5rem 0; border-top: 1px solid var(--border); }
+        .claim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; align-items: start; }
+        
+        .social-box { background: #fff; border: 1px solid var(--border); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+        .social-box h3 { margin-bottom: 1rem; }
+        .social-link { display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 1rem; transition: var(--transition); color: var(--text-main); font-weight: 600; }
+        .social-link:hover { border-color: var(--primary); background: var(--bg-alt); transform: translateX(4px); }
+        .social-link svg { width: 24px; height: 24px; color: var(--primary); }
+
+        .form-box { background: #fff; border: 1px solid var(--border); padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+        .form-box h3 { margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
+        .form-input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font-sans); font-size: 0.95rem; transition: border-color var(--transition); }
+        .form-input:focus { outline: none; border-color: var(--primary); }
+        .form-textarea { resize: vertical; min-height: 100px; }
+
+        /* Footer (Exact Match) */
+        .dark-footer { background: #0b1120; color: #94a3b8; position: relative; overflow: hidden; padding-top: 5rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding: 0 0 4rem; position: relative; z-index: 10; }
+        .footer-brand { color: #fff; }
+        .footer-brand p { margin: 1.5rem 0; font-size: 0.95rem; max-width: 300px; }
+        .footer-contact { font-family: var(--font-mono); font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; color: #cbd5e1; }
+        .footer-contact a { color: #cbd5e1; transition: color var(--transition); }
+        .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1.5rem; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 1rem; margin:0; padding:0; list-style:none;}
+        .footer-col a { color: #cbd5e1; font-size: 0.95rem; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; font-size: 0.85rem; flex-wrap: wrap; gap: 1rem; }
+        .footer-watermark { position: absolute; bottom: -5%; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 15vw; font-weight: 800; color: rgba(255,255,255,0.02); white-space: nowrap; z-index: 1; pointer-events: none; }
+
+        @media (max-width: 900px) {
+            .timeline { grid-template-columns: 1fr; gap: 3rem; }
+            .timeline::before { display: none; }
+            .claim-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <div class="brand-icon">12</div>
+                12 testers for 14 days
+            </a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="/blog/">Guides</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-select">🇬🇧 EN</div>
+                <a href="/order" class="btn btn-primary">Get started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="referral-hero">
+        <div class="container">
+            <div class="hero-badge">Developer Rewards</div>
+            <h1>Share. Refer. Test for Free.</h1>
+            <p>Help us grow the indie developer community. Engage with our posts, refer just one paying developer, and your next 14-day app test is 100% on us.</p>
+        </div>
+    </section>
+
+    <!-- Steps Timeline -->
+    <section class="timeline-sec">
+        <div class="container">
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-icon">1</div>
+                    <div class="timeline-badge">ENGAGE</div>
+                    <h3>Share & Comment</h3>
+                    <p>Find our official profiles on LinkedIn, Twitter, or Facebook. Give us a follow, drop a meaningful comment on our recent posts, and share them with your network.</p>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">2</div>
+                    <div class="timeline-badge">REFER</div>
+                    <h3>Bring one Paid Order</h3>
+                    <p>Recommend our service to a fellow developer in need of Google Play closed testing. Have them place a standard paid order for their app.</p>
+                </div>
+
+                <div class="timeline-step step-final">
+                    <div class="timeline-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div class="timeline-badge" style="background: var(--primary); color: #fff; border-color: var(--primary);">CLAIM</div>
+                    <h3 style="color:var(--primary);">Get Your Free Test</h3>
+                    <p>Submit their Order ID and links to your social shares below. Once verified, we will email you a 100% discount code for a Starter Package.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Section: Socials + Form -->
+    <section class="claim-section">
+        <div class="container claim-grid">
+            
+            <!-- Social Links -->
+            <div class="social-box">
+                <h3>Step 1: Our Social Links</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">Click below to visit our official profiles. Like, comment, and share our pinned posts.</p>
+                
+                <a href="#" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM20.45 20.45h-3.56v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96v5.7h-3.56V9h3.42v1.56h.05c.48-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"/></svg>
+                    Share on LinkedIn
+                </a>
+                <a href="#" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M23.95 4.57a10 10 0 0 1-2.82.77 4.96 4.96 0 0 0 2.16-2.72 9.9 9.9 0 0 1-3.12 1.19 4.92 4.92 0 0 0-8.39 4.48A13.98 13.98 0 0 1 1.67 3.15 4.92 4.92 0 0 0 3.2 9.72a4.9 4.9 0 0 1-2.23-.62v.06a4.92 4.92 0 0 0 3.95 4.82 4.9 4.9 0 0 1-2.22.08 4.93 4.93 0 0 0 4.6 3.42A9.87 9.87 0 0 1 0 19.54a13.94 13.94 0 0 0 7.55 2.21c9.06 0 14.01-7.51 14.01-14.01 0-.21 0-.42-.01-.63A10.02 10.02 0 0 0 24 4.59z"/></svg>
+                    Retweet on X (Twitter)
+                </a>
+                <a href="#" class="social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.67 0H1.33C.6 0 0 .6 0 1.33v21.34C0 23.4.6 24 1.33 24h11.49V14.7H9.69v-3.62h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.33 0 2.47.1 2.8.14v3.24l-1.92.01c-1.5 0-1.8.71-1.8 1.76v2.31h3.6l-.47 3.62h-3.13V24h6.12c.73 0 1.33-.6 1.33-1.33V1.33C24 .6 23.4 0 22.67 0z"/></svg>
+                    Share on Facebook
+                </a>
+            </div>
+
+            <!-- Submission Form -->
+            <div class="form-box">
+                <h3>Claim Your Free Test</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Email</label>
+                        <input type="email" class="form-input" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Friend's Order ID</label>
+                        <input type="text" class="form-input" placeholder="e.g. ORD-123456" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Links to your Social Shares</label>
+                        <textarea class="form-input form-textarea" placeholder="Paste the URLs to the posts you shared and commented on..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" style="padding: 1rem;">Submit Verification</button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand footer-col">
+                    <a href="/" class="brand" style="color:#fff;">
+                        <div class="brand-icon">12</div>
+                        12 testers 14 days
+                    </a>
+                    <p>Google Play closed testing with real human testers. A professional Android app testing service with 7,400+ apps approved.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:ssbasemaker@gmail.com">✉ ssbasemaker@gmail.com</a>
+                        <a href="https://wa.me/923472061598" target="_blank" rel="noopener" style="color:var(--primary-onDark);">✆ +92 347 2061598</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/terms-conditions/">Terms & Conditions</a></li>
+                        <li><a href="/refund-policy/">Refund Policy</a></li>
+                        <li><a href="/referral-policy/">Referral Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/blog/">Help Center</a></li>
+                        <li><a href="/pricing/">Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 12 testers for 14 days. All rights reserved.</div>
+            </div>
+            <div class="footer-watermark">12 testers for 14 days</div>
+        </div>
+    </footer>
+</body>
+</html>
