@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" />
+    <title>Complete Your Order | 12Testers14Days</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Keep checkout pages out of Google search -->
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================================
+           Master Theme Variables
+           ========================================================= */
+        :root {
+          --bg-page: #f8fafc; /* Slightly off-white for checkout focus */
+          --bg-card: #ffffff;
+          --bg-alt: #f1f5f9;
+          --bg-dark: #0b1120;
+          
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --accent: #10b981;
+          
+          --border: #e2e8f0;
+          --border-focus: #0f766e;
+          
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          
+          --radius: 12px;
+          --radius-lg: 16px;
+          --transition: 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.6; font-size: 16px; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.25; }
+        a { color: var(--primary); text-decoration: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ---------- Minimal Header ---------- */
+        .header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); }
+        .brand-icon { width: 32px; height: 32px; background: var(--text-main); color: #fff; border-radius: 8px; display: grid; place-items: center; font-size: 14px; position: relative; }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--accent); border: 2px solid #fff; border-radius: 50%; }
+        .back-link { font-weight: 500; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; transition: color var(--transition); }
+        .back-link:hover { color: var(--text-main); }
+
+        /* ---------- Checkout Layout ---------- */
+        .checkout-wrapper { padding: 3rem 0 5rem; }
+        .checkout-header { text-align: center; margin-bottom: 3rem; }
+        .checkout-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .checkout-header p { font-size: 1.1rem; color: var(--text-muted); }
+
+        /* The Form Grid */
+        .checkout-grid { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: start; }
+        
+        .section-title { font-size: 1.25rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+        .section-title i { color: var(--primary); font-size: 1.1rem; }
+
+        /* ---------- Left Column: Inputs & Selections ---------- */
+        .form-section { margin-bottom: 3rem; }
+        
+        /* Input Fields */
+        .input-group { margin-bottom: 1.25rem; }
+        .input-group label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
+        .input-group input { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem; transition: all var(--transition); background: #fff; }
+        .input-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+        .input-hint { font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem; display: block; }
+
+        /* Radio Cards (Plans & Packages) */
+        .radio-grid { display: grid; gap: 1rem; }
+        .radio-card { position: relative; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; background: #fff; cursor: pointer; transition: all var(--transition); display: flex; align-items: center; gap: 1rem; }
+        .radio-card:hover { border-color: var(--primary-light); background: var(--bg-alt); }
+        
+        /* Hide actual radio button */
+        .radio-card input[type="radio"], .checkbox-card input[type="checkbox"] { position: absolute; opacity: 0; }
+        
+        /* Custom Radio Circle */
+        .radio-circle { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; transition: all var(--transition); }
+        .radio-circle::after { content: ''; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; opacity: 0; transition: opacity var(--transition); transform: scale(0.5); }
+        
+        /* Selected State */
+        .radio-card input[type="radio"]:checked + .radio-circle { border-color: var(--primary); }
+        .radio-card input[type="radio"]:checked + .radio-circle::after { opacity: 1; transform: scale(1); }
+        .radio-card:has(input[type="radio"]:checked) { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 0 0 1px var(--primary); }
+
+        .card-content { flex-grow: 1; }
+        .card-title { font-weight: 700; color: var(--text-main); font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+        .card-price { font-family: var(--font-mono); font-weight: 700; color: var(--text-main); font-size: 1.1rem; text-align: right; }
+        .card-price-old { font-size: 0.8rem; color: var(--text-light); text-decoration: line-through; display: block; font-weight: 400; }
+        
+        .badge { background: var(--text-main); color: #fff; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-sans); }
+        .badge-save { background: var(--accent); }
+
+        /* Add-on Checkbox Cards */
+        .checkbox-card { position: relative; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; background: #fff; cursor: pointer; transition: all var(--transition); display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .checkbox-card:hover { border-color: var(--primary-light); }
+        .check-square { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; display: grid; place-items: center; flex-shrink: 0; transition: all var(--transition); color: transparent; }
+        
+        .checkbox-card input[type="checkbox"]:checked + .check-square { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .checkbox-card:has(input[type="checkbox"]:checked) { border-color: var(--primary); background: var(--primary-light); }
+
+        /* ---------- Right Column: Sticky Summary ---------- */
+        .summary-sidebar { position: sticky; top: 100px; }
+        .summary-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-lg); }
+        .summary-title { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-main); }
+        
+        .summary-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); }
+        .summary-row.bold { color: var(--text-main); font-weight: 600; }
+        .summary-row.discount { color: var(--accent); font-weight: 500; }
+        .summary-row span.val { font-family: var(--font-mono); }
+        
+        .summary-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+        
+        .summary-total { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+        .summary-total .label { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+        .summary-total .price { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); line-height: 1; }
+
+        .btn-checkout { width: 100%; background: var(--text-main); color: #fff; font-size: 1.1rem; font-weight: 600; padding: 1.25rem; border: none; border-radius: 12px; cursor: pointer; transition: all var(--transition); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-checkout:hover { background: #000; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        
+        .trust-footer { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-light); }
+        .trust-footer i { color: var(--accent); margin-right: 4px; }
+        .trust-footer a { color: var(--text-muted); text-decoration: underline; margin-left: 5px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .checkout-grid { grid-template-columns: 1fr; }
+            .summary-sidebar { position: static; margin-top: 2rem; }
+            .summary-card { position: sticky; bottom: 20px; z-index: 50; } /* Optional: Make summary sticky at bottom for mobile */
+        }
+        @media (max-width: 600px) {
+            .checkout-wrapper { padding: 2rem 0; }
+            .radio-card { flex-wrap: wrap; }
+            .card-price { text-align: left; width: 100%; padding-left: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <div class="brand-icon">12</div>
+                12Testers14Days
+            </a>
+            <a href="/" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+            </a>
+        </div>
+    </header>
+
+    <main class="checkout-wrapper">
+        <div class="container">
+            <div class="checkout-header">
+                <h1>Complete your order</h1>
+                <p>You're one step away from production access. No payment required upfront.</p>
+            </div>
+
+            <!-- THE FORM (Wraps both columns so all data submits) -->
+            <form id="checkoutForm" action="https://formsubmit.co/ssbasemaker@gmail.com" method="POST">
+                
+                <!-- FormSubmit Configuration Hidden Inputs -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New App Testing Order!">
+                <input type="hidden" name="_template" value="table">
+                <!-- IMPORTANT: Change this value to your actual thank you page URL -->
+                <input type="hidden" name="_next" value="https://12-testers-for-14-days.github.io/thank-you.html">
+
+                <!-- Hidden inputs to capture JS calculations for the email -->
+                <input type="hidden" name="Selected_Plan" id="hidden_plan" value="Starter">
+                <input type="hidden" name="Package_Type" id="hidden_package" value="1 App">
+                <input type="hidden" name="Addons" id="hidden_addons" value="None">
+                <input type="hidden" name="Total_Due" id="hidden_total" value="$22.99">
+
+                <div class="checkout-grid">
+                    
+                    <!-- Left Column: User Inputs & Options -->
+                    <div class="checkout-left">
+                        
+                        <!-- 1. App Details -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> 1. App & Contact Details</h2>
+                            <div class="input-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="Name" placeholder="John Doe" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="Email" placeholder="john@example.com" required>
+                                <span class="input-hint">We will send your tester list and Payoneer invoice here.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="app_link">Google Play Closed Testing Link</label>
+                                <input type="url" id="app_link" name="App_Link" placeholder="https://play.google.com/apps/testing/com.your.app" required>
+                            </div>
+                        </div>
+
+                        <!-- 2. Choose Plan Level -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> 2. Choose Service Tier</h2>
+                            <div class="radio-grid">
+                                <label class="radio-card">
+                                    <input type="radio" name="tierToggle" value="22.99" data-name="Starter" checked>
+                                    <div class="radio-circle"></div>
+                                    <div class="card-content">
+                                        <div class="card-title">Starter <span class="badge" style="background:var(--border); color:var(--text-muted);">Standard</span></div>
+                                        <div class="card-desc">12 testers · 14 Days · Approval Guarantee</div>
+                                    </div>
+                                    <div class="card-price">$22.99</div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="tierToggle" value="39.99" data-name="Professional">
+                                    <div class="radio-circle"></div>
+                                    <div class="card-content">
+                                        <div class="card-title">Professional <span class="badge">Most Popular</span></div>
+                                        <div class="card-desc">20 testers · ASO Report · Country Targeting</div>
+                                    </div>
+                                    <div class="card-price">$39.99</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 3. Choose Quantity/Package -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-cubes"></i> 3. Choose Package Size</h2>
+                            <div class="radio-grid">
+                                <label class="radio-card">
+                                    <input type="radio" name="packageToggle" value="1" data-name="Single App" data-discount="0" checked>
+                                    <div class="radio-circle"></div>
+                                    <div class="card-content">
+                                        <div class="card-title">Single App</div>
+                                        <div class="card-desc">Production access for exactly one app.</div>
+                                    </div>
+                                    <div class="card-price" id="price-pkg-1">$22.99</div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="packageToggle" value="3" data-name="Small Portfolio" data-discount="0.05">
+                                    <div class="radio-circle"></div>
+                                    <div class="card-content">
+                                        <div class="card-title">Small Portfolio <span class="badge badge-save">Save 5%</span></div>
+                                        <div class="card-desc">Test 3 apps. Credits never expire.</div>
+                                    </div>
+                                    <div class="card-price">
+                                        <span class="card-price-old" id="price-pkg-3-old">$68.97</span>
+                                        <span id="price-pkg-3">$65.52</span>
+                                    </div>
+                                </label>
+
+                                <label class="radio-card">
+                                    <input type="radio" name="packageToggle" value="5" data-name="App Suite" data-discount="0.10">
+                                    <div class="radio-circle"></div>
+                                    <div class="card-content">
+                                        <div class="card-title">App Suite <span class="badge badge-save">Save 10%</span></div>
+                                        <div class="card-desc">Test 5 apps. Our biggest bulk savings.</div>
+                                    </div>
+                                    <div class="card-price">
+                                        <span class="card-price-old" id="price-pkg-5-old">$114.95</span>
+                                        <span id="price-pkg-5">$103.45</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 4. Add-ons -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-sparkles"></i> 4. Optional Add-ons</h2>
+                            
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="addonOption" value="14.99" data-name="Specific Country Targeting">
+                                <div class="check-square"><i class="fa-solid fa-check" style="font-size:12px;"></i></div>
+                                <div class="card-content">
+                                    <div class="card-title">Specific Country Testers</div>
+                                    <div class="card-desc">Need testers exclusively from USA, UK, or Germany?</div>
+                                </div>
+                                <div class="card-price">+$14.99</div>
+                            </label>
+
+                            <label class="checkbox-card">
+                                <input type="checkbox" name="addonOption" value="9.99" data-name="VIP Express Setup">
+                                <div class="check-square"><i class="fa-solid fa-check" style="font-size:12px;"></i></div>
+                                <div class="card-content">
+                                    <div class="card-title">VIP Express Setup</div>
+                                    <div class="card-desc">Jump the queue. Testers assigned in under 2 hours.</div>
+                                </div>
+                                <div class="card-price">+$9.99</div>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Sticky Summary -->
+                    <div class="summary-sidebar">
+                        <div class="summary-card">
+                            <h3 class="summary-title">Order Summary</h3>
+                            
+                            <div class="summary-row bold">
+                                <span id="summary-plan-name">Starter Plan</span>
+                                <span class="val" id="summary-plan-price">$22.99</span>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Number of apps</span>
+                                <span class="val" id="summary-qty">1</span>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span class="val" id="summary-subtotal">$22.99</span>
+                            </div>
+
+                            <div class="summary-row discount" id="summary-discount-row" style="display: none;">
+                                <span>Bulk Discount</span>
+                                <span class="val" id="summary-discount-val">-$0.00</span>
+                            </div>
+
+                            <div id="summary-addons-container">
+                                <!-- Addons injected here via JS -->
+                            </div>
+
+                            <div class="summary-divider"></div>
+
+                            <div class="summary-total">
+                                <span class="label">Total Due</span>
+                                <span class="price" id="summary-grand-total">$22.99</span>
+                            </div>
+
+                            <!-- Form Submit Button -->
+                            <button type="submit" class="btn-checkout">
+                                <i class="fa-solid fa-lock"></i> Request Invoice
+                            </button>
+                            
+                            <div class="trust-footer">
+                                <p><i class="fa-solid fa-shield-check"></i> You will review the assigned testers in your Play Console <strong>before</strong> we send the Payoneer payment link.</p>
+                                <p style="margin-top: 10px;">By proceeding, you agree to our <a href="/terms-conditions/" target="_blank">Terms</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const tierRadios = document.querySelectorAll('input[name="tierToggle"]');
+            const packageRadios = document.querySelectorAll('input[name="packageToggle"]');
+            const addonCheckboxes = document.querySelectorAll('input[name="addonOption"]');
+            
+            // Dynamic Pricing Displays in Package Cards
+            const pricePkg1 = document.getElementById('price-pkg-1');
+            const pricePkg3Old = document.getElementById('price-pkg-3-old');
+            const pricePkg3 = document.getElementById('price-pkg-3');
+            const pricePkg5Old = document.getElementById('price-pkg-5-old');
+            const pricePkg5 = document.getElementById('price-pkg-5');
+
+            // Summary Elements
+            const sumPlanName = document.getElementById('summary-plan-name');
+            const sumPlanPrice = document.getElementById('summary-plan-price');
+            const sumQty = document.getElementById('summary-qty');
+            const sumSubtotal = document.getElementById('summary-subtotal');
+            const sumDiscountRow = document.getElementById('summary-discount-row');
+            const sumDiscountVal = document.getElementById('summary-discount-val');
+            const sumAddonsContainer = document.getElementById('summary-addons-container');
+            const sumGrandTotal = document.getElementById('summary-grand-total');
+
+            // Hidden Inputs for FormSubmit
+            const hiddenPlan = document.getElementById('hidden_plan');
+            const hiddenPackage = document.getElementById('hidden_package');
+            const hiddenAddons = document.getElementById('hidden_addons');
+            const hiddenTotal = document.getElementById('hidden_total');
+
+            // Formatter
+            const formatMoney = (amount) => '$' + amount.toFixed(2);
+
+            // Main Calculator Function
+            function calculateTotal() {
+                // 1. Get Selected Tier (Starter vs Pro)
+                const selectedTier = document.querySelector('input[name="tierToggle"]:checked');
+                const tierPrice = parseFloat(selectedTier.value);
+                const tierName = selectedTier.dataset.name;
+
+                // 2. Update Package Card Prices dynamically based on selected Tier
+                pricePkg1.textContent = formatMoney(tierPrice * 1);
+                
+                const pkg3Base = tierPrice * 3;
+                pricePkg3Old.textContent = formatMoney(pkg3Base);
+                pricePkg3.textContent = formatMoney(pkg3Base * 0.95); // 5% off
+                
+                const pkg5Base = tierPrice * 5;
+                pricePkg5Old.textContent = formatMoney(pkg5Base);
+                pricePkg5.textContent = formatMoney(pkg5Base * 0.90); // 10% off
+
+                // 3. Get Selected Package (Qty & Discount)
+                const selectedPackage = document.querySelector('input[name="packageToggle"]:checked');
+                const qty = parseInt(selectedPackage.value);
+                const pkgName = selectedPackage.dataset.name;
+                const discountRate = parseFloat(selectedPackage.dataset.discount);
+
+                // 4. Calculate Base & Discount
+                const subtotal = tierPrice * qty;
+                const discountAmt = subtotal * discountRate;
+                const postDiscountSub = subtotal - discountAmt;
+
+                // 5. Get Selected Addons
+                let addonTotal = 0;
+                let activeAddons = [];
+                sumAddonsContainer.innerHTML = ''; // Clear previous
+
+                addonCheckboxes.forEach(cb => {
+                    if(cb.checked) {
+                        const addonPrice = parseFloat(cb.value);
+                        const addonName = cb.dataset.name;
+                        addonTotal += addonPrice;
+                        activeAddons.push(addonName);
+                        
+                        // Add to visual summary
+                        sumAddonsContainer.innerHTML += `
+                            <div class="summary-row">
+                                <span>+ ${addonName}</span>
+                                <span class="val">${formatMoney(addonPrice)}</span>
+                            </div>
+                        `;
+                    }
+                });
+
+                // 6. Calculate Grand Total
+                const grandTotal = postDiscountSub + addonTotal;
+
+                // 7. Update UI Summary
+                sumPlanName.textContent = tierName + ' Plan';
+                sumPlanPrice.textContent = formatMoney(tierPrice) + ' /ea';
+                sumQty.textContent = qty;
+                sumSubtotal.textContent = formatMoney(subtotal);
+                
+                if(discountAmt > 0) {
+                    sumDiscountRow.style.display = 'flex';
+                    sumDiscountVal.textContent = '-' + formatMoney(discountAmt);
+                } else {
+                    sumDiscountRow.style.display = 'none';
+                }
+
+                sumGrandTotal.textContent = formatMoney(grandTotal);
+
+                // 8. Update Hidden Inputs for Email Delivery
+                hiddenPlan.value = tierName + ` ($${tierPrice})`;
+                hiddenPackage.value = `${pkgName} (Qty: ${qty})`;
+                hiddenAddons.value = activeAddons.length > 0 ? activeAddons.join(", ") : "None";
+                hiddenTotal.value = formatMoney(grandTotal);
+            }
+
+            // Attach Event Listeners to all radio buttons and checkboxes
+            tierRadios.forEach(radio => radio.addEventListener('change', calculateTotal));
+            packageRadios.forEach(radio => radio.addEventListener('change', calculateTotal));
+            addonCheckboxes.forEach(cb => cb.addEventListener('change', calculateTotal));
+
+            // Initial calculation on load
+            calculateTotal();
+        });
+    </script>
+</body>
+</html>
