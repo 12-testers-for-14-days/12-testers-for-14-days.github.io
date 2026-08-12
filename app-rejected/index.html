@@ -246,7 +246,6 @@
                 <a href="/contact/">Contact</a>
             </nav>
             <div class="header-actions">
-                <div class="lang-select">🇬🇧 EN</div>
                 <a href="/order" class="btn btn-primary">Get started</a>
             </div>
         </div>
@@ -646,23 +645,6 @@
 
     <!-- Interactive Scripts -->
     <script>
-      // Language dropdown
-      var langToggle = document.getElementById('langToggle');
-      var langMenu = document.getElementById('langMenu');
-      if (langToggle && langMenu) {
-        langToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          var isOpen = langMenu.classList.toggle('open');
-          langToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-        document.addEventListener('click', function(e) {
-          if (!langMenu.contains(e.target) && e.target !== langToggle) {
-            langMenu.classList.remove('open');
-            langToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-
       // Smooth scrolling for TOC
       document.querySelectorAll('.toc-list a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
