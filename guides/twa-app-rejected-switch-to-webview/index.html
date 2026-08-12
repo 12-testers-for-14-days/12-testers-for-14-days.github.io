@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- =========================================================
+         ENHANCED SEO + GEO META TAGS
+         GEO = Generative Engine Optimization (SGE, Perplexity, ChatGPT)
+         ========================================================= -->
+    <title>TWA App Rejected on Google Play? 5 Proven Fixes (2026) | 12Testers14Days</title>
+    <meta name="description" content="Your TWA app was rejected on Google Play. Learn the 5 documented causes — Digital Asset Links failure, SHA-256 fingerprint mismatch, Webview Minimum Functionality policy, OAuth redirect, and 12 testers for 14 days testing — and apply the exact fix for each.">
+    <meta name="keywords" content="TWA app rejected Google Play, Trusted Web Activity rejection fix, assetlinks.json verification error, SHA-256 fingerprint mismatch TWA, Google Play Webview policy rejection, PWA Google Play rejection 2026, 12 testers 14 days TWA, Digital Asset Links validation, Bubblewrap TWA error, Play App Signing fingerprint, TWA address bar showing">
+    <meta name="author" content="12Testers14Days Team">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="Global">
+    <link rel="canonical" href="https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview">
+    <link rel="alternate" hreflang="en" href="https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview">
+    <link rel="alternate" hreflang="x-default" href="https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="12Testers14Days" />
+    <meta property="og:title" content="TWA App Rejected on Google Play? 5 Proven Fixes (2026 Guide)" />
+    <meta property="og:description" content="Step-by-step fix for Trusted Web Activity (TWA) rejections on Google Play Console. Covers assetlinks.json SHA-256 fingerprints, Webview Minimum Functionality policy, OAuth redirect bugs, and the 12 testers for 14 days closed testing rule." />
+    <meta property="og:url" content="https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview" />
+    <meta property="og:image" content="https://12-testers-for-14-days.github.io/assets/og-image.png" />
+    <meta property="og:image:secure_url" content="https://12-testers-for-14-days.github.io/assets/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TWA App Rejected Google Play - Complete Fix Guide 2026" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-08-12T08:00:00+00:00" />
+    <meta property="article:modified_time" content="2026-08-12T08:00:00+00:00" />
+    <meta property="article:expiration_time" content="2027-08-12T08:00:00+00:00" />
+    <meta property="article:section" content="Troubleshooting & Development" />
+    <meta property="article:tag" content="TWA, PWA, Google Play Console, App Rejection, Digital Asset Links, Closed Testing" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@12testers14days" />
+    <meta name="twitter:creator" content="@12testers14days" />
+    <meta name="twitter:title" content="TWA App Rejected on Google Play? 5 Proven Fixes (2026)" />
+    <meta name="twitter:description" content="Step-by-step fix for Trusted Web Activity (TWA) rejections. Digital Asset Links, SHA-256 fingerprints, Webview policies, 14-day closed testing." />
+    <meta name="twitter:image" content="https://12-testers-for-14-days.github.io/assets/og-image.png" />
+    <meta name="twitter:image:alt" content="TWA App Rejected Google Play - Complete Fix Guide 2026" />
+    <meta name="twitter:label1" content="Reading time" content="18 min" />
+    <meta name="twitter:data1" content="18 min read" />
+    <meta name="twitter:label2" content="Last updated" content="Aug 12, 2026" />
+    <meta name="twitter:data2" content="August 12, 2026" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Preconnect & DNS Prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://digitalassetlinks.googleapis.com">
+    <link rel="dns-prefetch" href="https://play.google.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- =========================================================
+         SCHEMA.ORG JSON-LD: Article (with speakable for voice)
+         ========================================================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview#article",
+      "headline": "TWA App Rejected on Google Play? 5 Proven Fixes (2026 Guide)",
+      "description": "Complete troubleshooting guide for fixing Trusted Web Activity (TWA) app rejections on Google Play Console. Covers Digital Asset Links validation, SHA-256 fingerprints, Webview Minimum Functionality policy, OAuth redirect bugs, and 14-day closed testing compliance.",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://12-testers-for-14-days.github.io/assets/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "datePublished": "2026-08-12T08:00:00+00:00",
+      "dateModified": "2026-08-12T08:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "12Testers14Days",
+        "url": "https://12-testers-for-14-days.github.io/",
+        "logo": "https://12-testers-for-14-days.github.io/assets/logo.png"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "12Testers14Days",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://12-testers-for-14-days.github.io/assets/logo.png",
+          "width": 600,
+          "height": 60
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview"
+      },
+      "wordCount": 3200,
+      "articleSection": "Troubleshooting & Development",
+      "inLanguage": "en-US",
+      "keywords": "TWA app rejected, Google Play, assetlinks.json, SHA-256, Digital Asset Links, Webview policy, 12 testers 14 days, PWA, Bubblewrap, PWABuilder",
+      "about": [
+        {"@type": "Thing", "name": "Trusted Web Activity"},
+        {"@type": "Thing", "name": "Google Play Console"},
+        {"@type": "Thing", "name": "Digital Asset Links"},
+        {"@type": "Thing", "name": "Progressive Web App"}
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "xpath": [
+          "/html/head/title",
+          "/html/body//h1",
+          "/html/body//article/p[1]"
+        ]
+      }
+    }
+    </script>
+
+    <!-- Schema.org: HowTo (step-by-step) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Fix a Rejected TWA (Trusted Web Activity) App on Google Play",
+      "description": "Step-by-step resolution for fixing Digital Asset Links verification, SHA-256 fingerprint mismatch, Webview Minimum Functionality policy violations, and closed testing failures for TWA Android apps.",
+      "totalTime": "PT20M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "tool": [
+        {"@type": "HowToTool", "name": "Bubblewrap CLI"},
+        {"@type": "HowToTool", "name": "Google Play Console"},
+        {"@type": "HowToTool", "name": "keytool (Java SDK)"}
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Verify Digital Asset Links and SHA-256 fingerprints",
+          "text": "Deploy the assetlinks.json file to your domain at https://yourdomain.com/.well-known/assetlinks.json. Include BOTH the local Upload Key SHA-256 fingerprint AND the Google Play App Signing SHA-256 fingerprint from Play Console > Setup > App signing.",
+          "url": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview#fix-assetlinks"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Fix Webview Minimum Functionality policy",
+          "text": "Ensure your Progressive Web App has an active Service Worker that handles offline states cleanly. Hide web-only navigation when display-mode is standalone. Test in Airplane Mode before resubmitting.",
+          "url": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview#webview-policy"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Configure App Identity and Package Name",
+          "text": "Match your package name and domain verification in PWABuilder or Bubblewrap configurations. Ensure twa-manifest.json applicationId matches Play Console.",
+          "url": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview#checklist"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Complete 14-Day Closed Testing with 12 testers",
+          "text": "Enroll 12 real human testers on physical Android devices for 14 continuous days. Testers must actively open the TWA app daily to generate authentic session data for Play Console telemetry.",
+          "url": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview#testing-rule"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Resubmit with production access questionnaire",
+          "text": "Answer the production access questionnaire detailing testing feedback, bug fixes, and how you verified Digital Asset Links. Apply for production access.",
+          "url": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview#checklist"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org: FAQPage (expanded for GEO/PAA) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my TWA app show an address bar inside the app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An address bar appears inside a Trusted Web Activity when Digital Asset Links verification fails. Common causes: assetlinks.json is missing from /.well-known/, the file is hosted on HTTP instead of HTTPS, the file has invalid JSON syntax, or — most commonly — the SHA-256 fingerprint in assetlinks.json does not match Google Play App Signing (instead of your local Upload Key). The TWA then falls back to Chrome Custom Tabs which displays the URL bar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do TWA apps need 12 testers for 14 days on Google Play?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Any app — including TWA, PWA, native, or hybrid — published on a personal Google Play Developer account created after November 13, 2023 must complete 12 testers for 14 continuous days of closed testing before production access is granted. TWA apps are not exempt because they are distributed as Android App Bundles (.aab) and run on the device through Chrome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why was my TWA app rejected for Webview Policy or Minimum Functionality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google rejects TWAs under the Minimum Functionality policy if the web app behaves like a static webpage, lacks an offline Service Worker fallback, fails to load when disconnected from the internet, redirects users out to an external browser window, or simply frames a website without providing app-like value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find my Google Play App Signing SHA-256 fingerprint?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Google Play Console > Setup > App signing. The App signing key certificate section displays your SHA-256 certificate fingerprint. Copy this value (and optionally your Upload Key fingerprint) into the sha256_cert_fingerprints array inside your assetlinks.json file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Google Sign-In inside a TWA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but OAuth must be configured with cross-origin headers and must not redirect the user out of the Custom Tab container. Use the Google Identity Services library with FedCM or proper OAuth callback URLs that resolve inside the TWA. Otherwise, the sign-in flow breaks app review and triggers a policy violation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does Google Play TWA review take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standard TWA app reviews typically take 3 to 7 days. First-time developer accounts on the 12 testers for 14 days closed testing track require the full 14 days of testing before production review begins, plus 3 to 7 additional days for production review — a total of roughly 17 to 21 days from first upload to production approval."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between TWA and PWA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A PWA (Progressive Web App) runs entirely in a web browser using Service Workers, manifests, and HTTPS. A TWA (Trusted Web Activity) is an Android wrapper built with Bubblewrap or PWABuilder that packages a PWA as an installable Android App Bundle (.aab) for Google Play. TWAs hide the browser UI and require Digital Asset Links verification, while PWAs are accessed via URL."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://12-testers-for-14-days.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://12-testers-for-14-days.github.io/blog/"},
+        {"@type": "ListItem", "position": 3, "name": "TWA App Rejected Google Play Fix", "item": "https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview"}
+      ]
+    }
+    </script>
+
+    <!-- Schema.org: SoftwareApplication (TWA reference) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Trusted Web Activity (TWA)",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Android",
+      "description": "A Trusted Web Activity (TWA) is an Android wrapper for Progressive Web Apps that uses Digital Asset Links to display a website full-screen without browser UI. TWAs are built with Bubblewrap CLI or PWABuilder and distributed as Android App Bundles (.aab) on Google Play.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Schema.org: Organization (publisher authority) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://12-testers-for-14-days.github.io/#organization",
+      "name": "12Testers14Days",
+      "url": "https://12-testers-for-14-days.github.io/",
+      "logo": "https://12-testers-for-14-days.github.io/assets/logo.png",
+      "description": "Professional Google Play closed testing service. We supply 12 verified human testers on physical Android devices for 14 continuous days of closed testing — required for personal developer accounts created after November 13, 2023.",
+      "sameAs": [
+        "https://wa.me/923472061598"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-347-2061598",
+        "contactType": "customer support",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English"]
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+          --bg-page: #ffffff;
+          --bg-hero: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+          --bg-alt: #f8fafc;
+          --bg-dark: #0b1120;
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --primary-onDark: #2dd4bf;
+          --whatsapp: #25d366;
+          --danger: #ef4444;
+          --danger-light: #fee2e2;
+          --border: #e2e8f0;
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          --radius: 12px;
+          --radius-lg: 20px;
+          --transition: 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.7; overflow-x: hidden; font-size: 16px; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
+        a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--primary-hover); }
+        img, svg { max-width: 100%; display: block; }
+        ul, ol { padding: 0; margin: 0; list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+        .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); }
+        .brand-icon { width: 32px; height: 32px; background: #0f172a; color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; font-size: 14px; font-family: var(--font-sans); }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: #10b981; border: 2px solid #fff; border-radius: 50%; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+        .header-actions { display: flex; align-items: center; gap: 1rem; }
+        .lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all var(--transition); border: none; font-family: var(--font-sans); font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: var(--shadow); color: #fff; }
+        .btn-outline { background: #fff; border: 1px solid var(--border); color: var(--text-main); }
+        .btn-outline:hover { background: var(--bg-alt); }
+
+        .reading-progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--primary); z-index: 1001; width: 0%; transition: width 0.1s ease-out; }
+
+        .breadcrumb { margin: 2rem auto 0; font-size: 0.875rem; color: var(--text-light); }
+        .breadcrumb ol { display: flex; flex-wrap: wrap; gap: 8px; }
+        .breadcrumb li { display: flex; align-items: center; }
+        .breadcrumb li:not(:last-child)::after { content: "›"; margin-left: 8px; color: var(--text-light); font-size: 1.2em; line-height: 1; }
+        .breadcrumb a { color: var(--text-light); font-weight: 500; }
+        .breadcrumb a:hover { color: var(--primary); }
+        .breadcrumb li:last-child { color: var(--text-main); font-weight: 600; }
+
+        .blog-hero { text-align: center; padding: 4rem 0 3rem; border-bottom: 1px solid var(--border); background: var(--bg-alt); margin-bottom: 3rem; }
+        .article-category { display: inline-block; background: var(--danger-light); color: var(--danger); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); margin-bottom: 1.5rem; }
+        .article-title { font-size: clamp(2.3rem, 5vw, 3.5rem); max-width: 920px; margin: 0 auto 1.5rem; }
+        .article-lede { max-width: 760px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; }
+        .article-meta { display: flex; justify-content: center; align-items: center; gap: 1.5rem; color: var(--text-light); font-size: 0.95rem; font-weight: 500; flex-wrap: wrap; }
+        .article-meta span { display: flex; align-items: center; gap: 0.5rem; }
+        .author-avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--text-main); color: #fff; display: grid; place-items: center; font-size: 0.75rem; font-weight: 700; font-family: var(--font-display); }
+
+        .article-layout { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; padding-bottom: 5rem; }
+
+        .toc-sidebar { position: sticky; top: 100px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); }
+        .toc-sidebar h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-main); margin-bottom: 1rem; font-family: var(--font-mono); display: flex; align-items: center; gap: 0.5rem; }
+        .toc-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .toc-list a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; line-height: 1.4; padding: 0.5rem 0.75rem; border-radius: 6px; transition: all var(--transition); border-left: 2px solid transparent; }
+        .toc-list a:hover { color: var(--primary); background: var(--bg-alt); }
+        .toc-list a.active { color: var(--primary-hover); background: var(--primary-light); border-left-color: var(--primary); font-weight: 600; }
+
+        .article-content { font-size: 1.125rem; color: var(--text-main); max-width: 800px; }
+        .article-content p { margin-bottom: 1.5rem; color: var(--text-muted); }
+        .article-content h2 { font-size: 2rem; margin: 3.5rem 0 1.5rem; scroll-margin-top: 100px; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; color: var(--text-main); }
+        .article-content h3 { font-size: 1.5rem; margin: 2.5rem 0 1rem; scroll-margin-top: 100px; color: var(--text-main); }
+        .article-content h4 { font-size: 1.2rem; margin: 1.75rem 0 0.75rem; color: var(--text-main); }
+        .article-content ul, .article-content ol { margin: 0 0 1.5rem 1.5rem; color: var(--text-muted); }
+        .article-content ul { list-style: disc; }
+        .article-content ol { list-style: decimal; }
+        .article-content li { margin-bottom: 0.5rem; display: list-item; }
+        .article-content strong { color: var(--text-main); font-weight: 700; }
+        .article-content code { font-family: var(--font-mono); background: var(--bg-alt); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.92em; color: var(--text-main); border: 1px solid var(--border); }
+        .article-content blockquote { border-left: 4px solid var(--primary); padding: 1rem 1.5rem; background: var(--bg-alt); border-radius: 0 var(--radius) var(--radius) 0; margin: 2rem 0; color: var(--text-main); font-style: italic; }
+        .article-content blockquote p { margin: 0; color: var(--text-main); }
+        .article-content blockquote cite { display: block; margin-top: 0.5rem; font-size: 0.85rem; font-style: normal; color: var(--text-light); }
+
+        .key-takeaways { background: linear-gradient(135deg, #ecfeff 0%, #f0fdfa 100%); border: 1px solid var(--primary-light); border-left: 5px solid var(--primary); border-radius: var(--radius); padding: 1.75rem 2rem; margin: 2.5rem 0; }
+        .key-takeaways h3 { font-size: 1.1rem; margin: 0 0 1rem 0; color: var(--primary-hover); display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); border: none; padding: 0; }
+        .key-takeaways ul { margin: 0; padding-left: 1.25rem; }
+        .key-takeaways li { color: var(--text-main); font-weight: 500; }
+
+        .info-box { background: var(--primary-light); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 2.5rem 0; }
+        .info-box.warning { background: #fee2e2; border-left-color: var(--danger); }
+        .info-box h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem; }
+        .info-box.warning h4 { color: #b91c1c; }
+        .info-box p { margin: 0; font-size: 1rem; color: var(--text-main); }
+        .highlight { background: #fef08a; color: #854d0e; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; }
+
+        .internal-links { background: var(--bg-alt); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius); margin: 2.5rem 0; }
+        .internal-links h4 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem; }
+        .internal-links ul { list-style: none; margin: 0; padding: 0; }
+        .internal-links li { display: block; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .internal-links li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .internal-links a { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; font-size: 1rem; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+        .stat-card { background: #fff; padding: 1.5rem; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+        .stat-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .step-grid { display: flex; flex-direction: column; gap: 1.5rem; margin: 2.5rem 0; }
+        .step-card { background: #fff; padding: 2rem 2rem 2rem 4.5rem; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border); position: relative; }
+        .step-number { position: absolute; top: 2rem; left: -1rem; width: 44px; height: 44px; background: var(--primary); color: #fff; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 1.25rem; font-family: var(--font-display); box-shadow: 0 4px 10px rgba(15, 118, 110, 0.3); border: 4px solid #fff; }
+        .step-card h3 { font-size: 1.25rem; margin: 0 0 1rem 0; color: var(--text-main); border: none; padding: 0; }
+        .step-card p { margin: 0 0 1rem 0; font-size: 1.05rem; }
+
+        .code-block { background: var(--bg-dark); color: #e2e8f0; padding: 1.5rem; border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.88rem; overflow-x: auto; margin: 1.5rem 0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); line-height: 1.6; }
+        .code-block .comment { color: #64748b; }
+        .code-block .key { color: #38bdf8; }
+        .code-block .string { color: #4ade80; }
+
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 2.5rem 0; background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border); font-size: 0.95rem; }
+        .comparison-table th { background: var(--bg-dark); color: white; padding: 1rem; text-align: left; font-weight: 600; font-family: var(--font-display); border: none; }
+        .comparison-table td { padding: 1rem; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: middle; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:nth-child(even) { background: var(--bg-alt); }
+        .comparison-table .highlight { color: var(--primary); font-weight: 600; }
+        .comparison-table .danger { color: var(--danger); font-weight: 600; }
+
+        /* Author byline box for E-E-A-T */
+        .author-box { display: flex; gap: 1.25rem; align-items: center; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin: 3rem 0; }
+        .author-box .author-avatar { width: 56px; height: 56px; font-size: 1.1rem; }
+        .author-box h4 { font-size: 1rem; margin: 0 0 0.25rem; color: var(--text-main); }
+        .author-box p { font-size: 0.9rem; margin: 0; color: var(--text-muted); }
+
+        /* Last updated timestamp */
+        .last-updated { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-light); text-align: center; margin: 2rem 0 0; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .faq-section { margin-top: 4rem; border-top: 2px solid var(--border); padding-top: 4rem; }
+        .faq-section h2 { text-align: center; margin-bottom: 3rem; }
+        .faq-item { background: #fff; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border); transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+        .faq-item:hover { box-shadow: var(--shadow-sm); border-color: var(--primary-light); }
+        .faq-question { padding: 1.25rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.05rem; color: var(--text-main); }
+        .faq-icon-box { width: 24px; height: 24px; border: 1.5px solid var(--primary); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; font-weight: 300; transition: transform 0.3s ease; line-height: 1; }
+        .faq-icon-box::before { content: '+'; display: block; margin-top: -2px; }
+        .faq-item.active .faq-icon-box { transform: rotate(45deg); }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+        .faq-item.active .faq-answer { max-height: 800px; padding: 0 1.5rem 1.25rem; }
+
+        .sources { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 2rem; margin: 3rem 0; }
+        .sources h3 { font-size: 1rem; margin: 0 0 1rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono); border: none; padding: 0; }
+        .sources ul { margin: 0; padding-left: 1.25rem; }
+        .sources li { font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-muted); }
+        .sources a { font-weight: 500; word-break: break-word; }
+
+        .cta-section { padding: 0 0 5rem; background: var(--bg-page); }
+        .cta-modern { background-color: #232220; border-radius: 32px; padding: 5rem 2rem; text-align: center; color: #ffffff; max-width: 1000px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .cta-modern-badge { display: inline-block; background: rgba(255,255,255,0.1); color: #a1a1aa; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.25rem; border-radius: 99px; margin-bottom: 1.5rem; }
+        .cta-modern h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; color: #fff; border: none; padding: 0; }
+        .cta-modern p { color: #a1a1aa; font-size: 1.1rem; max-width: 650px; margin: 0 auto 3rem; line-height: 1.6; }
+        .cta-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 750px; margin: 0 auto 3rem; }
+        .cta-feature-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; text-align: left; }
+        .cta-feature-box i { font-size: 1.25rem; color: #a1a1aa; flex-shrink: 0; }
+        .cta-feature-text { font-size: 0.95rem; font-weight: 500; color: #e4e4e7; }
+        .btn-white { background: #ffffff; color: #000000; border-radius: 99px; padding: 1rem 3rem; font-weight: 600; font-size: 1.1rem; transition: transform 0.2s; display: inline-block; }
+        .btn-white:hover { background: #f4f4f5; transform: translateY(-2px); color: #000; }
+
+        .exit-overlay { position: fixed; inset: 0; background: rgba(11, 17, 32, 0.75); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 1rem; }
+        .exit-overlay.active { opacity: 1; visibility: visible; }
+        .exit-modal { background: #fff; border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 500px; position: relative; transform: translateY(20px); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: var(--shadow-xl); }
+        .exit-overlay.active .exit-modal { transform: translateY(0); }
+        .exit-close { position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; background: var(--bg-alt); border-radius: 50%; display: grid; place-items: center; cursor: pointer; border: 1px solid var(--border); color: var(--text-muted); transition: all var(--transition); }
+        .exit-close:hover { background: var(--border); color: var(--text-main); }
+        .exit-eyebrow { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+        .exit-modal h2 { font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.3; color: var(--text-main); border: none; padding: 0; }
+        .exit-modal p.exit-lead { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .exit-features { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+        .exit-feature { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .exit-feature i { color: var(--primary); background: var(--primary-light); width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; margin-top: 2px; flex-shrink: 0; }
+        .exit-feature-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .exit-feature-text strong { color: var(--text-main); }
+        .exit-actions { display: flex; flex-direction: column; gap: 0.75rem; }
+        .exit-footer { margin-top: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .dark-footer { background: var(--bg-dark); color: #94a3b8; padding-top: 4rem; border-top: 1px solid #1e293b; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; position: relative; z-index: 10; }
+        .footer-brand { color: #fff; }
+        .footer-brand p { margin: 1.5rem 0; font-size: 0.95rem; max-width: 300px; color: #94a3b8; }
+        .footer-contact { font-family: var(--font-mono); font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.75rem; color: #94a3b8; }
+        .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; margin-bottom: 1.5rem; border: none; padding: 0; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+        .footer-col li { list-style: none; display: block; margin: 0; padding: 0; }
+        .footer-col a { color: #94a3b8; font-size: 0.95rem; font-weight: 500; transition: color var(--transition); }
+        .footer-col a:hover { color: var(--primary-onDark); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; font-size: 0.85rem; }
+
+        .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; width: 60px !important; height: 60px !important; background: var(--whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); z-index: 9999; transition: transform var(--transition); }
+        .floating-whatsapp:hover { transform: scale(1.08); background: #1ebc57; }
+        .floating-whatsapp svg { width: 32px !important; height: 32px !important; fill: #ffffff !important; display: block; flex-shrink: 0; }
+
+        @media (max-width: 1024px) {
+          .article-layout { grid-template-columns: 1fr; }
+          .toc-sidebar { position: static; margin-bottom: 2rem; }
+          .footer-grid { grid-template-columns: 1fr 1fr; }
+          .footer-brand { grid-column: 1 / -1; }
+        }
+        @media (max-width: 768px) {
+          .nav-links, .header-actions .lang-select { display: none; }
+          .cta-features-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+          .footer-grid { grid-template-columns: 1fr; }
+          .cta-modern { padding: 3rem 1.5rem; border-radius: 24px; }
+          .article-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <header class="header" role="banner">
+        <div class="container header-inner">
+            <a href="/" class="brand" aria-label="12Testers14Days home">
+                <div class="brand-icon" aria-hidden="true">12</div>
+                12Testers14Days
+            </a>
+            <nav class="nav-links" data-nav-links aria-label="Primary">
+                <a href="/">Home</a>
+                <a href="/pricing/">Pricing</a>
+                <a href="/blog/" class="active" aria-current="page">Guides</a>
+                <a href="/about/">About Us</a>
+                <a href="https://wa.me/923472061598" target="_blank" rel="noopener">WhatsApp Support</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-select" role="button" aria-label="Change language">
+                    🇬🇧 EN
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <a href="/pricing/" class="btn btn-primary">Get started</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/"><span itemprop="name">Home</span></a><meta itemprop="position" content="1" /></li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/blog/"><span itemprop="name">Guides</span></a><meta itemprop="position" content="2" /></li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page"><span itemprop="name">TWA App Rejected</span><meta itemprop="position" content="3" /></li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="blog-hero">
+            <div class="container">
+                <span class="article-category">Troubleshooting</span>
+                <h1 class="article-title">TWA App Rejected on Google Play? 5 Proven Fixes (2026 Guide)</h1>
+                <p class="article-lede">A Trusted Web Activity (TWA) rejection usually traces back to one of five issues: a Digital Asset Links failure, a SHA-256 fingerprint mismatch, a Webview Minimum Functionality policy violation, an OAuth redirect bug, or insufficient closed testing. This guide documents each cause with the exact fix, code, and verification steps.</p>
+                <div class="article-meta">
+                    <span><div class="author-avatar" aria-hidden="true">12</div> 12Testers14Days Team</span>
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <time datetime="2026-08-12">Updated Aug 12, 2026</time>
+                    </span>
+                    <span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        18 min read
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container article-layout">
+            <aside class="toc-sidebar" aria-label="Table of contents">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                    On this page
+                </h3>
+                <nav class="toc-list" id="toc">
+                    <a href="#quick-answer">Quick Answer</a>
+                    <a href="#what-is-twa">What is a TWA App?</a>
+                    <a href="#top-reasons">5 Rejection Causes</a>
+                    <a href="#fix-assetlinks">Fix #1: assetlinks.json</a>
+                    <a href="#webview-policy">Fix #2: Webview Policy</a>
+                    <a href="#oauth-fix">Fix #3: OAuth Redirect</a>
+                    <a href="#testing-rule">Fix #4: 14-Day Testing</a>
+                    <a href="#checklist">Fix #5: Resubmit Checklist</a>
+                    <a href="#faq">FAQ</a>
+                </nav>
+            </aside>
+
+            <article class="article-content">
+
+                <!-- Quick answer box for AI snippets / PAA -->
+                <section id="quick-answer" aria-label="Quick answer">
+                    <h2 style="margin-top:0; border:none; padding:0; font-size:1.5rem;">Quick Answer</h2>
+                    <p>A Trusted Web Activity (TWA) gets rejected on Google Play primarily because <strong>Digital Asset Links verification fails</strong> — usually a SHA-256 fingerprint mismatch between your <code>assetlinks.json</code> and Google Play App Signing. The fix: include <strong>both</strong> your Upload Key SHA-256 and the Play App Signing SHA-256 in the <code>sha256_cert_fingerprints</code> array, host the file at <code>https://yourdomain.com/.well-known/assetlinks.json</code>, then verify with Google's Statement List API.</p>
+                </section>
+
+                <p id="what-is-twa"><strong>Publishing a Progressive Web App (PWA) as an Android App using Trusted Web Activity (TWA) is one of the fastest ways to hit the Play Store.</strong> Tools like Bubblewrap and PWABuilder make converting your website into an Android App Bundle (<code>.aab</code>) feel effortless.</p>
+
+                <p>However, TWA apps face double scrutiny from Google Play's automated review bots. Not only must they pass general Android Play Policies, but they must also satisfy strict <strong>Digital Asset Links domain verification</strong>, <strong>Webview / Minimum Functionality policies</strong>, and the mandatory <strong>12 testers for 14 days closed testing rule</strong> for new personal developer accounts created after November 13, 2023.</p>
+
+                <p>If your TWA app was rejected or displays an unexpected browser URL bar inside the app, do not panic. In this 2026 technical guide, we break down every cause of TWA app rejections and provide exact code snippets, fingerprint configuration fixes, and testing strategies to guarantee your production approval.</p>
+
+                <!-- E-E-A-T: Key Takeaways for AI extraction -->
+                <aside class="key-takeaways" aria-label="Key takeaways">
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li>A TWA shows an address bar when Digital Asset Links verification fails — usually because <code>assetlinks.json</code> uses the local Upload Key SHA-256 instead of the Google Play App Signing SHA-256.</li>
+                        <li>TWA apps published on personal Google Play accounts created after November 13, 2023 still require 12 testers for 14 days of closed testing.</li>
+                        <li>Google Play Policy rejects TWAs under Minimum Functionality if the app lacks an offline Service Worker fallback or redirects users out to an external browser.</li>
+                        <li>OAuth sign-in inside a TWA must resolve inside the Custom Tab container or it breaks app review.</li>
+                        <li>Standard TWA review takes 3–7 days, plus the 14-day closed testing window for new accounts — a total of roughly 17–21 days from upload to production.</li>
+                    </ul>
+                </aside>
+
+                <!-- Author byline for E-E-A-T -->
+                <aside class="author-box" aria-label="About the author">
+                    <div class="author-avatar" aria-hidden="true">12</div>
+                    <div>
+                        <h4>Reviewed by the 12Testers14Days Team</h4>
+                        <p>Google Play closed testing specialists. We've helped over 7,400 apps pass the 12 testers for 14 days requirement and reach production since 2023. Last fact-checked: August 12, 2026.</p>
+                    </div>
+                </aside>
+
+                <div class="internal-links">
+                    <h4>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        Essential Reading
+                    </h4>
+                    <ul>
+                        <li><a href="/blog/why-google-rejects-apps-12-testers-mistakes/"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> 7 Mistakes That Cause Closed Testing Rejections</a></li>
+                        <li><a href="/blog/google-play-console-closed-testing-setup/"><i class="fa-solid fa-gear" aria-hidden="true"></i> Step-by-Step Play Console Closed Testing Setup</a></li>
+                        <li><a href="/google-play-production-access-rejected/"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Fix 'More Testing Required' Rejection Notice</a></li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">14</span>
+                        <div class="stat-label">Days Closed Testing</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <div class="stat-label">Testers Required</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <div class="stat-label">Documented Rejection Causes</div>
+                    </div>
+                </div>
+
+                <h2 id="top-reasons">The 5 Documented Reasons TWA Apps Get Rejected on Google Play</h2>
+
+                <p>When Google reviews a TWA submission, it tests both the native Android wrapper and the underlying web application. Rejections fall into one of these five categories — each documented in Google's own developer policy and developer forum threads.</p>
+
+                <div class="step-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Digital Asset Links Failure (Address Bar Showing)</h3>
+                        <p>A TWA is meant to run full-screen, indistinguishable from a native app. If Google's review bot opens your app and sees a Chrome URL address bar at the top, it instantly fails review. This means Google Custom Tabs could not verify digital ownership between your Android app package and your web domain. The most common cause is a SHA-256 fingerprint mismatch.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Webview Minimum Functionality Policy Violation</h3>
+                        <p>Google Play Policy states that an app must provide a valuable user experience beyond simply framing a website. If your website lacks an offline Service Worker fallback, fails when disconnected from the internet, or behaves like a basic blog without interactive app-like UI, Google rejects it under the "Repetitive Content or Minimum Functionality" policy.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>OAuth Sign-In Redirecting Out of the App</h3>
+                        <p>If your web app uses "Google Sign-In" or third-party OAuth, clicking "Login" might trigger a redirect that opens Google Chrome outside the TWA container. Google Play reviewers consider an app broken if core navigation unexpectedly kicks the user out to an external web browser.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>"Insufficient Testing Activity" in Closed Testing</h3>
+                        <p>Just like native Java, Kotlin, or Flutter apps, TWAs published on personal developer accounts created after Nov 13, 2023, must pass the <strong>12 testers for 14 days</strong> closed testing phase. If your testers don't actively engage with the TWA, Google rejects production access with a "More testing required" notice.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3>Package Name Mismatch or Missing App Identity</h3>
+                        <p>If your <code>twa-manifest.json</code> applicationId does not match the package name registered in Google Play Console, or if the SHA-256 fingerprint in <code>assetlinks.json</code> references the wrong package_name, Digital Asset Links verification silently fails.</p>
+                    </div>
+                </div>
+
+                <h2 id="fix-assetlinks">Fix #1: Digital Asset Links & SHA-256 Fingerprint Verification</h2>
+
+                <p>The most common technical error for TWAs is misconfiguring <code>assetlinks.json</code>. For a TWA to hide the Chrome URL bar and run full-screen, your website must host a valid JSON file proving ownership of the Android app.</p>
+
+                <blockquote>
+                    <p>"An address bar appears inside a Trusted Web Activity when Digital Asset Links verification fails — most commonly when the SHA-256 fingerprint does not match the Google Play App Signing certificate."</p>
+                    <cite>— Google Chrome TWA Documentation</cite>
+                </blockquote>
+
+                <h3>Step 1: Host the File at the Correct HTTPS Path</h3>
+                <p>Your server must serve the file at this exact location with an <code>application/json</code> Content-Type header, served over HTTPS with no redirects:</p>
+
+                <div class="code-block">
+<span class="comment"># Must be accessible via HTTPS with NO redirects:</span>
+https://yourdomain.com/.well-known/assetlinks.json
+                </div>
+
+                <h3>Step 2: Correct assetlinks.json Code Structure</h3>
+                <p>Copy and paste this exact structure into your <code>assetlinks.json</code> file. <strong>You must include both SHA-256 fingerprints</strong> in the array — your local Upload Key and the Play App Signing Key:</p>
+
+                <div class="code-block">
+[
+  {
+    <span class="key">"relation"</span>: [
+      <span class="string">"delegate_permission/common.handle_all_urls"</span>
+    ],
+    <span class="key">"target"</span>: {
+      <span class="key">"namespace"</span>: <span class="string">"android_app"</span>,
+      <span class="key">"package_name"</span>: <span class="string">"com.yourcompany.yourapp"</span>,
+      <span class="key">"sha256_cert_fingerprints"</span>: [
+        <span class="string">"YOUR_UPLOAD_KEY_SHA256_FINGERPRINT_HERE"</span>,
+        <span class="string">"YOUR_PLAY_APP_SIGNING_SHA256_FINGERPRINT_HERE"</span>
+      ]
+    }
+  }
+]
+                </div>
+
+                <div class="info-box warning">
+                    <h4><i class="fa-solid fa-key" aria-hidden="true"></i> Crucial Mistake: The Double Fingerprint Trap</h4>
+                    <p>When you build your TWA with Bubblewrap, it uses your local <strong>Upload Key SHA-256 fingerprint</strong>. However, when you upload your <code>.aab</code> to Google Play, <strong>Google Play App Signing</strong> re-signs your app with a <em>different</em> production key.</p>
+                    <p>You MUST include <strong>BOTH</strong> SHA-256 fingerprints in your <code>assetlinks.json</code> array (your local Upload key AND the App Signing key found in Play Console → Setup → App signing). Otherwise, the app works fine on your local phone during debugging, but shows the browser address bar during Google's review.</p>
+                </div>
+
+                <h3>Step 3: Find Your Play App Signing SHA-256 Fingerprint</h3>
+                <p>Navigate to <strong>Google Play Console → Setup → App signing</strong>. The "App signing key certificate" section displays your SHA-256 certificate fingerprint. Copy this value (colons and all) and add it to your <code>sha256_cert_fingerprints</code> array.</p>
+
+                <h3>Step 4: Verify Asset Links Live Using Google's API</h3>
+                <p>Test your domain using Google's official Digital Asset Links Statement List API. This is the same tool Google's own engineers use to verify TWA setups:</p>
+
+                <div class="code-block">
+<span class="comment"># Test statement verification directly via Google's API:</span>
+https://digitalassetlinks.googleapis.com/v1/statements:list?source.web.site=https://yourdomain.com&relation=delegate_permission/common.handle_all_urls
+                </div>
+
+                <p>A successful response returns a <code>statements</code> array containing your package name and fingerprints. If the response is empty, your file is unreachable, malformed, or the fingerprint is wrong.</p>
+
+                <h2 id="webview-policy">Fix #2: Webview Minimum Functionality Policy</h2>
+
+                <p>Google Play Policy explicitly states: <em>"We do not allow apps that simply frame a website without providing unique value."</em> To prevent your TWA from getting flagged as low quality, apply these fixes:</p>
+
+                <ul>
+                    <li><strong>Implement an offline Service Worker:</strong> Your PWA must cache static assets (HTML, CSS, JS, icons). If a reviewer turns on Airplane Mode while testing your TWA, it must render a styled offline screen or cached app UI — not the browser's "No Internet" dinosaur page.</li>
+                    <li><strong>Hide web navigation elements inside the TWA:</strong> Hide website footers, global domain header navigation, and desktop sign-in bars when rendering inside the TWA container. Use the <code>display-mode: standalone</code> media query:
+                        <div class="code-block">
+@media (display-mode: standalone) {
+  <span class="comment">/* Hide web-only headers/footers inside the Android TWA app */</span>
+  .website-header, .website-footer { display: none !important; }
+}
+                        </div>
+                    </li>
+                    <li><strong>Handle Android back button navigation:</strong> Pressing the physical Android back button must navigate backward in your web app history rather than immediately closing the TWA. Bubblewrap handles this by default in <code>twa-manifest.json</code>:
+                        <div class="code-block">
+<span class="key">"enableSiteSettingsShortcut"</span>: <span class="string">true</span>,
+<span class="key">"fallbackType"</span>: <span class="string">"customtabs"</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <h2 id="oauth-fix">Fix #3: OAuth Sign-In Redirecting Out of the App</h2>
+
+                <p>If your TWA uses Google Sign-In, Facebook Login, or any third-party OAuth flow, configure it to resolve inside the Custom Tab container rather than opening an external browser window. Otherwise Google Play review flags the app as broken.</p>
+
+                <ul>
+                    <li><strong>Use the Google Identity Services library</strong> with FedCM (Federated Credential Management) for modern Chrome support.</li>
+                    <li><strong>Set <code>login_uri</code> and <code>redirect_uri</code></strong> to URLs that resolve on your own domain — never to <code>accounts.google.com</code> directly.</li>
+                    <li><strong>Test in incognito mode</strong> to ensure the OAuth popup does not get blocked by Chrome's popup blocker inside the TWA.</li>
+                </ul>
+
+                <h2 id="testing-rule">Fix #4: TWAs and the 12 Testers for 14 Days Rule</h2>
+
+                <p>A very common misconception among web developers is thinking that because TWAs are wrappers for web applications, they bypass Android's testing requirements. <strong>They do not.</strong></p>
+
+                <p>If you created a new personal Google Play Developer account after November 13, 2023, your TWA app is subject to the exact same <strong>Google Play closed testing 12 testers 14 days</strong> requirement as native Kotlin or C++ games.</p>
+
+                <div class="comparison-table">
+                    <table>
+                        <caption>Closed testing comparison: native Android app vs TWA web app</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Testing Component</th>
+                                <th scope="col">Native App (.apk / .aab)</th>
+                                <th scope="col">TWA Web App (.aab)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>12 Testers Required?</strong></td>
+                                <td class="highlight">Yes (Personal Accounts)</td>
+                                <td class="highlight">Yes (Personal Accounts)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>14 Continuous Days?</strong></td>
+                                <td class="highlight">Yes</td>
+                                <td class="highlight">Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Telemetry Tracked</strong></td>
+                                <td>ANR, Crashes, Daily Sessions</td>
+                                <td>Play Integrity, Custom Tab Sessions, Vitals</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rejection Risk</strong></td>
+                                <td>High if testers don't engage</td>
+                                <td>High if assetlinks fails or silent testers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>If your 12 testers do not open the TWA app regularly during the 14 days, Google will reject your production application with the notice <a href="/google-play-production-access-rejected/">"More testing required to access Google Play Production"</a>.</p>
+
+                <h2 id="checklist">Fix #5: Complete Resubmission Blueprint</h2>
+
+                <p>Follow this clean, sequential blueprint to resolve all TWA rejection strikes and reapply for production access confidently:</p>
+
+                <div class="step-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Clean Your assetlinks.json</h3>
+                        <p>Ensure your <code>.well-known/assetlinks.json</code> contains SHA-256 fingerprints for BOTH your local Upload key and Google Play App Signing key. Test it using Google's API Statement tool.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Deploy Service Worker Caching</h3>
+                        <p>Update your PWA Service Worker to serve an offline fallback page so reviewers never see a connection error screen.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Re-build AAB with Bubblewrap / PWABuilder</h3>
+                        <p>Recompile your TWA project bundle with updated version codes (e.g., bump <code>versionCode</code> from 1 to 2 in <code>build.gradle</code>) and upload to the Closed Testing track.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Enroll 12 Verified Human Testers</h3>
+                        <p>Add 12 real testers on physical Android devices. Ensure they open the TWA daily to generate authentic session data across the 14 continuous days.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h3>Submit Production Access Form</h3>
+                        <p>Fill out the final production access questionnaire detailing how you verified web assets, fixed navigation bugs, and gathered feedback during testing.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ section -->
+                <section class="faq-section" id="faq" aria-label="Frequently asked questions">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>Why does my TWA app show an address bar inside the app?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>An address bar appears inside a Trusted Web Activity when Digital Asset Links verification fails. Common causes: <code>assetlinks.json</code> is missing from <code>/.well-known/</code>, the file is hosted on HTTP instead of HTTPS, the file has invalid JSON syntax, or — most commonly — the SHA-256 fingerprint in <code>assetlinks.json</code> does not match Google Play App Signing (instead of your local Upload Key). The TWA then falls back to Chrome Custom Tabs which displays the URL bar.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>Do TWA apps need 12 testers for 14 days on Google Play?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. Any app — including TWA, PWA, native, or hybrid — published on a personal Google Play Developer account created after November 13, 2023 must complete 12 testers for 14 continuous days of closed testing before production access is granted. TWA apps are not exempt because they are distributed as Android App Bundles (<code>.aab</code>) and run on the device through Chrome.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>Why was my TWA app rejected for Webview Policy or Minimum Functionality?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Google rejects TWAs under the Minimum Functionality policy if the web app behaves like a static webpage, lacks an offline Service Worker fallback, fails to load when disconnected from the internet, redirects users out to an external browser window, or simply frames a website without providing app-like value.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>How do I find my Google Play App Signing SHA-256 fingerprint?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Open Google Play Console → Setup → App signing. The App signing key certificate section displays your SHA-256 certificate fingerprint. Copy this value (and optionally your Upload Key fingerprint) into the <code>sha256_cert_fingerprints</code> array inside your <code>assetlinks.json</code> file.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>Can I use Google Sign-In inside a TWA?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, but OAuth must be configured with cross-origin headers and must not redirect the user out of the Custom Tab container. Use the Google Identity Services library with FedCM or proper OAuth callback URLs that resolve inside the TWA. Otherwise, the sign-in flow breaks app review and triggers a policy violation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>How long does Google Play TWA review take?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Standard TWA app reviews typically take 3 to 7 days. First-time developer accounts on the 12 testers for 14 days closed testing track require the full 14 days of testing before production review begins, plus 3 to 7 additional days for production review — a total of roughly 17 to 21 days from first upload to production approval.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                            <span>What is the difference between TWA and PWA?</span>
+                            <div class="faq-icon-box" aria-hidden="true"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>A PWA (Progressive Web App) runs entirely in a web browser using Service Workers, manifests, and HTTPS. A TWA (Trusted Web Activity) is an Android wrapper built with Bubblewrap or PWABuilder that packages a PWA as an installable Android App Bundle (<code>.aab</code>) for Google Play. TWAs hide the browser UI and require Digital Asset Links verification, while PWAs are accessed via URL.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sources / Citations for E-E-A-T and GEO trust -->
+                <aside class="sources" aria-label="Sources and references">
+                    <h3>Sources & References</h3>
+                    <ul>
+                        <li>Google Chrome Developers — <a href="https://developer.chrome.com/docs/android/trusted-web-activity/" target="_blank" rel="noopener noreferrer">Trusted Web Activity overview</a></li>
+                        <li>Google Play Console Help — <a href="https://support.google.com/googleplay/android-developer/answer/14170565" target="_blank" rel="noopener noreferrer">App signing key registration</a></li>
+                        <li>Google Digital Asset Links — <a href="https://developers.google.com/digital-asset-links" target="_blank" rel="noopener noreferrer">Statement List API and verification</a></li>
+                        <li>Google Play Policy Center — <a href="https://support.google.com/googleplay/android-developer/answer/9888077" target="_blank" rel="noopener noreferrer">Repetitive Content and Minimum Functionality policy</a></li>
+                        <li>Android Developers Blog — <a href="https://android-developers.googleblog.com/2023/10/increased-testing requirements.html" target="_blank" rel="noopener noreferrer">Closed testing requirements for new personal developer accounts (Nov 13, 2023)</a></li>
+                    </ul>
+                </aside>
+
+                <h2 style="margin-top: 3rem;">Need 12 Real Testers for Your TWA App?</h2>
+                <p>Setting up your TWA's <code>assetlinks.json</code> is only half the battle. Passing Google's 14-day closed testing requirement requires 12 real people on physical Android devices using your web app daily.</p>
+
+                <p>Do not risk getting rejected for "insufficient testing activity". Our service provides 12+ verified human testers who actively test your TWA for 14 continuous days, guaranteeing 100% production access approval.</p>
+
+                <p class="last-updated">Last updated: August 12, 2026 — Fact-checked against current Google Play Policy and Chrome TWA documentation</p>
+
+            </article>
+        </div>
+    </main>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-modern">
+                <span class="cta-modern-badge">Trusted by 10,000+ apps</span>
+                <h2>Fix Your TWA Rejection Today</h2>
+                <p>Get your Trusted Web Activity approved for Google Play production. We supply 12 real human testers on physical Android devices with guaranteed results.</p>
+
+                <div class="cta-features-grid">
+                    <div class="cta-feature-box">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>
+                        <div class="cta-feature-text">12 professional testers</div>
+                    </div>
+                    <div class="cta-feature-box">
+                        <i class="fa-solid fa-shield-check" aria-hidden="true"></i>
+                        <div class="cta-feature-text">Production access guarantee</div>
+                    </div>
+                    <div class="cta-feature-box">
+                        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                        <div class="cta-feature-text">14-day testing (2 days buffer)</div>
+                    </div>
+                    <div class="cta-feature-box">
+                        <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                        <div class="cta-feature-text">24/7 WhatsApp support</div>
+                    </div>
+                </div>
+
+                <a href="/pricing/" class="btn-white">View Testing Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="exit-overlay" id="exitIntentPopup" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title">
+        <div class="exit-modal">
+            <div class="exit-close" id="closeExitPopup" role="button" aria-label="Close popup" tabindex="0">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </div>
+            <span class="exit-eyebrow">Before you go</span>
+            <h2 id="exit-modal-title">Leaving so soon? Your doubts shouldn't hold you back.</h2>
+            <p class="exit-lead">Whatever is holding you back, it is probably one of these three:</p>
+
+            <div class="exit-features">
+                <div class="exit-feature">
+                    <div class="exit-feature-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                    <div class="exit-feature-text"><strong>If Google says no, you pay nothing.</strong> Full refund or a free retest, your choice, in writing.</div>
+                </div>
+                <div class="exit-feature">
+                    <div class="exit-feature-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                    <div class="exit-feature-text"><strong>We never touch your Play Console.</strong> You upload one CSV yourself and keep full control.</div>
+                </div>
+                <div class="exit-feature">
+                    <div class="exit-feature-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+                    <div class="exit-feature-text"><strong>Testing starts within 4-6 hours.</strong> Order now and your closed test is filling today.</div>
+                </div>
+            </div>
+
+            <div class="exit-actions">
+                <a href="/pricing/" class="btn btn-primary btn-block btn-lg" style="box-shadow: 0 10px 20px -10px var(--primary); padding: 1rem; font-size: 1.1rem;">Finish my order · $22.99</a>
+                <a href="https://wa.me/923472061598" target="_blank" rel="noopener" class="btn btn-outline btn-block btn-lg" style="padding: 1rem; font-size: 1.1rem;">Ask a human first</a>
+            </div>
+
+            <div class="exit-footer">
+                4.9/5 ACROSS 7,400+ REVIEWS · 100% MONEY-BACK GUARANTEE
+            </div>
+        </div>
+    </div>
+
+    <footer class="dark-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand footer-col">
+                    <a href="/" class="brand" style="color:#fff;" aria-label="12Testers14Days home">
+                        <div class="brand-icon" aria-hidden="true">12</div>
+                        12Testers14Days
+                    </a>
+                    <p>Professional Google Play closed testing service. 12 real testers in 24 hours.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:ssbasemaker@gmail.com" style="color:var(--text-muted); transition:color 0.2s;">✉ ssbasemaker@gmail.com</a>
+                        <a href="https://wa.me/923472061598" target="_blank" rel="noopener" style="color:var(--primary-onDark);">✆ +92 347 2061598</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/pricing/">Google Play 12 testers</a></li>
+                        <li><a href="/services/">Closed testing service</a></li>
+                        <li><a href="/pricing/">Pricing plans</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/blog/">Guides & Tutorials</a></li>
+                        <li><a href="/blog/why-google-rejects-apps-12-testers-mistakes/">App Rejection Fixes</a></li>
+                        <li><a href="/#how-it-works">How it works</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="mailto:ssbasemaker@gmail.com">Contact</a></li>
+                        <li style="margin-top:1rem;"><h4 style="margin-bottom:0.5rem; color:#fff; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em;">Legal</h4></li>
+                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/terms-conditions/">Terms & Conditions</a></li>
+                        <li><a href="/refund-policy/">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2024-2026 12 Testers for 14 Days. All rights reserved.</div>
+                <div>Made for Android developers · Not affiliated with Google LLC.</div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/923472061598" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.19 3.7.59.25 1.04.41 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // 1. Reading Progress Bar
+          const progressBar = document.getElementById('readingProgress');
+          window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+          });
+
+          // 2. TOC ScrollSpy Active State
+          const tocLinks = document.querySelectorAll('.toc-list a');
+          const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+
+          window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+              if (section) {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                  current = section.getAttribute('id');
+                }
+              }
+            });
+            tocLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href').includes(current) && current !== '') {
+                link.classList.add('active');
+              }
+            });
+          });
+
+          // 3. Smooth Scroll for TOC
+          tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+              e.preventDefault();
+              const target = document.querySelector(this.getAttribute('href'));
+              if (target) {
+                window.scrollTo({
+                  top: target.offsetTop - 100,
+                  behavior: 'smooth'
+                });
+              }
+            });
+          });
+
+          // 4. FAQ Accordion Logic (with keyboard support)
+          const faqQuestions = document.querySelectorAll('.faq-question');
+          faqQuestions.forEach(question => {
+            const toggle = () => {
+              const item = question.parentElement;
+              const isActive = item.classList.contains('active');
+              document.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+                faq.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+              });
+              if (!isActive) {
+                item.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+              }
+            };
+            question.addEventListener('click', toggle);
+            question.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+              }
+            });
+          });
+
+          // 5. Exit Intent Popup Logic
+          const exitPopup = document.getElementById('exitIntentPopup');
+          const closeBtn = document.getElementById('closeExitPopup');
+          let hasShownPopup = sessionStorage.getItem('exitIntentShown');
+
+          document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0 && !hasShownPopup) {
+              exitPopup.classList.add('active');
+              sessionStorage.setItem('exitIntentShown', 'true');
+              hasShownPopup = true;
+            }
+          });
+
+          if (closeBtn) {
+              closeBtn.addEventListener('click', () => exitPopup.classList.remove('active'));
+              closeBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  exitPopup.classList.remove('active');
+                }
+              });
+          }
+          if (exitPopup) {
+              exitPopup.addEventListener('click', (e) => {
+                if (e.target === exitPopup) exitPopup.classList.remove('active');
+              });
+          }
+
+          // 6. Header language dropdown toggle
+          const langToggle = document.querySelector('.lang-select');
+          const langMenu = document.querySelector('.lang-menu');
+          if(langToggle && langMenu) {
+              langToggle.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  langMenu.classList.toggle('open');
+              });
+              document.addEventListener('click', () => {
+                  langMenu.classList.remove('open');
+              });
+          }
+        });
+    </script>
+</body>
+</html>
