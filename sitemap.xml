@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://12-testers-for-14-days.github.io/</loc>
-<lastmod>2026-08-12T15:55:04+05:00</lastmod>
+<lastmod>2026-08-13T04:07:49+05:00</lastmod>
 </url>
 <url>
 <loc>https://12-testers-for-14-days.github.io/thank-you.html</loc>
@@ -35,6 +35,10 @@
 <url>
 <loc>https://12-testers-for-14-days.github.io/google-play-production-access-rejected/</loc>
 <lastmod>2026-08-12T17:11:31+05:00</lastmod>
+</url>
+<url>
+<loc>https://12-testers-for-14-days.github.io/guides/</loc>
+<lastmod>2026-08-13T04:07:49+05:00</lastmod>
 </url>
 <url>
 <loc>https://12-testers-for-14-days.github.io/pricing/</loc>
@@ -82,7 +86,7 @@
 </url>
 <url>
 <loc>https://12-testers-for-14-days.github.io/blog/cant-find-12-testers-ways-to-get-testers/</loc>
-<lastmod>2026-08-12T15:55:04+05:00</lastmod>
+<lastmod>2026-08-13T04:07:49+05:00</lastmod>
 </url>
 <url>
 <loc>https://12-testers-for-14-days.github.io/blog/free-vs-paid-testers-which-works/</loc>
@@ -132,12 +136,8 @@
 <loc>https://12-testers-for-14-days.github.io/blog/why-google-rejects-apps-12-testers-mistakes/</loc>
 <lastmod>2026-08-12T15:13:51+05:00</lastmod>
 </url>
-<<<<<<< HEAD
-</urlset>
-=======
 <url>
 <loc>https://12-testers-for-14-days.github.io/guides/twa-app-rejected-switch-to-webview/</loc>
 <lastmod>2026-08-12T17:11:31+05:00</lastmod>
 </url>
 </urlset>
->>>>>>> 38f36c04a1786a55ec572aec05be11bcdb51edfc
