@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
    <head>
- <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -30,13 +30,13 @@
 <link rel="alternate" hreflang="ja" href="https://12-testers-for-14-days.github.io/ja/" />
 <link rel="alternate" hreflang="ko" href="https://12-testers-for-14-days.github.io/ko/" />
 <link rel="alternate" hreflang="zh" href="https://12-testers-for-14-days.github.io/zh/" />
- 
+
 <!-- Preload critical assets -->
 <link rel="preload" href="/assets/og-image.png" as="image" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
- 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 /* =========================================================
    12 testers for 14 days — Modern SaaS Redesign
@@ -47,11 +47,11 @@
   --bg-card: #ffffff;
   --bg-alt: #f8fafc;
   --bg-dark: #0f172a;
- 
+
   --text-main: #0f172a;
   --text-muted: #475569;
   --text-light: #94a3b8;
- 
+
   --primary: #0f766e;       /* Teal — the single brand accent, used everywhere for consistency */
   --primary-hover: #115e59;
   --primary-light: #ccfbf1;
@@ -59,19 +59,24 @@
   --whatsapp: #25d366;       /* Reserved only for WhatsApp brand touchpoints */
   --danger: #ef4444;
   --danger-light: #fee2e2;
- 
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --success: #10b981;
+  --success-light: #d1fae5;
+
   --border: #e2e8f0;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
   --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
   --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
- 
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   --radius: 12px;
   --radius-lg: 20px;
   --transition: 0.2s ease-in-out;
 }
- 
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.6; overflow-x: hidden; }
@@ -80,11 +85,45 @@ a { color: var(--primary); text-decoration: none; transition: color var(--transi
 img, svg { max-width: 100%; display: block; }
 ul { list-style: none; }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
- 
+
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 .section { padding: 5rem 0; }
 .text-center { text-align: center; }
- 
+
+/* ============= TOP TICKER (NEW) ============= */
+.ticker {
+  background: var(--bg-dark);
+  color: #cbd5e1;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 110;
+}
+.ticker-track {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  padding: 0.6rem 0;
+  width: max-content;
+  /* Added !important and increased to 120s for a very noticeable slowdown */
+  animation: tickerScroll 30s linear infinite !important; 
+}
+
+.ticker-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.ticker-track strong { color: var(--primary-onDark); font-weight: 700; }
+.ticker-track .sep { width: 4px; height: 4px; background: var(--primary-onDark); border-radius: 50%; opacity: 0.6; }
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+
 /* Header */
 .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
 .header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
@@ -107,7 +146,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .btn-whatsapp { background: var(--whatsapp); color: #fff; border-radius: 99px; }
 .btn-whatsapp:hover { background: #1fb959; transform: translateY(-2px); box-shadow: var(--shadow); }
 .btn-block { width: 100%; }
- 
+
 /* Language dropdown (header) */
 .lang-dropdown { position: relative; }
 .lang-select { border: 1px solid var(--border); background: #fff; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-main); font-family: var(--font-sans); transition: border-color var(--transition), color var(--transition); white-space: nowrap; }
@@ -119,16 +158,47 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .lang-option { display: flex; align-items: center; gap: 0.65rem; padding: 0.6rem 0.75rem; border-radius: 8px; font-size: 0.9rem; color: var(--text-main); }
 .lang-option:hover { background: var(--bg-alt); color: var(--primary); }
 .lang-option[aria-current="true"] { background: var(--primary-light); color: var(--primary-hover); font-weight: 600; }
- 
+
 /* Mobile nav toggle */
 .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 8px; width: 40px; height: 40px; cursor: pointer; align-items: center; justify-content: center; flex-shrink: 0; }
 .nav-toggle svg { width: 20px; height: 20px; color: var(--text-main); }
- 
-/* Hero Area */
+
+/* Hero Area — REBUILT: H1 (small keyword) + H2 (big headline) */
 .hero { background: var(--bg-hero); padding: 7rem 0 5rem; text-align: center; position: relative; overflow: hidden; }
 .hero-badge { display: inline-block; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.8); padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 1.5rem; backdrop-filter: blur(4px); }
-.hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); max-width: 900px; margin: 0 auto 1.5rem; letter-spacing: -0.04em; }
-.hero p { font-size: 1.125rem; max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-muted); }
+
+/* NEW: H1 (SEO keyword) styled small + uppercase, sits like an eyebrow */
+.hero-h1-keyword {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 auto 1.25rem;
+  max-width: 900px;
+  background: rgba(15,118,110,0.08);
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* NEW: H2 is the visual main headline */
+.hero-headline {
+  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
+  max-width: 950px;
+  margin: 0 auto 1.5rem;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-weight: 800;
+  color: var(--text-main);
+}
+.hero-headline .accent { color: var(--primary); }
+.hero-headline .underline { position: relative; display: inline-block; }
+.hero-headline .underline::after { content: ''; position: absolute; left: -2%; right: -2%; bottom: 6%; height: 14px; background: rgba(15,118,110,0.18); z-index: -1; border-radius: 4px; }
+
+.hero p.hero-sub { font-size: 1.125rem; max-width: 640px; margin: 0 auto 2.5rem; color: var(--text-muted); }
 .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 .avatars-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 3rem; }
 .avatars { display: flex; justify-content: center; }
@@ -137,14 +207,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .avatars .avatar-count { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--text-main); background: #f1f5f9; z-index: 10; }
 .trust-stars { font-size: 0.875rem; font-weight: 500; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; }
 .trust-stars span { color: #f59e0b; letter-spacing: 1px; }
- 
+
 /* Stats */
 .stats { display: flex; justify-content: center; gap: 3rem; margin-top: -2rem; position: relative; z-index: 10; flex-wrap: wrap; }
 .stat-box { background: #fff; padding: 1.5rem 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow-lg); text-align: center; border: 1px solid var(--border); transition: transform var(--transition), box-shadow var(--transition); }
 .stat-box:hover { transform: translateY(-4px); box-shadow: 0 16px 24px -8px rgba(0,0,0,0.12); }
 .stat-box h3 { font-size: 2rem; color: var(--text-main); margin-bottom: 0.25rem; }
 .stat-box p { font-size: 0.875rem; font-weight: 500; margin: 0; }
- 
+
 /* Video Review Section */
 .video-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .eyebrow { color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; font-family: var(--font-sans); }
@@ -154,7 +224,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .video-mockup:hover { transform: translateY(-4px); }
 .video-mockup .notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 120px; height: 25px; background: #000; border-radius: 0 0 15px 15px; z-index: 2; }
 .video-meta { font-size: 0.75rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 2rem; }
- 
+
 /* Timeline (How it works) */
 .timeline-sec h2 { font-size: 3rem; text-align: center; margin-bottom: 1rem; }
 .timeline-sec p.lead { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
@@ -170,7 +240,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .timeline-step p { font-size: 0.95rem; margin-bottom: 1.5rem; }
 .step-meta { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 .step-meta span { color: var(--primary); }
- 
+
 /* Compare Section */
 .compare-sec { background: var(--bg-alt); }
 .compare-sec h2 { font-size: 3rem; text-align: center; margin-bottom: 1rem; }
@@ -192,7 +262,188 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .card-rec { border: 2px solid var(--primary); box-shadow: var(--shadow-lg); }
 .card-rec .card-risk { background: var(--primary); color: #fff; }
 .card-rec:hover { transform: translateY(-8px); }
- 
+
+/* ============== WHY $39 SECTION (NEW) ============== */
+.why-price-sec {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  position: relative;
+}
+.why-price-sec h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  margin-bottom: 0.75rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.why-price-sec h2 .strike {
+  position: relative;
+  color: var(--text-light);
+  font-weight: 500;
+}
+.why-price-sec h2 .strike::after {
+  content: '';
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 50%;
+  height: 3px;
+  background: var(--danger);
+  transform: rotate(-8deg);
+}
+.why-price-sec > .container > p.lead {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
+  font-size: 1.05rem;
+}
+
+.price-table-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  max-width: 1050px;
+  margin: 0 auto 3rem;
+}
+.price-table {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  width: 100%;
+}
+.price-row {
+  display: contents;
+}
+.price-cell {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.price-cell.head {
+  background: var(--bg-dark);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1.25rem 1.5rem;
+  letter-spacing: -0.01em;
+}
+.price-cell.head.us {
+  background: var(--primary);
+}
+.price-cell.head .small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.2rem;
+  letter-spacing: 0;
+  font-family: var(--font-sans);
+}
+.price-cell.feature-name {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.98rem;
+}
+.price-cell svg { flex-shrink: 0; }
+.price-cell.them { color: var(--text-muted); }
+.price-cell.us { color: var(--text-main); font-weight: 600; background: rgba(15,118,110,0.04); }
+.price-cell .check-circle { color: var(--success); }
+.price-cell .cross-circle { color: var(--danger); }
+.price-cell .warn-circle { color: var(--warning); }
+.price-cell.us .check-circle { color: var(--success); }
+
+/* The risk math */
+.risk-math {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1050px;
+  margin: 0 auto 2.5rem;
+}
+.risk-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+}
+.risk-card.them { border-color: var(--danger-light); }
+.risk-card.us { border-color: var(--success); background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 60%); }
+.risk-card .label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.risk-card.them .label { background: var(--danger-light); color: var(--danger); }
+.risk-card.us .label { background: var(--success); color: #fff; }
+.risk-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+.risk-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  border-bottom: 1px dashed var(--border);
+  gap: 1rem;
+}
+.risk-row:last-of-type { border-bottom: none; }
+.risk-row .name { color: var(--text-muted); font-size: 0.92rem; }
+.risk-row .name strong { color: var(--text-main); font-weight: 700; }
+.risk-row .val { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text-main); white-space: nowrap; }
+.risk-row .val.danger { color: var(--danger); }
+.risk-row .val.success { color: var(--success); }
+.risk-total {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.risk-total .label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-main); margin: 0; padding: 0; background: transparent; }
+.risk-total .amount { font-family: var(--font-display); font-size: 2rem; font-weight: 800; }
+.risk-total .amount.danger { color: var(--danger); }
+.risk-total .amount.success { color: var(--success); }
+
+.why-closing {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--bg-dark);
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+.why-closing p {
+  font-size: 1.15rem;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.6;
+}
+.why-closing strong { color: var(--primary-onDark); }
+.why-closing .calc-note {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+}
+
 /* Reviews Masonry */
 .reviews-sec h2 { font-size: 3rem; text-align: center; margin-bottom: 1rem; }
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -211,7 +462,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .author-meta strong { display: block; font-size: 0.85rem; color: var(--text-main); }
 .author-meta span { font-size: 0.75rem; color: var(--primary); font-weight: 500; }
 .review-country { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); letter-spacing: 0.05em; }
- 
+
 /* Closed Testing 101 Chapters */
 .chapters-sec { background: var(--bg-alt); }
 .chapters-layout { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
@@ -240,7 +491,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .chapter-footer .meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; }
 .next-chapter { font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; cursor: pointer; border: none; background: none; font-size: 0.95rem; transition: gap var(--transition); }
 .next-chapter:hover { gap: 0.85rem; color: var(--primary-hover); }
- 
+
 /* Pricing */
 .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
 .price-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; position: relative; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
@@ -253,7 +504,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .price-features { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
 .price-features li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; color: var(--text-main); font-weight: 500; }
 .price-features li svg { color: var(--primary); }
- 
+.price-features li .strike-feature { text-decoration: line-through; color: var(--text-light); margin-right: 0.4rem; }
+.price-features li .discount-price { color: var(--primary); font-weight: 700; }
+
 /* FAQ */
 .faq-lead { text-align: center; max-width: 560px; margin: 0.5rem auto 0; }
 .faq-grid { max-width: 1100px; margin: 3rem auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 3.5rem; }
@@ -273,7 +526,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .faq-contact-right { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; color: var(--text-muted); }
 .faq-contact-right a { color: var(--primary); font-weight: 600; }
 .faq-contact-right a:hover { color: var(--primary-hover); text-decoration: underline; }
- 
+
 /* Dark Footer & Pre-footer */
 .dark-footer { background: #0b1120; color: #94a3b8; position: relative; overflow: hidden; padding-top: 6rem; margin-top: 5rem; }
 .pre-footer { text-align: center; max-width: 800px; margin: 0 auto 5rem; position: relative; z-index: 10; }
@@ -300,12 +553,150 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .footer-langs a:hover { color: var(--primary-onDark); }
 .footer-langs a[aria-current="true"] { color: #fff; font-weight: 600; }
 .footer-watermark { position: absolute; bottom: -5%; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-size: 15vw; font-weight: 800; color: rgba(255,255,255,0.02); white-space: nowrap; z-index: 1; pointer-events: none; }
- 
+
 /* Floating Chat Widget */
 .chat-widget { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: var(--whatsapp); border-radius: 50%; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); z-index: 999; transition: transform var(--transition); }
 .chat-widget:hover { transform: scale(1.08); }
 .chat-widget svg { fill: #fff; width: 30px; height: 30px; }
- 
+
+/* ============== DISCOUNT POPUP (NEW) ============== */
+.discount-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 340px;
+  max-width: calc(100vw - 48px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.25);
+  z-index: 1001;
+  transform: translateY(140%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  overflow: hidden;
+}
+.discount-popup.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.discount-popup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--success) 100%);
+}
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bg-alt);
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  z-index: 2;
+}
+.popup-close:hover { background: var(--danger-light); color: var(--danger); }
+.popup-body {
+  padding: 1.25rem 1.25rem 1.25rem;
+  position: relative;
+}
+.popup-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 0.85rem;
+}
+.popup-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+.popup-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.popup-code-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.popup-code {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  border: 1.5px dashed var(--primary);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary-hover);
+  letter-spacing: 0.1em;
+}
+.popup-code.copied { background: var(--success-light); border-color: var(--success); color: var(--success); }
+.popup-copy {
+  background: var(--bg-dark);
+  color: #fff;
+  border: none;
+  padding: 0 0.85rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+.popup-copy:hover { background: var(--primary); }
+.popup-copy.copied { background: var(--success); }
+.popup-cta {
+  display: block;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.popup-cta:hover { background: var(--primary-hover); transform: translateY(-1px); color: #fff; }
+.popup-tiny {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* When popup is visible, push chat widget up a bit so they don't overlap on small screens */
+.discount-popup.show ~ .chat-widget { bottom: 380px; }
+
 /* Animations & Utilities */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) {
@@ -328,6 +719,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .review-hero { grid-row: auto; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .faq-grid { grid-template-columns: 1fr; gap: 0; }
+  .price-table { grid-template-columns: 1fr 1fr; }
+  .price-cell.feature-name { grid-column: 1 / -1; background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+  .price-cell.head { display: none; }
+  .price-cell.head.us { display: flex; }
+  .risk-math { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .header-actions a[href="https://www.trustpilot.com/review/12-testers-for-14-days.github.io"] { display: none; }
@@ -338,9 +734,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .trust-strip { flex-direction: column; gap: 1rem; align-items: flex-start; }
   .chapters-content { padding: 1.75rem; }
   .faq-contact-bar { flex-direction: column; align-items: flex-start; }
+  .discount-popup { left: 12px; right: 12px; bottom: 12px; width: auto; max-width: none; }
+  .discount-popup.show ~ .chat-widget { bottom: auto; top: 80px; }
+  .price-table-wrap { font-size: 0.85rem; }
+  .price-cell { padding: 0.85rem 0.75rem; font-size: 0.85rem; }
 }
 </style>
- 
+
 <!-- Standard SEO & JSON-LD -->
 <script type="application/ld+json">
 {
@@ -383,7 +783,32 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 </script>
 </head>
 <body>
- 
+
+<!-- ============= TOP TICKER (NEW) ============= -->
+<div class="ticker" aria-label="Site announcements">
+  <div class="ticker-track">
+    <span>🎉 Use code <strong>LAUNCH10</strong> for $10 off your first order</span>
+    <span class="sep"></span>
+    <span>⭐ <strong>4.9</strong> on Trustpilot · 2,200+ verified reviews</span>
+    <span class="sep"></span>
+    <span>✅ 100% Production Access Guarantee — approved or refund</span>
+    <span class="sep"></span>
+    <span>🚀 Testers ready in 6 hours, not days</span>
+    <span class="sep"></span>
+    <span>💬 Average WhatsApp reply: under 5 minutes</span>
+    <span class="sep"></span>
+    <span>🎉 Use code <strong>LAUNCH10</strong> for $10 off your first order</span>
+    <span class="sep"></span>
+    <span>⭐ <strong>4.9</strong> on Trustpilot · 2,200+ verified reviews</span>
+    <span class="sep"></span>
+    <span>✅ 100% Production Access Guarantee — approved or refund</span>
+    <span class="sep"></span>
+    <span>🚀 Testers ready in 6 hours, not days</span>
+    <span class="sep"></span>
+    <span>💬 Average WhatsApp reply: under 5 minutes</span>
+  </div>
+</div>
+
 <!-- Header -->
 <header class="header">
   <div class="container header-inner">
@@ -394,10 +819,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     <nav class="nav-links" id="navLinks">
       <a href="#how-it-works">How it works</a>
       <a href="#compare">Services</a>
+      <a href="#why-price">Why $39</a>
       <a href="#pricing">Pricing</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
-      <a href="/blog/">Help Center</a>
     </nav>
     <div class="header-actions">
       <div class="lang-dropdown">
@@ -427,13 +852,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </header>
- 
-<!-- Hero -->
+
+<!-- Hero — REBUILT: H1 (keyword, small) + H2 (big headline) -->
 <section class="hero">
   <div class="container">
     <div class="hero-badge">100% Production Access Guarantee</div>
-    <h1>Get 12 Testers for 14 Days & Publish Faster</h1>
-    <p>Get Google Play production access - faster, smoother, and without rejections. Join devs from 180+ countries using our service.</p>
+    <!-- H1: exact-match keyword for SEO. Styled small + uppercase as an eyebrow tag. -->
+    <h1 class="hero-h1-keyword">12 Testers for 14 Days</h1>
+    <!-- H2: the visual, emotional main headline -->
+    <h2 class="hero-headline">
+      Pass Google's 14-Day Test.<br>
+      <span class="underline"><span class="accent">Or Your Money Back.</span></span>
+    </h2>
+    <p class="hero-sub">Get Google Play production access — faster, smoother, and without rejections. Join devs from 180+ countries using our service.</p>
     <div class="hero-actions">
       <a href="#pricing" class="btn btn-dark" style="padding: 1rem 2rem; font-size: 1.1rem;">See What You Get for $39.00</a>
       <a href="https://wa.me/923472061598?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%20closed%20testing" target="_blank" rel="noopener" class="btn btn-whatsapp" style="padding: 1rem 1.75rem; font-size: 1.05rem;">
@@ -441,7 +872,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         Ask a human on WhatsApp
       </a>
     </div>
- 
+
     <div class="avatars-wrap">
       <div class="avatars">
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" width="40" height="40">
@@ -457,7 +888,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </section>
- 
+
 <!-- Stats Grid -->
 <div class="container">
   <div class="stats">
@@ -467,7 +898,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     <div class="stat-box"><h3>99.9%</h3><p>Approval rate</p></div>
   </div>
 </div>
- 
+
 <!-- Video Review Section -->
 <section class="section" style="margin-top: 2rem;">
   <div class="container video-section">
@@ -475,23 +906,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       <span class="eyebrow">Video Review</span>
       <h2>Rejected twice alone.<br>Approved with us.</h2>
       <p>A real developer tried friends and online communities first. Two rejections later he switched to 12 testers for 14 days, finished the 14 days, and went live. Here he is, unedited.</p>
- 
+
       <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; margin-bottom: 2rem;">
         ENTERPRISE PLAN • 25 TESTERS • APPROVED AFTER THE 14 DAYS
       </div>
- 
+
       <a href="https://www.youtube.com/@12-testers-14-days" class="btn btn-outline" style="border-radius: 20px; font-weight: 700;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#22c55e" style="margin-right:0.5rem"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.95C18.88 4 12 4 12 4s-6.88 0-8.6.47a2.78 2.78 0 0 0-1.94 1.95C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 1.95C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95C23 15.86 23 12 23 12s0-3.86-.46-5.58zM9.54 15.55V8.45l6.54 3.55-6.54 3.55z"/></svg>
         More reviews on YouTube
       </a>
     </div>
- 
+
     <div class="video-mockup" style="padding: 10px;">
       <div class="notch"></div>
 <iframe
   width="320"
   height="580"
-  src="[youtube.com](https://www.youtube.com/embed/sjyTF2VcGB4)"
+  src="https://www.youtube.com/embed/sjyTF2VcGB4"
   title="Developer review of our closed testing service"
   loading="lazy"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -501,14 +932,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </section>
- 
+
 <!-- Timeline (How it works) -->
 <section class="section timeline-sec" id="how-it-works">
   <div class="container">
     <span class="eyebrow text-center" style="display:block;">How it works</span>
     <h2>You do 7 minutes.<br>We do 14 days.</h2>
     <p class="lead">Built for first-time publishers passing Google Play's 12-tester closed testing requirement. If you get stuck anywhere, support answers on WhatsApp in minutes.</p>
- 
+
     <div class="timeline">
       <div class="timeline-step">
         <div class="timeline-icon">
@@ -540,14 +971,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </section>
- 
+
 <!-- Compare Section -->
 <section class="section compare-sec" id="compare">
   <div class="container">
     <span class="eyebrow text-center" style="display:block;">Compare</span>
     <h2>Three ways to get 12 testers.</h2>
     <p class="lead text-center" style="max-width:700px; margin: 0 auto;">Two of them put your 14-day streak, and the $25 you paid Google, at risk. If you're comparing Android app testing services, here is the honest picture.</p>
- 
+
     <div class="comp-cards">
       <div class="comp-card">
         <div class="comp-card-icon">
@@ -566,7 +997,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <strong>Free, but weeks of chasing</strong>
         </div>
       </div>
- 
+
       <div class="comp-card">
         <div class="comp-card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
@@ -584,7 +1015,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <strong>$5-15, plus the risk</strong>
         </div>
       </div>
- 
+
       <div class="comp-card card-rec">
         <div class="comp-card-icon" style="background:var(--bg-dark); color:#fff; font-weight:800; font-size:1.2rem; font-family:var(--font-display);">P<span style="display:inline-block; width:6px;height:6px;background:var(--primary);border-radius:50%;margin-left:2px;margin-bottom:2px;"></span></div>
         <div class="card-risk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="display:inline; margin-bottom:-2px; margin-right:4px;"><path d="M20 6L9 17l-5-5"/></svg>Recommended</div>
@@ -599,19 +1030,200 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <span>What it costs</span>
           <strong>From $39.00, done in 14 days</strong>
         </div>
-        <a href="/pricing/" class="btn btn-primary" style="margin-top:1.5rem; width:100%;">Start with 12 testers →</a>
+        <a href="/order/" class="btn btn-primary" style="margin-top:1.5rem; width:100%;">Start with 12 testers →</a>
       </div>
     </div>
   </div>
 </section>
- 
+
+<!-- ============== WHY $39 vs $15 SECTION (NEW) ============== -->
+<section class="section why-price-sec" id="why-price">
+  <div class="container">
+    <span class="eyebrow text-center" style="display:block;">Real Talk</span>
+    <h2>
+      Yes, we cost more than the <span class="strike">$15</span> services.<br>
+      Here's exactly what the extra <span class="accent">$24</span> buys you.
+    </h2>
+    <p class="lead">Other services charge less because they do less. Here's the difference, line by line — and the math that actually matters when your app launch is on the line.</p>
+
+    <!-- Comparison Table -->
+    <div class="price-table-wrap">
+      <div class="price-table">
+        <div class="price-row">
+          <div class="price-cell head">What you get</div>
+          <div class="price-cell head">$15 services<span class="small">Cheap tester panels</span></div>
+          <div class="price-cell head us">Us at $39<span class="small">12 testers for 14 days</span></div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Real human testers</div>
+          <div class="price-cell them">
+            <svg class="warn-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Often bots, Fiverr gigs, emulators
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            12+ verified humans, real Android devices
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Tester recruitment time</div>
+          <div class="price-cell them">
+            <svg class="cross-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            1–3 days after you pay
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            Testers delivered within 6 hours
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Daily activity monitoring</div>
+          <div class="price-cell them">
+            <svg class="cross-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            None — you're on your own
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            We replace drop-outs within 24 hours
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Human support</div>
+          <div class="price-cell them">
+            <svg class="cross-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Email only, 24-72h replies
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            WhatsApp replies in under 5 minutes
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Production Access Guarantee</div>
+          <div class="price-cell them">
+            <svg class="cross-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            None — you eat the loss
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            Approved by Google, or 100% refund
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Questionnaire answers template</div>
+          <div class="price-cell them">
+            <svg class="cross-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Generic internet suggestions
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            Templates from real approved submissions
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Tester account quality</div>
+          <div class="price-cell them">
+            <svg class="warn-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Fresh accounts, easily flagged
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            Mature accounts with real usage history
+          </div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-cell feature-name">Final engagement report</div>
+          <div class="price-cell them">
+            <svg class="cross-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Screenshot or nothing
+          </div>
+          <div class="price-cell us">
+            <svg class="check-circle" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            Full PDF: opt-ins, sessions, devices, countries
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Risk Math -->
+    <div class="risk-math">
+      <div class="risk-card them">
+        <span class="label">⚠ Their $15 service</span>
+        <h3>If their service fails you</h3>
+        <div class="risk-row">
+          <span class="name">What you paid them</span>
+          <span class="val">$15.00</span>
+        </div>
+        <div class="risk-row">
+          <span class="name">Google registration fee (non-refundable)</span>
+          <span class="val danger">+$25.00</span>
+        </div>
+        <div class="risk-row">
+          <span class="name">Cost to rebuild if launch fails</span>
+          <span class="val danger">+$0 – $5,000+</span>
+        </div>
+        <div class="risk-row">
+          <span class="name">Opportunity cost (delayed launch)</span>
+          <span class="val danger">+$0 – $10,000+</span>
+        </div>
+        <div class="risk-total">
+          <span class="label">Your max exposure</span>
+          <span class="amount danger">$25 – $15,040+</span>
+        </div>
+      </div>
+
+      <div class="risk-card us">
+        <span class="label">✓ Our $39 service</span>
+        <h3>If our service fails you</h3>
+        <div class="risk-row">
+          <span class="name">What you paid us</span>
+          <span class="val">$39.00</span>
+        </div>
+        <div class="risk-row">
+          <span class="name">Google registration fee (non-refundable)</span>
+          <span class="val">+$25.00</span>
+        </div>
+        <div class="risk-row">
+          <span class="name">Cost to rebuild if launch fails</span>
+          <span class="val success">$0 — we re-test free</span>
+        </div>
+        <div class="risk-row">
+          <span class="name">Opportunity cost (delayed launch)</span>
+          <span class="val success">$0 — full refund if rejected</span>
+        </div>
+        <div class="risk-total">
+          <span class="label">Your max exposure</span>
+          <span class="amount success">$64.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing line -->
+    <div class="why-closing">
+      <p>
+        The <strong>$24</strong> you save buying cheap is paid back the first time something goes wrong —
+        and with a 14-day streak that decides your launch, "something goes wrong" happens more often than the $15 services admit.
+      </p>
+      <span class="calc-note">Numbers are illustrative. Your rebuild cost and opportunity cost depend on your app and market.</span>
+    </div>
+  </div>
+</section>
+
 <!-- Closed Testing 101: Interactive Chapters -->
 <section class="section chapters-sec" id="guide">
   <div class="container">
     <span class="eyebrow text-center" style="display:block;">Closed Testing 101</span>
     <h2 class="text-center">The 14-day rule, explained.</h2>
     <p class="lead text-center" style="margin-bottom:0;">This is what we explain to developers on WhatsApp every day, written down. Pick a chapter; the whole requirement is covered.</p>
- 
+
     <div class="chapters-layout">
       <!-- Sidebar Navigation -->
       <aside class="chapters-sidebar" id="chapter-nav">
@@ -631,7 +1243,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         <button class="chapter-link" data-target="ch-14"><span class="chapter-num">14</span> The Questionnaire</button>
         <button class="chapter-link" data-target="ch-15"><span class="chapter-num">15</span> Glossary</button>
       </aside>
- 
+
       <!-- Content Area -->
       <main class="chapters-content" id="chapter-content">
         <!-- Chapter 1 -->
@@ -650,7 +1262,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-2')">Next: Background →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 2 -->
         <article class="chapter-pane" id="ch-2">
           <div class="chapter-header">02 · Background</div>
@@ -663,7 +1275,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-3')">Next: Where it goes wrong →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 3 -->
         <article class="chapter-pane" id="ch-3">
           <div class="chapter-header">03 · Where it goes wrong</div>
@@ -682,7 +1294,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-4')">Next: Our process →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 4 -->
         <article class="chapter-pane" id="ch-4">
           <div class="chapter-header">04 · Our process</div>
@@ -699,7 +1311,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-5')">Next: Tester quality →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 5 -->
         <article class="chapter-pane" id="ch-5">
           <div class="chapter-header">05 · Tester quality</div>
@@ -711,7 +1323,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-6')">Next: Deliverables →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 6 -->
         <article class="chapter-pane" id="ch-6">
           <div class="chapter-header">06 · Deliverables</div>
@@ -723,7 +1335,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-7')">Next: Going live →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 7 -->
         <article class="chapter-pane" id="ch-7">
           <div class="chapter-header">07 · Going live</div>
@@ -735,7 +1347,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-8')">Next: Account types →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 8 -->
         <article class="chapter-pane" id="ch-8">
           <div class="chapter-header">08 · Account types</div>
@@ -747,7 +1359,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-9')">Next: Timeline →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 9 -->
         <article class="chapter-pane" id="ch-9">
           <div class="chapter-header">09 · Timeline</div>
@@ -759,7 +1371,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-10')">Next: The decision →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 10 -->
         <article class="chapter-pane" id="ch-10">
           <div class="chapter-header">10 · The decision</div>
@@ -771,7 +1383,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-11')">Next: Recovery →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 11 -->
         <article class="chapter-pane" id="ch-11">
           <div class="chapter-header">11 · Recovery</div>
@@ -783,7 +1395,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-12')">Next: Pre-flight →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 12 -->
         <article class="chapter-pane" id="ch-12">
           <div class="chapter-header">12 · Pre-flight</div>
@@ -801,7 +1413,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-13')">Next: Anti-fraud systems →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 13 -->
         <article class="chapter-pane" id="ch-13">
           <div class="chapter-header">13 · Anti-fraud systems</div>
@@ -813,7 +1425,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-14')">Next: The Questionnaire →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 14 -->
         <article class="chapter-pane" id="ch-14">
           <div class="chapter-header">14 · The Questionnaire</div>
@@ -825,7 +1437,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <button class="next-chapter" onclick="switchChapter('ch-15')">Next: Glossary →</button>
           </div>
         </article>
- 
+
         <!-- Chapter 15 -->
         <article class="chapter-pane" id="ch-15">
           <div class="chapter-header">15 · Glossary</div>
@@ -844,19 +1456,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
             <span style="font-weight:600; color:var(--text-light);">End of Guide</span>
           </div>
         </article>
- 
+
       </main>
     </div>
   </div>
 </section>
- 
+
 <!-- Masonry Reviews Section -->
 <section class="section reviews-sec" id="reviews">
   <div class="container">
     <span class="eyebrow text-center" style="display:block;">Reviews</span>
     <h2>What developers say once they're live.</h2>
     <p class="lead text-center">Real reviews from real orders, from developers who are on Google Play today.</p>
- 
+
     <div class="reviews-grid">
       <!-- Big Summary Card -->
       <div class="review-card review-hero">
@@ -870,7 +1482,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <span>99.9% APPROVED</span>
         </div>
       </div>
- 
+
       <!-- Small Cards -->
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
@@ -883,7 +1495,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <div class="review-country">SERBIA</div>
         </div>
       </div>
- 
+
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Amazing! Detailed, constructive feedback. Bugs spotted quickly, suggestions for balance and usability were great."</p>
@@ -895,7 +1507,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <div class="review-country">CANADA</div>
         </div>
       </div>
- 
+
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Exceeded expectations! More testers than asked for, detailed reports with great attention to details. Guided me on publishing!"</p>
@@ -907,7 +1519,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <div class="review-country">ALGERIA</div>
         </div>
       </div>
- 
+
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Used the service for closed beta testing and was very pleased with the results. Everything was delivered as promised, app passed on first try without any issues. Great team!"</p>
@@ -920,7 +1532,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         </div>
       </div>
     </div>
- 
+
     <div class="text-center" style="margin-top: 2rem;">
 <a href="https://www.trustpilot.com/review/12-testers-for-14-days.github.io">
   <button class="btn btn-outline" style="border-radius: 20px;">Show more reviews ↓</button>
@@ -928,13 +1540,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </section>
- 
+
 <!-- Pricing -->
 <section class="section" id="pricing">
   <div class="container">
     <span class="eyebrow text-center" style="display:block;">Pricing</span>
     <h2 class="text-center">Simple, transparent pricing</h2>
- 
+
     <div class="pricing">
       <article class="price-card">
         <div class="price-name">Starter</div>
@@ -945,10 +1557,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 14 days of testing</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 100% approval guarantee</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Final engagement report</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Use code <strong>LAUNCH10</strong> — pay <span class="strike-feature">$39</span><span class="discount-price">$29</span></li>
         </ul>
         <a href="/order/" class="btn btn-outline btn-block">Get Starter</a>
       </article>
- 
+
       <article class="price-card featured">
         <div class="card-risk" style="top:-12px; right:auto; left:50%; transform:translateX(-50%); background:var(--primary); color:#fff;">Most Popular</div>
         <div class="price-name">Professional</div>
@@ -963,7 +1576,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         </ul>
         <a href="/order/" class="btn btn-primary btn-block">Get Professional</a>
       </article>
- 
+
       <article class="price-card">
         <div class="price-name">Enterprise</div>
         <div class="price-amount">$69.99<small> / order</small></div>
@@ -979,14 +1592,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </section>
- 
+
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
     <span class="eyebrow text-center" style="display:block;">FAQ</span>
     <h2 class="text-center">Asked before every order.</h2>
     <p class="faq-lead">If yours isn't here, ask us directly. A human answers, fast.</p>
- 
+
     <div class="faq-grid">
       <div class="faq-col">
         <article class="faq-item">
@@ -1032,7 +1645,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           </details>
         </article>
       </div>
- 
+
       <div class="faq-col">
         <article class="faq-item">
           <details>
@@ -1066,6 +1679,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         </article>
         <article class="faq-item">
           <details>
+            <summary class="faq-q">How do I use the LAUNCH10 discount code?</summary>
+            <div class="faq-a">After you submit your order on the next page, enter <strong>LAUNCH10</strong> in the promo code field. Your $10 discount is applied automatically before you pay. One use per customer.</div>
+          </details>
+        </article>
+        <article class="faq-item">
+          <details>
             <summary class="faq-q">My closed testing was rejected. Can you still help?</summary>
             <div class="faq-a">Yes. Send us the rejection notice from Google and we'll tell you whether a fresh 14-day test resolves it before you order anything.</div>
           </details>
@@ -1078,7 +1697,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         </article>
       </div>
     </div>
- 
+
     <div class="faq-contact-bar">
       <div class="faq-contact-left">
 <div class="faq-avatar">
@@ -1099,7 +1718,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     </div>
   </div>
 </section>
- 
+
 <!-- Dark Pre-Footer & Footer -->
 <footer class="dark-footer">
   <div class="container pre-footer">
@@ -1116,7 +1735,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       <span>From $39.00</span> · <span>No subscription</span> · <span>Money-back guarantee</span>
     </div>
   </div>
- 
+
   <div class="container">
     <div class="trust-strip">
       <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> 100% money-back guarantee</div>
@@ -1127,7 +1746,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         <span style="font-weight:800; font-size:1.1rem; color:#6366f1; margin-left:10px;">crypto</span>
       </div>
     </div>
- 
+
     <div class="footer-grid">
       <div class="footer-brand footer-col">
         <a href="/" class="brand" style="color:#fff;">
@@ -1142,7 +1761,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <span style="font-size:0.75rem; color:#64748b;">1111B S Governors Ave, STE 84878,<br>Dover, DE 19904, US</span>
         </div>
       </div>
- 
+
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
@@ -1153,7 +1772,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <li><a href="/pricing/">Pricing plans</a></li>
         </ul>
       </div>
- 
+
       <div class="footer-col">
         <h4>Resources</h4>
         <ul>
@@ -1164,7 +1783,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
           <li><a href="https://wa.me/923472061598?text=Hi%2C%20I%27d%20like%20to%20book%20a%2030-minute%20call" target="_blank" rel="noopener">Book a meeting</a></li>
         </ul>
       </div>
- 
+
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
@@ -1180,7 +1799,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       </div>
 
     </div>
- 
+
     <div class="footer-bottom">
       <div>© 2026 12 testers for 14 days. All rights reserved.</div>
       <nav class="footer-langs" aria-label="Language">
@@ -1192,17 +1811,33 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
         <a href="/pt/">Português</a>
       </nav>
     </div>
- 
+
     <!-- Watermark -->
     <div class="footer-watermark">12 testers for 14 days</div>
   </div>
 </footer>
- 
+
 <!-- Floating Chat Widget -->
 <a class="chat-widget" href="https://wa.me/923472061598?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%20closed%20testing" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.19 3.7.59.25 1.04.41 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
 </a>
- 
+
+<!-- ============== DISCOUNT POPUP (NEW) ============== -->
+<div class="discount-popup" id="discountPopup" role="dialog" aria-labelledby="popupTitle" aria-describedby="popupSub">
+  <button class="popup-close" id="popupClose" aria-label="Close discount popup">×</button>
+  <div class="popup-body">
+    <div class="popup-icon">🎉</div>
+    <div class="popup-title" id="popupTitle">Save $10 on your first order</div>
+    <div class="popup-sub" id="popupSub">Welcome — use this code at checkout and we'll knock $10 off any plan.</div>
+    <div class="popup-code-row">
+      <div class="popup-code" id="promoCode">LAUNCH10</div>
+      <button class="popup-copy" id="copyCode" type="button">Copy</button>
+    </div>
+    <a href="/order/" class="popup-cta">Order now & save $10 →</a>
+    <span class="popup-tiny">ONE USE PER CUSTOMER · NO EXPIRY</span>
+  </div>
+</div>
+
 <!-- Interactive Scripts -->
 <script>
   // Chapter Navigation Logic
@@ -1216,13 +1851,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
     var content = document.getElementById('chapter-content');
     if (content) { content.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
   }
- 
+
   document.querySelectorAll('.chapter-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
       switchChapter(e.currentTarget.getAttribute('data-target'));
     });
   });
- 
+
   // Language dropdown
   var langToggle = document.getElementById('langToggle');
   var langMenu = document.getElementById('langMenu');
@@ -1245,7 +1880,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       }
     });
   }
- 
+
   // Mobile nav toggle
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
@@ -1261,6 +1896,66 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
       });
     });
   }
+
+  // ============ DISCOUNT POPUP LOGIC (NEW) ============
+  (function() {
+    var popup = document.getElementById('discountPopup');
+    var closeBtn = document.getElementById('popupClose');
+    var copyBtn = document.getElementById('copyCode');
+    var promoEl = document.getElementById('promoCode');
+    var DISMISS_KEY = 'launch10_popup_dismissed';
+    var SHOW_DELAY_MS = 7000;
+
+    if (!popup) return;
+
+    // Show after delay unless dismissed
+    if (!localStorage.getItem(DISMISS_KEY)) {
+      setTimeout(function() {
+        popup.classList.add('show');
+      }, SHOW_DELAY_MS);
+    }
+
+    // Close handler
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        popup.classList.remove('show');
+        try { localStorage.setItem(DISMISS_KEY, '1'); } catch(e) {}
+      });
+    }
+
+    // Copy code handler
+    if (copyBtn && promoEl) {
+      copyBtn.addEventListener('click', function() {
+        var code = promoEl.textContent.trim();
+        var done = function() {
+          copyBtn.textContent = 'Copied ✓';
+          copyBtn.classList.add('copied');
+          promoEl.classList.add('copied');
+          setTimeout(function() {
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('copied');
+            promoEl.classList.remove('copied');
+          }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function() {
+            // Fallback for older browsers
+            var ta = document.createElement('textarea');
+            ta.value = code; ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); done(); } catch(e) {}
+            document.body.removeChild(ta);
+          });
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = code; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch(e) {}
+          document.body.removeChild(ta);
+        }
+      });
+    }
+  })();
 </script>
 </body>
 </html>
