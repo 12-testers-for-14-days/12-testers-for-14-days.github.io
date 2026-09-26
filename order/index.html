@@ -285,10 +285,82 @@
         .trust-footer i { color: var(--accent); margin-right: 4px; }
         .trust-footer a { color: var(--text-muted); text-decoration: underline; margin-left: 5px; }
 
+        /* ---------- What Happens Next ---------- */
+        .next-steps-section {
+            margin-top: 3rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .next-steps-section .section-title {
+            margin-bottom: 2rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .next-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.75rem;
+            position: relative;
+        }
+
+        .next-step {
+            position: relative;
+            padding-left: 3.75rem;
+        }
+
+        .next-step-num {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(15,118,110,0.25);
+            z-index: 2;
+        }
+
+        /* Connector line (desktop only) */
+        .next-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 44px;
+            right: -1.75rem;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-light) 0%, var(--border) 100%);
+            z-index: 1;
+        }
+
+        .next-step h3 {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-main);
+        }
+
+        .next-step p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             .checkout-grid { grid-template-columns: 1fr; }
             .summary-sidebar { position: static; margin-top: 2rem; }
+            .next-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.75rem; }
+            .next-step:not(:last-child)::after { display: none; }
         }
         @media (max-width: 600px) {
             .checkout-wrapper { padding: 2rem 0; }
@@ -299,6 +371,10 @@
             .slider-value { font-size: 1.75rem; }
             .summary-card { padding: 1.5rem; }
             .summary-total .price { font-size: 2rem; }
+            .next-steps-section { padding: 1.75rem 1.5rem; }
+            .next-steps-grid { grid-template-columns: 1fr; }
+            .next-step { padding-left: 3.25rem; }
+            .next-step-num { width: 38px; height: 38px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -345,9 +421,9 @@
                     <!-- Left Column: User Inputs & Slider -->
                     <div class="checkout-left">
                         
-                        <!-- 1. App & Contact Details -->
+                        <!-- 1. Contact Details -->
                         <div class="form-section">
-                            <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> 1. App &amp; Contact Details</h2>
+                            <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> 1. Contact Details</h2>
                             <div class="input-group">
                                 <label for="name">Your Name</label>
                                 <input type="text" id="name" name="Name" placeholder="John Doe" required>
@@ -361,11 +437,6 @@
                                 <label for="whatsapp">WhatsApp Number (Optional)</label>
                                 <input type="tel" id="whatsapp" name="WhatsApp_Number" placeholder="+1234567890">
                                 <span class="input-hint">For faster communication and support.</span>
-                            </div>
-                            <div class="input-group">
-                                <label for="app_link">Google Play Closed Testing Link</label>
-                                <input type="url" id="app_link" name="App_Link" placeholder="https://play.google.com/apps/testing/com.your.app" required>
-                                <span class="input-hint">One link is fine. If you're ordering for multiple apps, we'll collect the rest after checkout.</span>
                             </div>
                         </div>
 
@@ -403,6 +474,14 @@
                                 <p class="slider-hint">
                                     Volume discount applied automatically — price drops per app as you scale, down to <strong>$14.00 / app</strong> for 10 apps.
                                 </p>
+                            </div>
+                        </div>
+
+                        <!-- 3. App Testing Links (dynamic based on slider) -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-link"></i> 3. Google Play Closed Testing Links</h2>
+                            <div id="appLinksContainer">
+                                <!-- Dynamic input fields injected by JS -->
                             </div>
                         </div>
 
@@ -457,6 +536,39 @@
                     </div>
 
                 </div>
+
+                <!-- What happens next -->
+                <section class="next-steps-section" aria-label="What happens after you submit your order">
+                    <h2 class="section-title"><i class="fa-solid fa-route"></i> What happens after you submit this form</h2>
+                    <div class="next-steps-grid">
+
+                        <div class="next-step">
+                            <div class="next-step-num">1</div>
+                            <h3>We assign your testers</h3>
+                            <p>Within 2–6 hours, we match 12 real Android testers to each of your apps and email you the full tester list.</p>
+                        </div>
+
+                        <div class="next-step">
+                            <div class="next-step-num">2</div>
+                            <h3>You confirm &amp; pay</h3>
+                            <p>Add our testers to your Play Console, verify everything looks right, then pay via Payoneer once you're satisfied.</p>
+                        </div>
+
+                        <div class="next-step">
+                            <div class="next-step-num">3</div>
+                            <h3>14 days of daily testing</h3>
+                            <p>Testers open and use your apps every day. You also receive helpful bug reports and UX feedback along the way.</p>
+                        </div>
+
+                        <div class="next-step">
+                            <div class="next-step-num">4</div>
+                            <h3>You submit for approval</h3>
+                            <p>We deliver your engagement report and proven questionnaire answers so you can apply for production access with confidence.</p>
+                        </div>
+
+                    </div>
+                </section>
+
             </form>
         </div>
     </main>
@@ -480,6 +592,8 @@
 
             const sliderTicks = document.querySelectorAll('#sliderTicks span');
 
+            const appLinksContainer = document.getElementById('appLinksContainer');
+
             // Hidden inputs for Web3Forms
             const hiddenAppCount = document.getElementById('hidden_app_count');
             const hiddenPerApp = document.getElementById('hidden_per_app');
@@ -500,6 +614,60 @@
             function getPerAppPrice(n) {
                 const slope = (MIN_PRICE - BASE_PRICE) / (MAX_APPS - MIN_APPS); // -25/9 per app
                 return BASE_PRICE + slope * (n - MIN_APPS);
+            }
+
+            // ---------- Dynamic App Link Fields ----------
+            let lastRenderedAppCount = 0;
+
+            function updateAppLinkFields(n) {
+                if (n === lastRenderedAppCount) return;
+
+                // Preserve whatever the user has typed so far
+                const existingInputs = appLinksContainer.querySelectorAll('input[type="url"]');
+                const existingValues = Array.from(existingInputs).map(inp => inp.value);
+
+                // Clear and rebuild
+                appLinksContainer.innerHTML = '';
+
+                for (let i = 0; i < n; i++) {
+                    const idx = i + 1;
+
+                    const group = document.createElement('div');
+                    group.className = 'input-group';
+
+                    const label = document.createElement('label');
+                    label.setAttribute('for', 'app_link_' + idx);
+                    label.textContent = (n > 1)
+                        ? 'Google Play Closed Testing Link #' + idx
+                        : 'Google Play Closed Testing Link';
+
+                    const input = document.createElement('input');
+                    input.type = 'url';
+                    input.id = 'app_link_' + idx;
+                    input.name = 'App_Link_' + idx;
+                    input.placeholder = 'https://play.google.com/apps/testing/com.your.app';
+                    // First field always required; remaining optional
+                    if (idx === 1) input.required = true;
+                    // Restore previously typed value if present
+                    if (existingValues[i]) input.value = existingValues[i];
+
+                    group.appendChild(label);
+                    group.appendChild(input);
+
+                    // Add a hint under the first field only
+                    if (idx === 1) {
+                        const hint = document.createElement('span');
+                        hint.className = 'input-hint';
+                        hint.textContent = (n > 1)
+                            ? 'You can also send the remaining links on WhatsApp after checkout if you don\'t have them all right now.'
+                            : 'The closed-testing opt-in link for your app.';
+                        group.appendChild(hint);
+                    }
+
+                    appLinksContainer.appendChild(group);
+                }
+
+                lastRenderedAppCount = n;
             }
 
             // ---------- Main Update ----------
@@ -545,6 +713,9 @@
                 hiddenAppCount.value = n;
                 hiddenPerApp.value   = formatMoney(perApp);
                 hiddenTotal.value    = formatMoney(total);
+
+                // --- Dynamic app link fields ---
+                updateAppLinkFields(n);
             }
 
             // ---------- Listeners ----------
