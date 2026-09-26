@@ -1,1257 +1,559 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+   <head>
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: dark)" />
-<meta name="color-scheme" content="light" />
-<title>Complete your order — 12 testers for 14 days</title>
-<meta name="description" content="Order 12 real Android testers for 14 days. No payment required upfront — pay only after your testers opt in to your Play Console closed track." />
-<meta name="robots" content="noindex, follow" />
-<meta name="author" content="12Testers14Days" />
-<link rel="canonical" href="https://12-testers-for-14-days.github.io/order/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" />
+    <title>Complete Your Order | 12Testers14Days</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Keep checkout pages out of Google search -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-/* =========================================================
-   12 testers for 14 days — Order Page (no promo codes)
-   ========================================================= */
-:root {
-  --bg-page: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-alt: #f1f5f9;
-  --bg-dark: #0f172a;
+    <style>
+        /* =========================================================
+           Master Theme Variables
+           ========================================================= */
+        :root {
+          --bg-page: #f8fafc; /* Slightly off-white for checkout focus */
+          --bg-card: #ffffff;
+          --bg-alt: #f1f5f9;
+          --bg-dark: #0b1120;
+          
+          --text-main: #0f172a;
+          --text-muted: #475569;
+          --text-light: #94a3b8;
+          
+          --primary: #0f766e;
+          --primary-hover: #115e59;
+          --primary-light: #ccfbf1;
+          --accent: #10b981;
+          
+          --border: #e2e8f0;
+          --border-focus: #0f766e;
+          
+          --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+          --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+          --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+          
+          --font-sans: 'Inter', sans-serif;
+          --font-display: 'Space Grotesk', sans-serif;
+          --font-mono: 'JetBrains Mono', monospace;
+          
+          --radius: 12px;
+          --radius-lg: 16px;
+          --transition: 0.2s ease-in-out;
+        }
 
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-light: #94a3b8;
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.6; font-size: 16px; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.25; }
+        a { color: var(--primary); text-decoration: none; }
 
-  --primary: #0f766e;
-  --primary-hover: #115e59;
-  --primary-light: #ccfbf1;
-  --primary-onDark: #2dd4bf;
-  --whatsapp: #25d366;
-  --twitter: #1da1f2;
-  --reddit: #ff4500;
-  --danger: #ef4444;
-  --danger-light: #fee2e2;
-  --warning: #f59e0b;
-  --warning-light: #fef3c7;
-  --success: #10b981;
-  --success-light: #d1fae5;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-  --gold: #f59e0b;
-  --gold-dark: #b45309;
-  --gold-light: #fef3c7;
-  --gold-lighter: #fffbeb;
+        /* ---------- Minimal Header ---------- */
+        .header { background: #fff; border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); }
+        .brand-icon { width: 32px; height: 32px; background: var(--text-main); color: #fff; border-radius: 8px; display: grid; place-items: center; font-size: 14px; position: relative; }
+        .brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--accent); border: 2px solid #fff; border-radius: 50%; }
+        .back-link { font-weight: 500; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; transition: color var(--transition); }
+        .back-link:hover { color: var(--text-main); }
 
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-  --shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08);
+        /* ---------- Checkout Layout ---------- */
+        .checkout-wrapper { padding: 3rem 0 5rem; }
+        .checkout-header { text-align: center; margin-bottom: 3rem; }
+        .checkout-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .checkout-header p { font-size: 1.1rem; color: var(--text-muted); }
 
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --radius: 12px;
-  --radius-lg: 20px;
-  --transition: 0.2s ease-in-out;
-}
+        /* The Form Grid */
+        .checkout-grid { display: grid; grid-template-columns: 1fr 380px; gap: 3rem; align-items: start; }
+        
+        .section-title { font-size: 1.25rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+        .section-title i { color: var(--primary); font-size: 1.1rem; }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-sans); color: var(--text-muted); background: var(--bg-page); line-height: 1.6; overflow-x: hidden; }
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); color: var(--text-main); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
-a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
-img, svg { max-width: 100%; display: block; }
-ul, ol { list-style: none; }
-a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+        /* ---------- Left Column ---------- */
+        .form-section { margin-bottom: 3rem; }
+        
+        /* Input Fields */
+        .input-group { margin-bottom: 1.25rem; }
+        .input-group label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
+        .input-group input { width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 1rem; transition: all var(--transition); background: #fff; }
+        .input-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+        .input-hint { font-size: 0.8rem; color: var(--text-light); margin-top: 0.25rem; display: block; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-.text-center { text-align: center; }
+        /* ---------- Slider (App Count) ---------- */
+        .slider-container {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.75rem;
+        }
 
-/* ============= TOP TICKER ============= */
-.ticker {
-  background: var(--bg-dark);
-  color: #cbd5e1;
-  overflow: hidden;
-  position: relative;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  z-index: 110;
-}
-.ticker-track {
-  display: flex;
-  gap: 3rem;
-  white-space: nowrap;
-  padding: 0.6rem 0;
-  width: max-content;
-  /* Added !important and increased to 120s for a very noticeable slowdown */
-  animation: tickerScroll 30s linear infinite !important; 
-}
-.ticker-track span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-.ticker-track strong { color: var(--primary-onDark); font-weight: 700; }
-.ticker-track .sep { width: 4px; height: 4px; background: var(--primary-onDark); border-radius: 50%; opacity: 0.6; }
-@keyframes tickerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.ticker:hover .ticker-track { animation-play-state: paused; }
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
 
-/* Header */
-.header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 0; }
-.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.25rem; color: var(--text-main); font-family: var(--font-display); flex-shrink: 0; }
-.brand-icon { width: 32px; height: 32px; background: var(--bg-dark); color: #fff; border-radius: 8px; display: grid; place-items: center; position: relative; }
-.brand-icon::after { content: ''; position: absolute; bottom: -2px; right: -2px; width: 10px; height: 10px; background: var(--primary); border: 2px solid #fff; border-radius: 50%; }
-.header-back { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
-.header-back:hover { color: var(--primary); }
+        .slider-label {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            padding-top: 0.35rem;
+        }
 
-/* ============= ORDER LAYOUT ============= */
-.order-section { padding: 3rem 0 5rem; background: var(--bg-page); }
-.order-header { text-align: center; margin-bottom: 2.5rem; }
-.order-header h1 {
-  font-size: clamp(2rem, 4.5vw, 3.25rem);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.03em;
-}
-.order-header .sub {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 540px;
-  margin: 0 auto 1.5rem;
-}
-.trust-chips {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-}
-.trust-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 0.4rem 0.85rem;
-  border-radius: 99px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-main);
-}
-.trust-chip svg { color: var(--success); flex-shrink: 0; }
-.trust-chip.stars svg { color: var(--warning); }
+        .slider-value-wrap {
+            text-align: right;
+            line-height: 1.1;
+        }
 
-/* Grid */
-.order-grid {
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 2rem;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+        .slider-value {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
 
-/* ============= MAIN COLUMN ============= */
-.order-form {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-sm);
-}
+        .slider-value-unit {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
 
-.form-step {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
-}
-.form-step .step-icon {
-  width: 28px;
-  height: 28px;
-  background: var(--primary-light);
-  color: var(--primary-hover);
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-}
-.form-step .step-sub {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 0.85rem;
-  color: var(--text-light);
-  text-transform: none;
-  letter-spacing: 0;
-  margin-left: auto;
-}
+        .slider-subvalue {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 0.4rem;
+            letter-spacing: 0.02em;
+        }
 
-/* ============= TIER SELECTOR ============= */
-.tier-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-  margin-bottom: 0.5rem;
-}
-.tier-card {
-  position: relative;
-  display: block;
-  cursor: pointer;
-  background: var(--bg-card);
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem 1rem;
-  transition: all var(--transition);
-}
-.tier-card:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-1px);
-}
-.tier-card input { position: absolute; opacity: 0; pointer-events: none; }
-.tier-card .tier-radio {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  width: 20px; height: 20px;
-  border: 2px solid var(--border-strong);
-  border-radius: 50%;
-  background: #fff;
-  display: grid;
-  place-items: center;
-  transition: all var(--transition);
-}
-.tier-card .tier-radio::after {
-  content: '';
-  width: 8px; height: 8px;
-  background: var(--primary);
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0);
-  transition: all var(--transition);
-}
-.tier-card .tier-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.78rem;
-  color: var(--primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-  padding-right: 1.75rem;
-}
-.tier-card .tier-price {
-  font-family: var(--font-display);
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.03em;
-  margin-bottom: 0.2rem;
-}
-.tier-card .tier-price small {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-.tier-card .tier-tag {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-bottom: 0.85rem;
-  line-height: 1.4;
-}
-.tier-card .tier-features {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-.tier-card .tier-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-  font-size: 0.8rem;
-  color: var(--text-main);
-  line-height: 1.4;
-}
-.tier-card .tier-features svg {
-  flex-shrink: 0;
-  color: var(--primary);
-  margin-top: 2px;
-}
-.tier-card.popular {
-  border-color: var(--primary-light);
-  background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 30%);
-}
-.tier-card.popular .pop-badge {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.2rem 0.65rem;
-  border-radius: 99px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.tier-card.selected {
-  border-color: var(--primary);
-  background: linear-gradient(180deg, #f0fdfa 0%, #ffffff 50%);
-  box-shadow: 0 0 0 3px rgba(15,118,110,0.08);
-}
-.tier-card.selected .tier-radio { border-color: var(--primary); }
-.tier-card.selected .tier-radio::after { opacity: 1; transform: scale(1); }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            background: var(--bg-alt);
+            border-radius: 999px;
+            outline: none;
+            cursor: pointer;
+            transition: background 0.1s linear;
+        }
 
-/* ============= QUANTITY STEPPER ============= */
-.qty-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.qty-label {
-  font-weight: 600;
-  color: var(--text-main);
-  font-size: 0.95rem;
-}
-.qty-stepper {
-  display: flex;
-  align-items: center;
-  background: var(--bg-alt);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.qty-btn {
-  width: 42px; height: 42px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-main);
-  display: grid;
-  place-items: center;
-  transition: background var(--transition);
-}
-.qty-btn:hover { background: var(--primary-light); color: var(--primary-hover); }
-.qty-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.qty-input {
-  width: 50px; height: 42px;
-  border: none;
-  background: transparent;
-  text-align: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-main);
-  -moz-appearance: textfield;
-}
-.qty-input::-webkit-outer-spin-button,
-.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.qty-input:focus { outline: none; }
-.qty-help {
-  font-size: 0.83rem;
-  color: var(--text-muted);
-  margin-top: 0.6rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-  line-height: 1.5;
-}
-.qty-help svg { flex-shrink: 0; color: var(--primary); margin-top: 2px; }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 26px;
+            height: 26px;
+            background: var(--primary);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 8px rgba(15,118,110,0.35), 0 0 0 1px rgba(15,118,110,0.15);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
 
-/* ============= FORM FIELDS ============= */
-.field-group { margin-bottom: 1.5rem; }
-.field-group:last-of-type { margin-bottom: 0; }
-.field-label {
-  display: block;
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
-}
-.field-label .req { color: var(--primary); }
-.field-label .opt {
-  font-weight: 400;
-  color: var(--text-light);
-  font-size: 0.85rem;
-  margin-left: 0.4rem;
-}
-.field-input {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  font-family: var(--font-sans);
-  font-size: 0.98rem;
-  color: var(--text-main);
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
-.field-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
-}
-.field-input::placeholder { color: var(--text-light); }
-.field-help {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.4rem;
-  font-size: 0.83rem;
-  color: var(--text-muted);
-  margin-top: 0.45rem;
-  line-height: 1.5;
-}
-.field-help svg { flex-shrink: 0; color: var(--primary); margin-top: 2px; }
-.field-help a { color: var(--primary); font-weight: 600; }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.12);
+            box-shadow: 0 4px 12px rgba(15,118,110,0.45), 0 0 0 1px rgba(15,118,110,0.2);
+        }
 
-/* ============= EARN YOUR DISCOUNT (NEW) ============= */
-.earn-section {
-  margin-top: 2rem;
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border: 1.5px solid #fcd34d;
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.earn-section::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-.earn-header {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-.earn-eyebrow {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gold-dark);
-  background: #fff;
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
-  border: 1px solid #fcd34d;
-  margin-bottom: 0.75rem;
-}
-.earn-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.4rem;
-  color: var(--text-main);
-}
-.earn-section .earn-sub {
-  font-size: 0.92rem;
-  color: #78350f;
-  margin: 0;
-}
+        input[type="range"]::-webkit-slider-thumb:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
 
-.earn-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-.earn-card {
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.25rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.earn-card.featured {
-  border-color: var(--success);
-  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 60%);
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.08);
-}
-.earn-card .earn-badge {
-  position: absolute;
-  top: -10px;
-  left: 1.25rem;
-  background: var(--success);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.2rem 0.65rem;
-  border-radius: 99px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-.earn-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--bg-alt);
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  font-size: 1.4rem;
-  margin-bottom: 0.85rem;
-}
-.earn-card.featured .earn-icon {
-  background: var(--success-light);
-}
-.earn-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.6rem;
-}
-.earn-reward {
-  font-family: var(--font-display);
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--success);
-  letter-spacing: -0.03em;
-  margin-bottom: 0.15rem;
-  line-height: 1;
-}
-.earn-reward-sub {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-.earn-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  counter-reset: step;
-  flex: 1;
-}
-.earn-steps li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  font-size: 0.83rem;
-  color: var(--text-main);
-  line-height: 1.45;
-  counter-increment: step;
-  position: relative;
-  padding-left: 1.5rem;
-}
-.earn-steps li::before {
-  content: counter(step);
-  position: absolute;
-  left: 0;
-  top: 1px;
-  width: 18px; height: 18px;
-  background: var(--bg-alt);
-  color: var(--text-muted);
-  border-radius: 50%;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  display: grid;
-  place-items: center;
-}
-.earn-card.featured .earn-steps li::before {
-  background: var(--success-light);
-  color: var(--success);
-}
-.earn-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 0.55rem 0.9rem;
-  background: var(--bg-alt);
-  color: var(--text-main);
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  border: 1px solid var(--border);
-  transition: all var(--transition);
-  margin-top: auto;
-}
-.earn-cta:hover {
-  background: var(--text-main);
-  color: #fff;
-  border-color: var(--text-main);
-}
-.earn-card.featured .earn-cta {
-  background: var(--success);
-  color: #fff;
-  border-color: var(--success);
-}
-.earn-card.featured .earn-cta:hover {
-  background: var(--text-main);
-  border-color: var(--text-main);
-}
-.earn-card .earn-cta svg { flex-shrink: 0; }
-.earn-card .earn-cta.twitter { color: var(--twitter); border-color: rgba(29,161,242,0.3); }
-.earn-card .earn-cta.twitter:hover { background: var(--twitter); border-color: var(--twitter); color: #fff; }
-.earn-card .earn-cta.reddit { color: var(--reddit); border-color: rgba(255,69,0,0.3); }
-.earn-card .earn-cta.reddit:hover { background: var(--reddit); border-color: var(--reddit); color: #fff; }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 8px rgba(15,118,110,0.35), 0 0 0 1px rgba(15,118,110,0.15);
+            transition: transform 0.15s ease;
+        }
 
-.earn-fineprint {
-  background: rgba(255,255,255,0.7);
-  border: 1px dashed #fcd34d;
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
-  font-size: 0.8rem;
-  color: #78350f;
-  line-height: 1.5;
-  position: relative;
-}
-.earn-fineprint strong { color: var(--text-main); }
+        input[type="range"]::-moz-range-progress {
+            background: var(--primary);
+            height: 8px;
+            border-radius: 999px;
+        }
 
-/* ============= ORDER SUMMARY ============= */
-.order-summary {
-  position: sticky;
-  top: 100px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow);
-}
-.summary-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border);
-}
-.summary-head h2 { font-size: 1.15rem; margin: 0; }
-.summary-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  background: var(--success-light);
-  color: var(--success);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 99px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.6rem 0;
-  font-size: 0.95rem;
-  color: var(--text-main);
-}
-.summary-row .label { color: var(--text-muted); }
-.summary-row .val { font-weight: 600; }
-.summary-row.tier-line .label { color: var(--text-main); font-weight: 500; }
-.summary-row.qty-line .val { color: var(--text-muted); }
-.summary-row.subtotal {
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-  margin-top: 0.5rem;
-}
-.summary-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1.25rem 0 0.5rem;
-  border-top: 2px solid var(--text-main);
-  margin-top: 1rem;
-}
-.summary-total .label {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--text-main);
-}
-.summary-total .amount {
-  font-family: var(--font-display);
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.03em;
-}
+        .slider-ticks {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.85rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-family: var(--font-mono);
+            font-weight: 500;
+            user-select: none;
+        }
 
-.summary-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  background: var(--bg-dark);
-  color: #fff;
-  padding: 1rem;
-  border: none;
-  border-radius: 99px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  margin-top: 1.25rem;
-  transition: background var(--transition), transform var(--transition);
-}
-.summary-cta:hover { background: var(--primary); transform: translateY(-1px); }
-.summary-cta svg { width: 18px; height: 18px; }
+        .slider-ticks span {
+            width: 18px;
+            text-align: center;
+            transition: color var(--transition), font-weight 0.15s ease;
+        }
 
-.summary-foot {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.83rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.summary-foot p { margin-bottom: 0.5rem; }
-.summary-foot strong { color: var(--text-main); font-weight: 600; }
-.summary-foot .urgent {
-  background: var(--warning-light);
-  color: #92400e;
-  padding: 0.55rem 0.85rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.82rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.85rem;
-  margin-bottom: 0;
-  border-left: 3px solid var(--warning);
-}
-.summary-foot a { color: var(--primary); font-weight: 600; }
+        .slider-ticks span.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
 
-/* ============= WHAT HAPPENS NEXT ============= */
-.flow-section {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  margin-top: 2rem;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.flow-section h2 {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.flow-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.flow-step {
-  padding: 1.25rem;
-  background: var(--bg-alt);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-.flow-step .num {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--primary-light);
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  display: inline-block;
-  margin-bottom: 0.6rem;
-}
-.flow-step h3 { font-size: 0.98rem; margin-bottom: 0.4rem; color: var(--text-main); }
-.flow-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        .slider-hint {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1.25rem;
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border);
+            line-height: 1.55;
+        }
 
-/* Floating Chat Widget */
-.chat-widget { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: var(--whatsapp); border-radius: 50%; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.25); z-index: 999; transition: transform var(--transition); }
-.chat-widget:hover { transform: scale(1.08); }
-.chat-widget svg { fill: #fff; width: 30px; height: 30px; }
+        .slider-hint strong { color: var(--primary); font-weight: 700; }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-}
-@media (max-width: 900px) {
-  .order-grid { grid-template-columns: 1fr; }
-  .order-summary { position: static; }
-  .flow-steps { grid-template-columns: repeat(2, 1fr); }
-  .tier-grid { grid-template-columns: 1fr; }
-  .tier-card { padding: 1rem; }
-  .earn-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 640px) {
-  .order-form { padding: 1.5rem; }
-  .order-summary { padding: 1.5rem; }
-  .summary-total .amount { font-size: 1.85rem; }
-  .flow-steps { grid-template-columns: 1fr; }
-  .flow-section { padding: 1.5rem; }
-  .earn-section { padding: 1.5rem; }
-  .header-back span { display: none; }
-}
-</style>
+        /* ---------- Right Column: Sticky Summary ---------- */
+        .summary-sidebar { position: sticky; top: 100px; }
+        .summary-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-lg); }
+        .summary-title { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-main); }
+        
+        .summary-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-muted); gap: 1rem; }
+        .summary-row.bold { color: var(--text-main); font-weight: 700; }
+        .summary-row.bold .val { font-family: var(--font-display); font-size: 1.05rem; }
+        .summary-row.discount { color: var(--accent); font-weight: 600; }
+        .summary-row span.val { font-family: var(--font-mono); white-space: nowrap; }
+        .summary-row .subtext { font-size: 0.8rem; color: var(--text-light); display: block; margin-top: 0.15rem; }
 
-<!-- JSON-LD: Product / Service structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "12 Testers for 14 Days — Google Play Closed Testing",
-  "description": "12+ real Android testers for Google's 14-day closed testing requirement. Includes 100% production access guarantee.",
-  "brand": { "@type": "Brand", "name": "12Testers14Days" },
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "USD",
-    "lowPrice": "39.00",
-    "highPrice": "69.99",
-    "offerCount": "3",
-    "url": "https://12-testers-for-14-days.github.io/order/"
-  }
-}
-</script>
+        /* Per-app sub-row under plan name */
+        .summary-per-app {
+            margin-top: -0.65rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+        }
+        .summary-per-app .val {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Volume discount badge */
+        .discount-badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-hover);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .summary-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+        
+        .summary-total { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; gap: 1rem; }
+        .summary-total .label { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+        .summary-total .price { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); line-height: 1; white-space: nowrap; }
+
+        .btn-checkout { width: 100%; background: var(--text-main); color: #fff; font-size: 1.1rem; font-weight: 600; padding: 1.25rem; border: none; border-radius: 12px; cursor: pointer; transition: all var(--transition); display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-family: var(--font-sans); }
+        .btn-checkout:hover { background: #000; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        .btn-checkout:active { transform: translateY(0); }
+        
+        .trust-footer { text-align: center; margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-light); line-height: 1.6; }
+        .trust-footer i { color: var(--accent); margin-right: 4px; }
+        .trust-footer a { color: var(--text-muted); text-decoration: underline; margin-left: 5px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .checkout-grid { grid-template-columns: 1fr; }
+            .summary-sidebar { position: static; margin-top: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .checkout-wrapper { padding: 2rem 0; }
+            .checkout-header h1 { font-size: 2rem; }
+            .slider-container { padding: 1.5rem 1.25rem; }
+            .slider-header { flex-direction: column; align-items: flex-start; }
+            .slider-value-wrap { text-align: left; }
+            .slider-value { font-size: 1.75rem; }
+            .summary-card { padding: 1.5rem; }
+            .summary-total .price { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- TOP TICKER (updated: no public codes) -->
-<div class="ticker" aria-label="Site announcements">
-  <div class="ticker-track">
-    <span>🎁 Earn up to <strong>50% off</strong> your next order — refer a friend</span>
-    <span class="sep"></span>
-    <span>⭐ <strong>4.9</strong> on Trustpilot · 2,200+ verified reviews</span>
-    <span class="sep"></span>
-    <span>✅ 100% Production Access Guarantee — approved or refund</span>
-    <span class="sep"></span>
-    <span>🚀 Testers ready in 6 hours, not days</span>
-    <span class="sep"></span>
-    <span>💬 Average WhatsApp reply: under 5 minutes</span>
-    <span class="sep"></span>
-    <span>🎁 Earn up to <strong>50% off</strong> your next order — refer a friend</span>
-    <span class="sep"></span>
-    <span>⭐ <strong>4.9</strong> on Trustpilot · 2,200+ verified reviews</span>
-    <span class="sep"></span>
-    <span>✅ 100% Production Access Guarantee — approved or refund</span>
-    <span class="sep"></span>
-    <span>🚀 Testers ready in 6 hours, not days</span>
-    <span class="sep"></span>
-    <span>💬 Average WhatsApp reply: under 5 minutes</span>
-  </div>
-</div>
-
-<!-- HEADER -->
-<header class="header">
-  <div class="container header-inner">
-    <a href="/" class="brand">
-      <div class="brand-icon">12</div>
-      12Testers14Days
-    </a>
-    <a href="/" class="header-back">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-      <span>Back to Homepage</span>
-    </a>
-  </div>
-</header>
-
-<!-- ORDER SECTION -->
-<section class="order-section">
-  <div class="container">
-
-    <!-- Header -->
-    <div class="order-header">
-      <h1>Complete your order</h1>
-      <p class="sub">You're one step away from production access. <strong>No payment required upfront.</strong></p>
-      <div class="trust-chips">
-        <span class="trust-chip">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-          No payment until testers opt in
-        </span>
-        <span class="trust-chip">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-          100% money-back guarantee
-        </span>
-        <span class="trust-chip stars">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          4.9 on Trustpilot
-        </span>
-      </div>
-    </div>
-
-    <!-- Two-column grid -->
-    <div class="order-grid">
-
-      <!-- LEFT: FORM -->
-      <form class="order-form" id="orderForm" method="POST" action="https://formsubmit.co/ssbasemaker@gmail.com" novalidate>
-
-        <!-- STEP 1: CHOOSE TIER -->
-        <div class="form-step">
-          <span class="step-icon">1</span>
-          <span>Choose Your Plan</span>
-          <span class="step-sub">Pick what fits your launch</span>
+    <!-- Minimal Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="brand">
+                <div class="brand-icon">12</div>
+                12Testers14Days
+            </a>
+            <a href="/" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+            </a>
         </div>
+    </header>
 
-        <div class="tier-grid">
-          <label class="tier-card" data-tier="starter" data-price="39">
-            <input type="radio" name="tier" value="starter" data-price="39.00" checked>
-            <span class="tier-radio"></span>
-            <div class="tier-name">Starter</div>
-            <div class="tier-price">$39<small>/app</small></div>
-            <div class="tier-tag">For solo devs</div>
-            <ul class="tier-features">
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 12 real testers</li>
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 14 days of testing</li>
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Final engagement report</li>
-            </ul>
-          </label>
+    <main class="checkout-wrapper">
+        <div class="container">
+            <div class="checkout-header">
+                <h1>Complete your order</h1>
+                <p>You're one step away from production access. No payment required upfront.</p>
+            </div>
 
-          <label class="tier-card popular" data-tier="professional" data-price="59.99">
-            <span class="pop-badge">Most Popular</span>
-            <input type="radio" name="tier" value="professional" data-price="59.99">
-            <span class="tier-radio"></span>
-            <div class="tier-name">Professional</div>
-            <div class="tier-price">$59.99<small>/app</small></div>
-            <div class="tier-tag">Better country coverage</div>
-            <ul class="tier-features">
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>20 real testers</strong></li>
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Country targeting</li>
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> ASO report included</li>
-            </ul>
-          </label>
+            <!-- THE FORM (Wraps both columns so all data submits) -->
+            <form id="checkoutForm" action="https://api.web3forms.com/submit" method="POST">
+                
+                <!-- Web3Forms Configuration -->
+                <input type="hidden" name="access_key" value="c9401f63-7721-4b44-b373-02b6c55dffbc">
+                <input type="hidden" name="subject" value="New App Testing Order!">
+                <input type="hidden" name="redirect" value="https://12-testers-for-14-days.github.io/thank-you.html">
+                <!-- Honeypot anti-spam field -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-          <label class="tier-card" data-tier="enterprise" data-price="69.99">
-            <input type="radio" name="tier" value="enterprise" data-price="69.99">
-            <span class="tier-radio"></span>
-            <div class="tier-name">Enterprise</div>
-            <div class="tier-price">$69.99<small>/app</small></div>
-            <div class="tier-tag">Studios &amp; agencies</div>
-            <ul class="tier-features">
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong>30 real testers</strong></li>
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Daily engagement reports</li>
-              <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Dedicated account manager</li>
-            </ul>
-          </label>
+                <!-- Hidden inputs to capture JS calculations for the email -->
+                <input type="hidden" name="Plan" id="hidden_plan" value="12 Testers Plan">
+                <input type="hidden" name="App_Count" id="hidden_app_count" value="1">
+                <input type="hidden" name="Price_Per_App" id="hidden_per_app" value="$39.00">
+                <input type="hidden" name="Total_Due" id="hidden_total" value="$39.00">
+
+                <div class="checkout-grid">
+                    
+                    <!-- Left Column: User Inputs & Slider -->
+                    <div class="checkout-left">
+                        
+                        <!-- 1. App & Contact Details -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-mobile-screen"></i> 1. App &amp; Contact Details</h2>
+                            <div class="input-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="Name" placeholder="John Doe" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="Email" placeholder="john@example.com" required>
+                                <span class="input-hint">We will send your tester list and Payoneer invoice here.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="whatsapp">WhatsApp Number (Optional)</label>
+                                <input type="tel" id="whatsapp" name="WhatsApp_Number" placeholder="+1234567890">
+                                <span class="input-hint">For faster communication and support.</span>
+                            </div>
+                            <div class="input-group">
+                                <label for="app_link">Google Play Closed Testing Link</label>
+                                <input type="url" id="app_link" name="App_Link" placeholder="https://play.google.com/apps/testing/com.your.app" required>
+                                <span class="input-hint">One link is fine. If you're ordering for multiple apps, we'll collect the rest after checkout.</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. Number of Apps (Slider) -->
+                        <div class="form-section">
+                            <h2 class="section-title"><i class="fa-solid fa-cubes"></i> 2. Number of Apps</h2>
+                            
+                            <div class="slider-container">
+                                <div class="slider-header">
+                                    <span class="slider-label">Apps to test</span>
+                                    <div class="slider-value-wrap">
+                                        <span class="slider-value">
+                                            <span id="appCountDisplay">1</span>
+                                            <span class="slider-value-unit" id="appCountUnit">app</span>
+                                        </span>
+                                        <span class="slider-subvalue" id="perAppDisplay">$39.00 / app</span>
+                                    </div>
+                                </div>
+
+                                <input type="range" id="appCountSlider" min="1" max="10" value="1" step="1" aria-label="Number of apps to test">
+
+                                <div class="slider-ticks" id="sliderTicks">
+                                    <span data-value="1" class="active">1</span>
+                                    <span data-value="2">2</span>
+                                    <span data-value="3">3</span>
+                                    <span data-value="4">4</span>
+                                    <span data-value="5">5</span>
+                                    <span data-value="6">6</span>
+                                    <span data-value="7">7</span>
+                                    <span data-value="8">8</span>
+                                    <span data-value="9">9</span>
+                                    <span data-value="10">10</span>
+                                </div>
+
+                                <p class="slider-hint">
+                                    Volume discount applied automatically — price drops per app as you scale, down to <strong>$14.00 / app</strong> for 10 apps.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Sticky Summary -->
+                    <div class="summary-sidebar">
+                        <div class="summary-card">
+                            <h3 class="summary-title">Order Summary</h3>
+                            
+                            <div class="summary-row bold">
+                                <span>12 Testers Plan</span>
+                                <span class="val" id="summary-app-count">1 app</span>
+                            </div>
+
+                            <div class="summary-row summary-per-app">
+                                <span>Price per app</span>
+                                <span class="val" id="summary-per-app">$39.00</span>
+                            </div>
+
+                            <div class="discount-badge" id="discountBadge" style="display: none;">
+                                Volume discount applied
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Base price (<span id="summary-base-qty">1</span> × $39.00)</span>
+                                <span class="val" id="summary-base">$39.00</span>
+                            </div>
+
+                            <div class="summary-row discount" id="summary-discount-row" style="display: none;">
+                                <span>Total savings</span>
+                                <span class="val" id="summary-discount-val">-$0.00</span>
+                            </div>
+
+                            <div class="summary-divider"></div>
+
+                            <div class="summary-total">
+                                <span class="label">Total Due</span>
+                                <span class="price" id="summary-grand-total">$39.00</span>
+                            </div>
+
+                            <!-- Form Submit Button -->
+                            <button type="submit" class="btn-checkout">
+                                <i class="fa-solid fa-lock"></i> Send My Order
+                            </button>
+                            
+                            <div class="trust-footer">
+                                <p><i class="fa-solid fa-shield-halved"></i> You will review the assigned testers in your Play Console <strong>before</strong> we send the Payoneer payment link.</p>
+                                <p style="margin-top: 10px;">By proceeding, you agree to our <a href="/terms-conditions/" target="_blank">Terms</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
         </div>
+    </main>
 
-        <!-- STEP 2: NUMBER OF APPS -->
-        <div class="form-step" style="margin-top: 2rem;">
-          <span class="step-icon">2</span>
-          <span>Number of Apps</span>
-          <span class="step-sub">Each app gets its own test</span>
-        </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ---------- DOM Elements ----------
+            const slider = document.getElementById('appCountSlider');
+            const appCountDisplay = document.getElementById('appCountDisplay');
+            const appCountUnit = document.getElementById('appCountUnit');
+            const perAppDisplay = document.getElementById('perAppDisplay');
 
-        <div class="qty-row">
-          <span class="qty-label">Apps to test:</span>
-          <div class="qty-stepper">
-            <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">−</button>
-            <input type="number" class="qty-input" id="qtyInput" name="quantity" value="1" min="1" max="10" readonly>
-            <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
-          </div>
-        </div>
-        <p class="qty-help">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Each app requires its own 14-day closed test. Test up to 10 apps in a single order.
-        </p>
+            const summaryAppCount = document.getElementById('summary-app-count');
+            const summaryPerApp = document.getElementById('summary-per-app');
+            const summaryBaseQty = document.getElementById('summary-base-qty');
+            const summaryBase = document.getElementById('summary-base');
+            const summaryDiscountRow = document.getElementById('summary-discount-row');
+            const summaryDiscountVal = document.getElementById('summary-discount-val');
+            const summaryGrandTotal = document.getElementById('summary-grand-total');
+            const discountBadge = document.getElementById('discountBadge');
 
-        <!-- STEP 3: APP & CONTACT DETAILS -->
-        <div class="form-step" style="margin-top: 2rem;">
-          <span class="step-icon">3</span>
-          <span>App &amp; Contact Details</span>
-          <span class="step-sub">Takes ~2 minutes</span>
-        </div>
+            const sliderTicks = document.querySelectorAll('#sliderTicks span');
 
-        <div class="field-group">
-          <label class="field-label" for="name">Your Name <span class="req">*</span></label>
-          <input class="field-input" type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name">
-        </div>
+            // Hidden inputs for Web3Forms
+            const hiddenAppCount = document.getElementById('hidden_app_count');
+            const hiddenPerApp = document.getElementById('hidden_per_app');
+            const hiddenTotal = document.getElementById('hidden_total');
 
-        <div class="field-group">
-          <label class="field-label" for="email">Email Address <span class="req">*</span></label>
-          <input class="field-input" type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
-          <p class="field-help">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-            We will send your tester list and Payoneer invoice here.
-          </p>
-        </div>
+            // ---------- Pricing Constants ----------
+            const BASE_PRICE = 39.00;   // price per app at 1 app
+            const MIN_PRICE  = 14.00;   // price per app at 10 apps
+            const MAX_APPS   = 10;
+            const MIN_APPS   = 1;
 
-        <div class="field-group">
-          <label class="field-label" for="whatsapp">WhatsApp Number <span class="opt">(Optional)</span></label>
-          <input class="field-input" type="tel" id="whatsapp" name="whatsapp" placeholder="+1234567890" autocomplete="tel">
-          <p class="field-help">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            For faster communication and support — average reply under 5 minutes.
-          </p>
-        </div>
+            // ---------- Helpers ----------
+            const formatMoney = (amount) => '$' + amount.toFixed(2);
 
-        <div class="field-group">
-          <label class="field-label" for="playlink">Google Play Closed Testing Link <span class="req">*</span></label>
-          <input class="field-input" type="url" id="playlink" name="playlink" placeholder="https://play.google.com/apps/testing/com.your.app" required>
-          <p class="field-help">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            The public join link from Play Console → Testing → Closed testing. <a href="https://support.google.com/googleplay/android-developer/answer/14151465" target="_blank" rel="noopener">See how to find it →</a>
-          </p>
-        </div>
+            // Linear interpolation of per-app price:
+            // n = 1  → $39.00 / app
+            // n = 10 → $14.00 / app
+            function getPerAppPrice(n) {
+                const slope = (MIN_PRICE - BASE_PRICE) / (MAX_APPS - MIN_APPS); // -25/9 per app
+                return BASE_PRICE + slope * (n - MIN_APPS);
+            }
 
-      </form>
+            // ---------- Main Update ----------
+            function updateAll() {
+                const n = parseInt(slider.value, 10);
 
-      <!-- RIGHT: SUMMARY -->
-      <aside class="order-summary">
-        <div class="summary-head">
-          <h2>Order Summary</h2>
-          <span class="summary-badge">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M20 6L9 17l-5-5"/></svg>
-            Pay After Opt-in
-          </span>
-        </div>
+                const perApp = getPerAppPrice(n);
+                const total  = perApp * n;
+                const base   = BASE_PRICE * n;
+                const discount = base - total;
 
-        <div class="summary-row tier-line">
-          <span class="label" id="summaryTierName">Starter Plan</span>
-          <span class="val" id="summaryUnitPrice">$39.00 /ea</span>
-        </div>
-        <div class="summary-row qty-line">
-          <span class="label">Number of apps</span>
-          <span class="val" id="summaryQty">1</span>
-        </div>
-        <div class="summary-row subtotal">
-          <span class="label">Subtotal</span>
-          <span class="val" id="subtotalVal">$39.00</span>
-        </div>
+                // --- Slider top-right display ---
+                appCountDisplay.textContent = n;
+                appCountUnit.textContent = (n === 1) ? 'app' : 'apps';
+                perAppDisplay.textContent = formatMoney(perApp) + ' / app';
 
-        <div class="summary-total">
-          <span class="label">Total Due</span>
-          <span class="amount" id="totalAmount">$39.00</span>
-        </div>
+                // --- Slider tick highlight ---
+                sliderTicks.forEach(tick => {
+                    tick.classList.toggle('active', parseInt(tick.dataset.value, 10) === n);
+                });
 
-        <button type="submit" form="orderForm" class="summary-cta">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
-          Request Invoice
-        </button>
+                // --- Slider fill gradient (webkit) ---
+                const pct = ((n - MIN_APPS) / (MAX_APPS - MIN_APPS)) * 100;
+                slider.style.background = `linear-gradient(to right, #0f766e 0%, #0f766e ${pct}%, #f1f5f9 ${pct}%, #f1f5f9 100%)`;
 
-        <div class="summary-foot">
-          <p>
-            <strong>You will review the assigned testers in your Play Console</strong> before we send the Payoneer payment link.
-          </p>
-          <p>
-            By proceeding, you agree to our <a href="/terms-conditions/">Terms</a> and <a href="/refund-policy/">Refund Policy</a>.
-          </p>
-          <p class="urgent">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Your slots are reserved for 48 hours after you submit.
-          </p>
-        </div>
-      </aside>
+                // --- Summary rows ---
+                summaryAppCount.textContent = n + (n === 1 ? ' app' : ' apps');
+                summaryPerApp.textContent   = formatMoney(perApp);
+                summaryBaseQty.textContent  = n;
+                summaryBase.textContent     = formatMoney(base);
+                summaryGrandTotal.textContent = formatMoney(total);
 
-    </div>
+                if (discount > 0.005) {
+                    summaryDiscountRow.style.display = 'flex';
+                    summaryDiscountVal.textContent = '-' + formatMoney(discount);
+                    discountBadge.style.display = 'inline-block';
+                } else {
+                    summaryDiscountRow.style.display = 'none';
+                    discountBadge.style.display = 'none';
+                }
 
-    <!-- EARN YOUR DISCOUNT (NEW — replaces old promo code step) -->
-    <section class="earn-section" id="earn">
-      <div class="earn-header">
-        <span class="earn-eyebrow">🎁 Earn your next discount</span>
-        <h2>Save up to 50% on your next order — by sharing, not by searching for codes.</h2>
-        <p class="earn-sub">We don't run public discount codes. Every discount below is earned through action you take — and we verify each one before sending your code.</p>
-      </div>
+                // --- Hidden inputs for Web3Forms ---
+                hiddenAppCount.value = n;
+                hiddenPerApp.value   = formatMoney(perApp);
+                hiddenTotal.value    = formatMoney(total);
+            }
 
-      <div class="earn-grid">
+            // ---------- Listeners ----------
+            slider.addEventListener('input', updateAll);
+            slider.addEventListener('change', updateAll);
 
-        <!-- Card 1: Referral (BEST) -->
-        <div class="earn-card featured">
-          <span class="earn-badge">Best value</span>
-          <div class="earn-icon">🤝</div>
-          <h3>Refer a friend</h3>
-          <div class="earn-reward">50% OFF</div>
-          <div class="earn-reward-sub">your next order, when they pay</div>
-          <ol class="earn-steps">
-            <li>Complete your first order with us</li>
-            <li>We email you a unique referral code</li>
-            <li>Friend uses it → they get $10 off</li>
-            <li>When their payment clears, you get 50% off your next order</li>
-          </ol>
-          <a href="https://wa.me/923472061598?text=Hi%2C%20I%27d%20like%20a%20referral%20code%20after%20my%20order" target="_blank" rel="noopener" class="earn-cta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Get code after order
-          </a>
-        </div>
-
-        <!-- Card 2: Twitter -->
-        <div class="earn-card">
-          <div class="earn-icon">🐦</div>
-          <h3>Share on X</h3>
-          <div class="earn-reward">$10 OFF</div>
-          <div class="earn-reward-sub">your next order, one-time code</div>
-          <ol class="earn-steps">
-            <li>Tweet about your experience with our service</li>
-            <li>Tag <strong>@12testers14days</strong> or include our site link</li>
-            <li>Send us the tweet link via WhatsApp</li>
-            <li>We reply with a one-time $10 code (valid 30 days)</li>
-          </ol>
-          <a href="https://wa.me/923472061598?text=Hi%2C%20I%20just%20tweeted%20about%20your%20service%20and%20would%20like%20my%20%2410%20code" target="_blank" rel="noopener" class="earn-cta twitter">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
-            Tweet &amp; DM us
-          </a>
-        </div>
-
-        <!-- Card 3: Reddit -->
-        <div class="earn-card">
-          <div class="earn-icon">📱</div>
-          <h3>Upvote on Reddit</h3>
-          <div class="earn-reward">$10 OFF</div>
-          <div class="earn-reward-sub">your next order, one-time code</div>
-          <ol class="earn-steps">
-            <li>Find our post on r/AndroidDev or r/AndroidApps</li>
-            <li>Upvote, or leave a comment about your experience</li>
-            <li>Screenshot the thread + your account name</li>
-            <li>Email the screenshot to us — we send your $10 code</li>
-          </ol>
-          <a href="mailto:ssbasemaker@gmail.com?subject=Reddit%20screenshot%20for%20%2410%20code" class="earn-cta reddit">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.01 4.74a1.41 1.41 0 0 1 1.39 1.42 1.41 1.41 0 0 1-1.39 1.41c-.77 0-1.4-.63-1.4-1.41a1.41 1.41 0 0 1 1.4-1.42zM12 5.07c2.85 0 5.27 1.62 6.49 3.97.62-.21 1.27-.32 1.94-.32.5 0 .99.06 1.46.18C20.45 4.99 16.55 3 12 3 7.45 3 3.55 4.99 1.11 8.9c.47-.12.96-.18 1.46-.18.67 0 1.32.11 1.94.32C5.73 6.69 8.15 5.07 12 5.07zm-7.94 6.4c.79 0 1.42.63 1.42 1.41s-.63 1.42-1.42 1.42-1.41-.63-1.41-1.42.63-1.41 1.41-1.41zm15.88 0c.79 0 1.42.63 1.42 1.41s-.63 1.42-1.42 1.42-1.41-.63-1.41-1.42.63-1.41 1.41-1.41zm-7.94 9.53c-3.05 0-5.78-1.3-7.7-3.37l-.49.31c-.55.34-.7 1.06-.36 1.61.34.55 1.06.7 1.61.36l.65-.41C7.69 21.32 9.74 22 12 22s4.31-.68 6.04-1.91l.65.41c.55.34 1.27.19 1.61-.36.34-.55.19-1.27-.36-1.61l-.49-.31c-1.92 2.07-4.65 3.37-7.7 3.37z"/></svg>
-            Send screenshot
-          </a>
-        </div>
-
-      </div>
-
-      <div class="earn-fineprint">
-        <strong>How codes work:</strong> every code is one-time, single-use, and expires 30 days after issue. We send codes via email only — never posted publicly. Codes cannot be combined, and apply to your next single order only. We'll send your referral code after your first order completes successfully. For tweet/reddit codes, please allow up to 24 hours for verification.
-      </div>
-    </section>
-
-    <!-- WHAT HAPPENS NEXT -->
-    <section class="flow-section">
-      <h2>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        What happens next
-      </h2>
-      <div class="flow-steps">
-        <div class="flow-step">
-          <span class="num">Within 5 min</span>
-          <h3>Auto-confirmation</h3>
-          <p>You receive an email with your order details and what to expect next.</p>
-        </div>
-        <div class="flow-step">
-          <span class="num">Within 6 hours</span>
-          <h3>Tester list delivered</h3>
-          <p>We email your tester emails, ready to paste into Play Console.</p>
-        </div>
-        <div class="flow-step">
-          <span class="num">Next day</span>
-          <h3>Confirm + get invoice</h3>
-          <p>Once you see testers opted in, we send your Payoneer payment link.</p>
-        </div>
-        <div class="flow-step">
-          <span class="num">Days 1–14</span>
-          <h3>We handle the rest</h3>
-          <p>Testers use your app daily. We replace drop-outs within 24h, free.</p>
-        </div>
-      </div>
-    </section>
-
-  </div>
-</section>
-
-<!-- Floating Chat Widget -->
-<a class="chat-widget" href="https://wa.me/923472061598?text=Hi%2C%20I%20need%20help%20with%20my%20closed%20testing%20order" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.19 3.7.59.25 1.04.41 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
-</a>
-
-<script>
-// ============== TIER + QTY PRICING ==============
-(function() {
-  var tierCards = document.querySelectorAll('.tier-card');
-  var qtyInput = document.getElementById('qtyInput');
-  var qtyMinus = document.getElementById('qtyMinus');
-  var qtyPlus = document.getElementById('qtyPlus');
-  var summaryTierName = document.getElementById('summaryTierName');
-  var summaryUnitPrice = document.getElementById('summaryUnitPrice');
-  var summaryQty = document.getElementById('summaryQty');
-  var subtotalVal = document.getElementById('subtotalVal');
-  var totalAmount = document.getElementById('totalAmount');
-
-  var TIER_LABELS = {
-    starter: 'Starter Plan',
-    professional: 'Professional Plan',
-    enterprise: 'Enterprise Plan'
-  };
-
-  function getSelectedTier() {
-    var card = document.querySelector('.tier-card.selected');
-    if (!card) card = document.querySelector('.tier-card input:checked').parentElement;
-    return {
-      name: card.dataset.tier,
-      label: TIER_LABELS[card.dataset.tier],
-      price: parseFloat(card.dataset.price)
-    };
-  }
-
-  function getQty() {
-    return parseInt(qtyInput.value, 10) || 1;
-  }
-
-  function recalc() {
-    var tier = getSelectedTier();
-    var qty = getQty();
-    var subtotal = tier.price * qty;
-
-    summaryTierName.textContent = tier.label;
-    summaryUnitPrice.textContent = '$' + tier.price.toFixed(2) + ' /ea';
-    summaryQty.textContent = qty;
-    subtotalVal.textContent = '$' + subtotal.toFixed(2);
-    totalAmount.textContent = '$' + subtotal.toFixed(2);
-
-    qtyMinus.disabled = qty <= 1;
-    qtyPlus.disabled = qty >= 10;
-  }
-
-  tierCards.forEach(function(card) {
-    card.addEventListener('click', function() {
-      setTimeout(function() {
-        tierCards.forEach(function(c) { c.classList.remove('selected'); });
-        var radio = card.querySelector('input[type="radio"]');
-        if (radio) radio.checked = true;
-        card.classList.add('selected');
-        recalc();
-      }, 0);
-    });
-  });
-
-  qtyMinus.addEventListener('click', function() {
-    var q = getQty();
-    if (q > 1) { qtyInput.value = q - 1; recalc(); }
-  });
-  qtyPlus.addEventListener('click', function() {
-    var q = getQty();
-    if (q < 10) { qtyInput.value = q + 1; recalc(); }
-  });
-
-  // Init
-  var defaultRadio = document.querySelector('.tier-card input[type="radio"]:checked');
-  if (defaultRadio) defaultRadio.parentElement.classList.add('selected');
-  recalc();
-})();
-</script>
+            // ---------- Initial run ----------
+            updateAll();
+        });
+    </script>
 </body>
 </html>
